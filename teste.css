@@ -1,0 +1,29 @@
+.container{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 700px; 
+    margin-left: 156px;
+    margin-right: auto;
+    margin-top: 15%;
+
+    text-decoration-color: aqua;
+    text-shadow: 10%;
+    text-decoration-line: underline;
+
+}
+
+body{
+    background-color: rgb(86, 129, 129);
+    
+    background-image: url('./assets/1712965263793.png');
+    background-size: 2200px;
+    background-position-x: -60px;
+    background-position-y: 0px;
+    background-repeat: no-repeat;
+    
+}
+
+.cor{
+    color: aliceblue;
+}
