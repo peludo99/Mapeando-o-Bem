@@ -1,8 +1,8 @@
-.container{
+.container {
     /* display: flex;
     align-items: center;
     justify-content: center; */
-    width: 700px; 
+    width: 700px;
     margin-left: 156px;
     margin-right: auto;
     margin-top: 15%;
@@ -13,17 +13,26 @@
 
 }
 
-body{
+.meio {
+    width: 700px;
+    margin-left: 156px;
+    margin-right: auto;
+    margin-top: 15%;
+
+
+}
+
+corpo {
     background-color: rgb(86, 129, 129);
-    
+
     background-image: url('./assets/1712965263793.png');
     background-size: 2200px;
     background-position-x: -60px;
     background-position-y: 0px;
     background-repeat: no-repeat;
-    
+
 }
 
-.cor{
+.cor {
     color: aliceblue;
 }

@@ -13,17 +13,27 @@
     <!-- <title></title> -->
   </head>
   <body class="cor">
-
+  <header>
+        <div class="center">
+          <div class="menu">
+              <a href="#">Projeto</a>
+              <a href="#">Ajuda</a>
+              <a href="#">Quem Somos?</a>
+              <a href="#">Redes Sociais</a>
+          </div>
+        </div>
+      </header>
+    </body>
+</html>
   <div class="container">
     <table>
         <tr> 
-          <div class="row">
-            <div class="col">
-              <h1>Seja um Voluntário</h1>
-              <h3>Encontre a casa de apoio mais próxima de você!</3>
+          <div class="center">
+            <div class="texto-sobre">
+              <h1><strong>Seja um Voluntário</h1></strong><br/><span style="color:black;"><h4>Encontre a casa de apoio mais próxima de você!</span><h4>
               <header><!-- inicar o acesso ao sistema -->
                 <br><form action="./login.php" method="post">
-                <input type="submit" value="Acessar"></form>
+                <button>Acessar</button>
               </header>
             </div>
           </div>

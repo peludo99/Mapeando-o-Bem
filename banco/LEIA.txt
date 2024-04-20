@@ -1,0 +1,8 @@
+OLA, PARA TUDO FUNCIONAR CORRETAMENTE É NECESSARIO IMPORTAR O BANCO DE DADOS COM AS SEGUINTES CONFIGURAÇÕES
+SOFTWARE BASE: XAMP/PHPMYADMIN
+
+1 Conjunto de caracteres do arquivo: UFT-8
+2 Habilitar verificação de chaves estrangeiras
+3 FORMATO SQL
+4  Modo de compatibilidade SQL: TRADICIONAL
+5  ATIVAR O : Não use AUTO_INCREMENT para valores zerados
