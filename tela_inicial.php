@@ -9,8 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./teste.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     
-    <!-- <title></title> -->
+    <title>Tela Inicial</title>
   </head>
   <body class="cor">
   <header>
