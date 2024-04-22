@@ -14,44 +14,36 @@
     <title>Tela Inicial</title>
   </head>
   <body class="cor">
+  
   <header>
-        <div class="center">
-          <div class="menu">
-              <a href="#">Projeto</a>
-              <a href="#">Ajuda</a>
-              <a href="#">Quem Somos?</a>
-              <a href="#">Redes Sociais</a>
-          </div>
+      <div class="center">
+        <div class="menu">
+          <a href="#">Quem Somos?</a>      
+          <a href="#">Redes Sociais</a>
+          <a href="#">Contribua<img src="assets/icon-doe.ico" alt="doe"></a>
         </div>
-      </header>
-    </body>
-</html>
+      </div>
+  </header>
+  
   <div class="container">
     <table>
         <tr> 
           <div class="center">
             <div class="texto-sobre">
-              <h1><strong>Seja um Voluntário</h1></strong><br/><span style="color:black;"><h4>Encontre a casa de apoio mais próxima de você!</span><h4>
+              <h1><strong>Seja um Voluntário!</strong></h1><br/><h2>Com um click de distância, encontre a casa de apoio mais próxima de você.<h2>
               <header><!-- inicar o acesso ao sistema -->
                 <br><form action="./login.php" method="post">
-                <button>Acessar</button>
+                <button>ㅤㅤacessarㅤㅤ</button>
               </header>
             </div>
           </div>
         </tr>
     </table>
-  </div>
-  
+  </div> 
 
-
-
-
-
-            
-          
-        
-        
-        
+  </body>
+</html>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
