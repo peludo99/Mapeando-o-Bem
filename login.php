@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css">
 
 
-  ,<title>Login</title>
+  <title>Login</title>
 
   <!-- ARQUIVO DE LOGIN  -->
 </head>
