@@ -11,11 +11,38 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./teste.css">
   <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
-
   <title>Tela Inicial</title>
+
+      <!-- Barra de Navegação -->
+
+    <nav class="navbar navbar-expand-lg bg-success-subtle">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <!-- <a class="navbar-brand" href="./tela_inicial.php"><img src="assets/mob.png" alt="Bootstrap" width="100" height="94"></a> -->
+          <a class="navbar-brand" href="/tela_inicial.php"><img src="assets/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="" class= "nav-item">Mapeando o Bem</a>    
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"> <!-- Itens da Barra de Navegação -->
+              <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Redes Sociais</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Instagram</a>
+              </div>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Contribua</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+</head>
+
   <style>
     body {
-      background-image: url('./assets/bg_pessoas.png'), url('assets/circulo.png'), url('./assets/Degradado.jpg');
+      background-image: url('./assets/bg_pessoas.png'), url('assets/circulo.png'), url('./assets/fundocolorido.jpg');
       font-family: Verdana, Geneva, Tahoma, sans-serif;
 
       background-size: 1500px, 1300px, 1380px;
@@ -29,14 +56,6 @@
 </head>
 
 <body>
-
-  <header>
-    <div class="menu">
-      <a href="#">Quem Somos?</a>
-      <a href="#">Redes Sociais</a>
-      <a href="#">Contribua<img src="assets/icon-doe.ico" alt="doe"></a>
-    </div>
-  </header>
 
   <div class="container-tela">
     <table>

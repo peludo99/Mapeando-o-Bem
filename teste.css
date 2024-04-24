@@ -1,3 +1,19 @@
+
+/* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
+.nav-item {
+    margin-left: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.navbar-brand{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(70, 7, 88);
+}
+/* ---------------------------------------- */
+
 .container-log {
     /* display: flex;
     align-items: center;
