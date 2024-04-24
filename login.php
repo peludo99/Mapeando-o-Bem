@@ -8,6 +8,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="teste.css">
 
 
   <title>Login</title>
@@ -15,7 +16,7 @@
   <!-- ARQUIVO DE LOGIN  -->
 </head>
 
-<body class="corpo">
+<body>
 
   <?php
   // AREA PHP
@@ -59,40 +60,49 @@
   <!-- AREA HTML -->
 
   <!-- TITULO -->
-  <h1><b>Mapeando o Bem | Seu voluntariado a um click de distância.</b></h1>
-  <h3><i>Descubra o bem que está ao seu redor, participe de ações e transforme vidas.</i></h3>
-  <hr>
 
-  <header>
-    <!-- FORMULARIO DE LOGIN -->
+  <section>
+    <h1><b>Mapeando o Bem<br> Seu voluntariado a um click de distância.</b></h1>
+    <h3><i>Descubra o bem que está ao seu redor, participe de ações e transforme vidas.</i></h3>
+    <hr>
+  </section>
+  <div class="container-log">
 
-    <br><b>Fazer login</b> <br>
-    <br>
-    <form action="./login.php" method="post">
-      <!-- EMAIL -->
-      <input required type="email" name="email" id="idnome">
-      <!-- SENHA -->
-      <input required type="password" name="senha" id="idsenha">
-      <!-- ENVIAR -->
-      <input type="submit" value="Entrar">
+    <header>
+      <!-- FORMULARIO DE LOGIN -->
+      <br><b>Fazer login</b> <br>
       <br>
 
-     <!-- AREA PHP 1.1 -->
-      <?php
 
-
-      echo "<br>Ainda não possui cadastro? Clique em <a href='./cadastro.php'>cadastrar</a><br>";
-
-      // 
+      <form action="login.php" method="post">
 
 
 
 
-      ?>
 
-    </form>
+        <label class="sr-only" for="inlineFormInputGroupUsername">Email</label>
+        <div class="input-group">
+          <div class="input-group-prepend" style="border:palevioletred">
+            <div style="background:rgb(238, 84, 204);border:palevioletred;" class="input-group-text"><img src="assets/favicon-32x32.png" alt="simbolo email"></div>
+          </div>
+          <input type="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="Digite seu email" require>
+        </div>
 
-  </header>
+
+
+        <label class="sr-only" for="inlineFormInputName">Senha</label>
+        <input type="password" class="form-control" id="inlineFormInputName" placeholder="Senha">
+
+        <div class="col-auto my-1">
+          <button type="submit" class="btn btn-primary" style="background:rgb(238, 84, 204);border:palevioletred">Logar</button>
+        </div>
+      </form>
+      <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"><br>Ainda não possui cadastro? <a href='./cadastro.php'>cadastre-se</a><br></h3>
+
+    </header>
+  </div>
+
+
 
 
 
