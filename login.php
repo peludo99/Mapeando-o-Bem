@@ -5,18 +5,24 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./css/teste.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="teste.css">
-
-
+  <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
   <title>Login</title>
+  <style>
+    .btn-outline-primary:hover {
+
+      background-color: rgb(59, 3, 50);
+      
+
+
+    }
+  </style>
 
   <!-- ARQUIVO DE LOGIN  -->
 </head>
 
-<body>
+<body class="cadastrar-js">
 
   <?php
   // AREA PHP
@@ -26,27 +32,18 @@
   $p = new Pessoa('test', 'localhost', 'root', '');
 
   // INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
-
-
   if (isset($_POST["email"])) {
     // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
-
     $pesquisar = $_POST["email"];
     // ADICIONA O VALOR DP POST EMAIL A VARIAVEL $pesquisar
-
     $p->BuscarDados($pesquisar);
     // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
-
     $resultado = $p->BuscarDados($pesquisar);
-
     // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
-
     if (count($resultado) > 0) {
-
       // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
       echo "FOI";
     } else {
-
       // CASO O ARRAY ESTIVER VAZIO O CLIENTE NÃO TEM CADASTRO
       echo "<dialog open>Voce nao possui cadastro</dialog>";
     }
@@ -59,47 +56,87 @@
 
   <!-- AREA HTML -->
 
-  <!-- TITULO -->
+  <div class="containerlog">
+    <div class="conteudo conteudo-um">
+      <div class="coluna-um">
+        <h2 class="titulo-bem">
+          Bem vindo de volta!
+        </h2>
+        <p class="descricao">Conecte-se com nosco</p>
 
-  <section>
-    <h1><b>Mapeando o Bem<br> Seu voluntariado a um click de distância.</b></h1>
-    <h3><i>Descubra o bem que está ao seu redor, participe de ações e transforme vidas.</i></h3>
-    <hr>
-  </section>
-  <div class="container-log">
+        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Entrar na conta</button>
+      </div>
+      <div class="coluna-dois">
+        <h2 class="titulo-cad">Criar conta</h2>
+        <div class="redes-sociais">
+          <ul class="rede-social-list">
+            <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="item-rede"><a href="#"><i class="fa-brands fa-google"></i></a></li>
+            <li class="item-rede"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+        <!-- redes -->
+        <p class="descricao descricao-um">Ou utilise seu email para o cadastro</p>
+        <form action="" method="post" class="forms">
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+            <input type="text" name="nick" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
 
-    <header>
-      <!-- FORMULARIO DE LOGIN -->
-      <br><b>Fazer login</b> <br>
-      <br>
-
-
-      <form action="login.php" method="post">
-
-
-
-
-
-        <label class="sr-only" for="inlineFormInputGroupUsername">Email</label>
-        <div class="input-group">
-          <div class="input-group-prepend" style="border:palevioletred">
-            <div style="background:rgb(238, 84, 204);border:palevioletred;" class="input-group-text"><img src="assets/favicon-32x32.png" alt="simbolo email"></div>
           </div>
-          <input type="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="Digite seu email" require>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
+            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+          </div>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
+            <input type="text" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
+          </div>
+          <br>
+          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" class="btn btn-outline-primary" value="Cadastrar">
+
+        </form>
+      </div>
+    </div>
+    <!-- coluna dois -->
+    <div class="conteudo conteudo-dois">
+      <div class="coluna-um">
+        <h2 class="titulo-bem">Seja bem-vindo
+        </h2>
+        <p class="descricao">Não Possui conta?</p>
+        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
+      </div>
+      <div class="coluna-dois">
+        <h2 class="titulo-cad">Entre em sua conta</h2>
+        <div class="redes-sociais">
+          <ul class="rede-social-list">
+            <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="item-rede"><a href="#"><i class="fa-brands fa-google"></i></a></li>
+            <li class="item-rede"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          </ul>
         </div>
+        <!-- redes -->
+        <p class="descricao">Ou utilise seu email</p>
+        <form action="" method="post" class="forms">
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
+            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+          </div>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
+            <input type="text" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
+          </div>
+          
+          <a class="senha" href="#">Esqueceu a senha?</a>
+          <br>
+          
+          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171) ;" class="btn btn-outline-primary" value="Logar">
+         
 
 
-
-        <label class="sr-only" for="inlineFormInputName">Senha</label>
-        <input type="password" class="form-control" id="inlineFormInputName" placeholder="Senha">
-
-        <div class="col-auto my-1">
-          <button type="submit" class="btn btn-primary" style="background:rgb(238, 84, 204);border:palevioletred">Logar</button>
-        </div>
-      </form>
-      <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"><br>Ainda não possui cadastro? <a href='./cadastro.php'>cadastre-se</a><br></h3>
-
-    </header>
+        </form>
+      </div>
+    </div>
+    <!-- coluna dois -->
   </div>
 
 

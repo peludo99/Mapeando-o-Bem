@@ -9,50 +9,51 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./teste.css">
-  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/teste.css">
+  <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
   <title>Tela Inicial</title>
 
-      <!-- Barra de Navegação -->
+  <!-- Barra de Navegação -->
 
-    <nav class="navbar navbar-expand-lg bg-success-subtle">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <!-- <a class="navbar-brand" href="./tela_inicial.php"><img src="assets/mob.png" alt="Bootstrap" width="100" height="94"></a> -->
-          <a class="navbar-brand" href="/tela_inicial.php"><img src="assets/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="" class= "nav-item">Mapeando o Bem</a>    
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"> <!-- Itens da Barra de Navegação -->
-              <a class="nav-link" aria-current="page" href="#">Quem somos</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Redes Sociais</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Instagram</a>
-              </div>
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Contribua</a>
-            </li>
-          </ul>
-        </div>
+  <nav style="background: rgba(156, 9, 197, 0.37)" class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <!-- <a class="navbar-brand" href="./tela_inicial.php"><img src="assets/mob.png" alt="Bootstrap" width="100" height="94"></a> -->
+        <a class="navbar-brand" href="/tela_inicial.php"><img src="assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"> Mapeando o Bem</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <!-- Itens da Barra de Navegação -->
+            <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Redes Sociais</a>
+            <div style="background:rgba(193, 98, 219, 0.979)" class="dropdown-menu">
+              <a  style="background:rgba(193, 98, 219, 0.979);" class="dropdown-item" href="#">Instagram</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Contribua</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
 </head>
 
-  <style>
-    body {
-      background-image: url('./assets/bg_pessoas.png'), url('assets/circulo.png'), url('./assets/fundocolorido.jpg');
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+<style>
+  body {
+    background-image: url('./assets/bg_pessoa.png'), url('./assets/fundocolorido.jpg');
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-      background-size: 1500px, 1300px, 1380px;
-      background-position-x: right, 650px, center;
-      background-position-y: 1px, 1px, 0%;
+    background-size: 100%, 100%;
+    background-position-x: right, center;
+    background-position-y: 50px, 0%;
 
 
-      background-repeat: no-repeat;
-    }
-  </style>
+    background-repeat: no-repeat;
+  }
+</style>
 </head>
 
 <body>

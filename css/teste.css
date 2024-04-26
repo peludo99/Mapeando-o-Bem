@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Corpo padrao para todas as telas */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+
+
+
+    background-image: url('./assets/fundocolorido.jpg');
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+
+
+}
+
+
+testar {
+    color: rgb(59, 3, 50);
+
+
+}
+
+
+
+/* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
+.nav-item {
+    margin-left: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(70, 7, 88);
+}
+
+/* ---------------------------------------- */
+
+
+.container-tela {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 700px;
+    margin-left: 50px;
+    margin-right: auto;
+    margin-top: 15%;
+
+
+    text-shadow: 10%;
+    text-decoration-line: none;
+
+}
+
+
+
+
+
+.menu {
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 70%;
+    text-align: right;
+
+    a {
+        color: rgb(70, 7, 88);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
+        margin-inline-start: 15px;
+    }
+}
+
+
+
+.texto-sobre button {
+    border: 0;
+    border-radius: 45%;
+    background-color: #9fceba;
+    color: #446471;
+    font-size: 30px;
+}
+
+/* -------------------tela login--------------------------- */
+.containerlog {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-image: url('./assets/fundocolorido.jpg');
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+
+}
+
+.conteudo {
+
+    border-radius: 15px;
+    font-family: "Open Sans", sans-serif;
+    background-color: #ffffff;
+    width: 90%;
+    height: 80%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.conteudo::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(204, 50, 171);
+    width: 40%;
+    height: 100%;
+
+
+    left: 0;
+}
+
+.conteudo-um {
+    display: flex;
+    position: relative;
+    
+
+}
+
+.coluna-um {
+
+    text-align: center;
+    width: 40%;
+    z-index: 10;
+
+}
+ .conteudo-um .coluna-dois{
+    z-index: 12;
+ }
+
+.conteudo-dois {
+    position: absolute;
+    display: flex;
+    
+}
+.coluna-dois {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.conteudo-dois .coluna-um{
+    order: 2;
+    z-index: -1;
+}
+
+.conteudo-dois .coluna-dois{
+    order: 1;
+    opacity: 0;
+    z-index: -1;
+}
+
+
+
+
+.rede-social-list {
+    display: flex;
+}
+
+
+.forms {
+    display: flex;
+    
+    flex-direction: column;
+}
+
+
+
+.titulo-bem {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.titulo-cad {
+    color: #a71aac;
+    font-size: 28px;
+    font-weight: bold;
+    
+    text-transform: capitalize;
+   
+}
+
+.descricao {
+    font-size: 14px;
+    font-weight: 300px;
+    color: white;
+    line-height: 30px;
+}
+
+.descricao-um{
+
+    color: #a71aac;
+
+}
+
+.rede-social-list{
+    display: flex;
+    list-style-type: none;
+    
+}
+
+
+.item-rede a{
+    color:#a71aac
+    
+
+}
+
+.item-rede {
+    color: #a71aac;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 25px;
+
+}
+
+.item-rede:hover {
+    color: #a71aac;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 25px;
+    background-color: #a71aac;
+    color: #ffffff;
+    border-color: #a71aac;
+
+}
+
+.item-rede:hover a{
+    
+    
+   
+ 
+    background-color: #a71aac;
+    color: #ffffff;
+    border-color: #a71aac;
+
+}
+
+.senha{
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+}
+
+
+
+
+
+/* ----------------------------fim-------------------------- */
