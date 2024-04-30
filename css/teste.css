@@ -66,7 +66,17 @@ testar {
 }
 
 
+.teset {
+    background-image: url('./css/assets/bg_pessoa.png');
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+    background-size: 100%;
+    background-position-x: right;
+    background-position-y: 50px;
+
+
+    background-repeat: no-repeat;
+}
 
 
 .menu {
@@ -95,6 +105,15 @@ testar {
 }
 
 /* -------------------tela login--------------------------- */
+
+.bg {
+    width: 120px;
+    height: 700px;
+}
+
+
+
+
 .containerlog {
 
     display: flex;
@@ -136,7 +155,7 @@ testar {
 .conteudo-um {
     display: flex;
     position: relative;
-    
+
 
 }
 
@@ -147,15 +166,17 @@ testar {
     z-index: 10;
 
 }
- .conteudo-um .coluna-dois{
-    z-index: 12;
- }
+
+.conteudo-um .coluna-dois {
+    z-index: 11;
+}
 
 .conteudo-dois {
     position: absolute;
     display: flex;
-    
+
 }
+
 .coluna-dois {
     width: 60%;
     display: flex;
@@ -163,14 +184,14 @@ testar {
     align-items: center;
 
 }
-.conteudo-dois .coluna-um{
+
+.conteudo-dois .coluna-um {
     order: 2;
     z-index: -1;
 }
 
-.conteudo-dois .coluna-dois{
+.conteudo-dois .coluna-dois {
     order: 1;
-    opacity: 0;
     z-index: -1;
 }
 
@@ -184,7 +205,7 @@ testar {
 
 .forms {
     display: flex;
-    
+
     flex-direction: column;
 }
 
@@ -201,9 +222,9 @@ testar {
     color: #a71aac;
     font-size: 28px;
     font-weight: bold;
-    
+
     text-transform: capitalize;
-   
+
 }
 
 .descricao {
@@ -213,23 +234,21 @@ testar {
     line-height: 30px;
 }
 
-.descricao-um{
+.descricao-um {
 
     color: #a71aac;
 
 }
 
-.rede-social-list{
+.rede-social-list {
     display: flex;
     list-style-type: none;
-    
+
 }
 
 
-.item-rede a{
-    color:#a71aac
-    
-
+.item-rede a {
+    color: #a71aac
 }
 
 .item-rede {
@@ -261,25 +280,48 @@ testar {
 
 }
 
-.item-rede:hover a{
-    
-    
-   
- 
+.item-rede:hover a {
+
+
+
+
     background-color: #a71aac;
     color: #ffffff;
     border-color: #a71aac;
 
 }
 
-.senha{
+.senha {
     font-size: 14px;
     margin: auto;
     text-align: center;
 }
 
 
+.logar-js .conteudo-um .coluna-um,
+.logar-js .conteudo-um .coluna-dois {
+    z-index: -1;
+}
+
+.logar-js .conteudo-dois .coluna-um,
+.logar-js .conteudo-dois .coluna-dois {
+    z-index: 15;
+}
+
+.logar-js .conteudo::before {
+    left: 60%;
+}
+
+.cadastrar-js .conteudo-dois .coluna-um,
+.cadastrar-js .conteudo-dois .coluna-um {
+    z-index: -1;
+}
+
+.cadastrar-js .conteudo-um .coluna-um,
+.cadastrar-js .conteudo-um .coluna-um {
+    z-index: 15;
+}
 
 
 
-/* ----------------------------fim-------------------------- */
+/* --------------------------- -fim-------------------------- */

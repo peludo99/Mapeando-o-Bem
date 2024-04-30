@@ -13,7 +13,7 @@
     .btn-outline-primary:hover {
 
       background-color: rgb(59, 3, 50);
-      
+
 
 
     }
@@ -30,28 +30,6 @@
   // Mesclar Funcoes de conexao.php
 
   $p = new Pessoa('test', 'localhost', 'root', '');
-
-  // INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
-  if (isset($_POST["email"])) {
-    // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
-    $pesquisar = $_POST["email"];
-    // ADICIONA O VALOR DP POST EMAIL A VARIAVEL $pesquisar
-    $p->BuscarDados($pesquisar);
-    // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
-    $resultado = $p->BuscarDados($pesquisar);
-    // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
-    if (count($resultado) > 0) {
-      // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
-      echo "FOI";
-    } else {
-      // CASO O ARRAY ESTIVER VAZIO O CLIENTE NÃO TEM CADASTRO
-      echo "<dialog open>Voce nao possui cadastro</dialog>";
-    }
-  }
-
-  // FIM DO PHP
-
-
   ?>
 
   <!-- AREA HTML -->
@@ -64,7 +42,7 @@
         </h2>
         <p class="descricao">Conecte-se com nosco</p>
 
-        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Entrar na conta</button>
+        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" id="Idlogin" class="btn btn-outline-primary">Entrar na conta</button>
       </div>
       <div class="coluna-dois">
         <h2 class="titulo-cad">Criar conta</h2>
@@ -77,24 +55,37 @@
         </div>
         <!-- redes -->
         <p class="descricao descricao-um">Ou utilise seu email para o cadastro</p>
-        <form action="" method="post" class="forms">
+        <form action="login.php" method="post" class="forms">
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-            <input type="text" name="nick" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
+            <input type="text" name="nome_usuario" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
 
           </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+            <input type="text" name="email_usuario" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
           </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-            <input type="text" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
+            <input type="text" name="senha_usuario" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
           </div>
           <br>
-          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" class="btn btn-outline-primary" value="Cadastrar">
+          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" class="btn btn-outline-primary" value="Cadastrar"> <br>
 
         </form>
+        <?php
+        if (isset($_POST["email_usuario"])) {
+          $nick = addslashes($_POST['nome_usuario']);
+          $email = addslashes($_POST['email_usuario']);
+          $senha = addslashes($_POST['senha_usuario']);
+
+          if (!empty($nick) && !empty($email) && !empty($senha)) {
+            if (!$p->Cadastrarusuario($nick, $email, $senha));
+          } else {
+            Mensagem("OPS!, É necessario preencher todos os campos!", "danger");
+          }
+        }
+        ?>
       </div>
     </div>
     <!-- coluna dois -->
@@ -103,7 +94,7 @@
         <h2 class="titulo-bem">Seja bem-vindo
         </h2>
         <p class="descricao">Não Possui conta?</p>
-        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
+        <button id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
       </div>
       <div class="coluna-dois">
         <h2 class="titulo-cad">Entre em sua conta</h2>
@@ -115,32 +106,51 @@
           </ul>
         </div>
         <!-- redes -->
-        <p class="descricao">Ou utilise seu email</p>
+        <p class="descricao descricao-um">Ou utilise seu email</p>
         <form action="" method="post" class="forms">
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping" required>
           </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
             <input type="text" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
           </div>
-          
+
           <a class="senha" href="#">Esqueceu a senha?</a>
           <br>
-          
+
           <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171) ;" class="btn btn-outline-primary" value="Logar">
-         
+
 
 
         </form>
+        <?php
+        // INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
+        if (isset($_POST["email"])) {
+          // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
+          $pesquisar = $_POST["email"];
+          // ADICIONA O VALOR DP POST EMAIL A VARIAVEL $pesquisar
+          $p->BuscarDados($pesquisar);
+          // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
+          $resultado = $p->BuscarDados($pesquisar);
+          // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
+          if (count($resultado) > 0) {
+            // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
+            echo "<meta http-equiv='refresh' content='5; URL=./login.php '>";
+          } else {
+            // CASO O ARRAY ESTIVER VAZIO O CLIENTE NÃO TEM CADASTRO
+            Mensagem("OPS!, Você Não possui uma conta!", "danger");
+          }
+        }
+        ?>
       </div>
     </div>
     <!-- coluna dois -->
   </div>
 
 
-
+  <script src="js/tela_login.js"></script>
 
 
 
