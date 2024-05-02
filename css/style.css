@@ -13,11 +13,14 @@ body {
 
 
 
+    width: 100vw;
+    height: 100vh;
+    margin: 2px;
+
     background-image: url('./assets/fundocolorido.jpg');
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-size: 100%;
-    background-position-x: center;
-    background-position-y: 0%;
+    background-size: 100vw;
+    background-position: center center;
     background-repeat: no-repeat;
 
 
@@ -49,34 +52,92 @@ testar {
 
 /* ---------------------------------------- */
 
+.container-bem-vindo {
 
-.container-tela {
-    /* display: flex;
+    display: flex;
+    width: 90%;
+    height: 90%;
+   
+    margin: 2%;
+    justify-content: center;
     align-items: center;
-    justify-content: center; */
-    width: 700px;
-    margin-left: 50px;
-    margin-right: auto;
-    margin-top: 15%;
 
 
-    text-shadow: 10%;
-    text-decoration-line: none;
+
+
 
 }
 
+.base {
+    display: flex;
+    height: 100%;
+    width: 100%;
+   
+    
 
-.teset {
-    background-image: url('./css/assets/bg_pessoa.png');
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-    background-size: 100%;
-    background-position-x: right;
-    background-position-y: 50px;
-
-
-    background-repeat: no-repeat;
 }
+
+.navega{
+   
+    height: auto;
+    width: 100%;
+    z-index: 21;
+}
+
+
+.item-um {
+
+    width: 40%;
+    height: 100%;
+   
+
+    z-index: 20;
+
+
+
+
+}
+.elementos-item-um{
+    margin-top: 30%;
+}
+
+
+.item-dois {
+
+
+   
+   
+    width: 60%;
+    height: 100%;
+   
+   
+ 
+ 
+
+
+
+
+
+
+    img {
+
+        width: 100vw;
+        height: 100%;
+        position: absolute;
+        left: -1%;
+        top: 8%;
+     
+        
+        
+      
+    }
+
+}
+
+.elementos-item-dois{
+    margin-top: 13%;
+}
+
 
 
 .menu {

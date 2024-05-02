@@ -52,7 +52,7 @@ class Pessoa
             $comando->bindValue(":s", $senha);
             // EXECUTA OS COMANDOS
             $comando->execute();
-            Mensagem("a Conta foi cadastrada!", "success");
+            Mensagem("A conta foi cadastrada!", "success");
             // RETORNA VERDADEIRO
             return true;
         }
@@ -70,6 +70,23 @@ class Pessoa
         $cmd = $this->pdo->prepare("SELECT * FROM cadastros WHERE email = :n ORDER BY idcadastro");
         // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
         $cmd->bindValue(":n", $email);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        // RETORNA A LISTA
+        return $res;
+    }
+
+    function BuscarDadosSenha($email,$senha)
+    {
+        // CRIA ARRAY $res
+        $res = array();
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("SELECT * FROM cadastros WHERE email = :n and senha = :s ORDER BY idcadastro");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":n", $email);
+        $cmd->bindValue(":s", $senha);
         // EXECUTA OS COMANDOS ACIMA
         $cmd->execute();
         // TRANSFORMA O RESULTADO EM UMA LISTA

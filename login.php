@@ -1,3 +1,32 @@
+<?php
+
+require_once 'conexao.php';
+
+$p = new Pessoa('test', 'localhost', 'root', '');
+
+// INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
+if (isset($_POST["email"]) and isset($_POST["senha"])) {
+  // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
+  $email = $_POST["email"];
+  $senha = $_POST["senha"];
+  // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
+  $resultado =  $p->BuscarDadosSenha($email, $senha);
+  // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
+  if (count($resultado) > 0) {
+    // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
+    $usuario = $resultado;
+    if (!isset($_SESSION)) {
+      session_start();
+    }
+
+    $_SESSION['user'] = $usuario['nick'];
+    $_SESSION['name'] = $usuario['email'];
+    header("Location: tela_inicial.php");
+  }
+}
+?>
+
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -5,7 +34,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="./css/teste.css">
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
   <title>Login</title>
@@ -22,15 +51,11 @@
   <!-- ARQUIVO DE LOGIN  -->
 </head>
 
-<body class="cadastrar-js">
+<body class="logar-js">
 
-  <?php
-  // AREA PHP
-  require_once 'conexao.php';
-  // Mesclar Funcoes de conexao.php
+ 
 
-  $p = new Pessoa('test', 'localhost', 'root', '');
-  ?>
+ 
 
   <!-- AREA HTML -->
 
@@ -73,19 +98,6 @@
           <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" class="btn btn-outline-primary" value="Cadastrar"> <br>
 
         </form>
-        <?php
-        if (isset($_POST["email_usuario"])) {
-          $nick = addslashes($_POST['nome_usuario']);
-          $email = addslashes($_POST['email_usuario']);
-          $senha = addslashes($_POST['senha_usuario']);
-
-          if (!empty($nick) && !empty($email) && !empty($senha)) {
-            if (!$p->Cadastrarusuario($nick, $email, $senha));
-          } else {
-            Mensagem("OPS!, É necessario preencher todos os campos!", "danger");
-          }
-        }
-        ?>
       </div>
     </div>
     <!-- coluna dois -->
@@ -94,7 +106,9 @@
         <h2 class="titulo-bem">Seja bem-vindo
         </h2>
         <p class="descricao">Não Possui conta?</p>
-        <button id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
+        <form action="cadastrar.php" method="post">
+          <button type="post" id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
+        </form>
       </div>
       <div class="coluna-dois">
         <h2 class="titulo-cad">Entre em sua conta</h2>
@@ -121,6 +135,7 @@
           <br>
 
           <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171) ;" class="btn btn-outline-primary" value="Logar">
+          <br>
 
 
 
@@ -128,19 +143,17 @@
         <?php
         // INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
         if (isset($_POST["email"])) {
-          // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
-          $pesquisar = $_POST["email"];
-          // ADICIONA O VALOR DP POST EMAIL A VARIAVEL $pesquisar
-          $p->BuscarDados($pesquisar);
+           // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
+          $email = $_POST["email"];
+          $senha = $_POST["senha"];
           // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
-          $resultado = $p->BuscarDados($pesquisar);
+          $resultado =  $p->BuscarDadosSenha($email, $senha);
           // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
           if (count($resultado) > 0) {
-            // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
-            echo "<meta http-equiv='refresh' content='5; URL=./login.php '>";
+                
           } else {
             // CASO O ARRAY ESTIVER VAZIO O CLIENTE NÃO TEM CADASTRO
-            Mensagem("OPS!, Você Não possui uma conta!", "danger");
+            Mensagem("OPS!, Email ou Senha incorreto!", "danger");
           }
         }
         ?>
