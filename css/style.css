@@ -1,34 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 /* Corpo padrao para todas as telas */
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
 }
 
 body {
-
-
-
-
     width: 100vw;
     height: 100vh;
     margin: 2px;
-
+    background-color: #a71aac;
     background-image: url('./assets/fundocolorido.jpg');
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-size: 100vw;
     background-position: center center;
     background-repeat: no-repeat;
+}
 
+/* ---------------------------------------- */
 
+.carregando {
+
+    position: absolute;
+    width: 100px;
+    margin-left: 48.4%;
+    margin-top: 30%;
+    
 }
 
 
+
+
+
 testar {
-    color: rgb(59, 3, 50);
+    color: #313131bd;
+    border-color: none;
 
 
 }
@@ -52,19 +60,17 @@ testar {
 
 /* ---------------------------------------- */
 
+
+
 .container-bem-vindo {
 
     display: flex;
     width: 90%;
     height: 90%;
-   
+
     margin: 2%;
     justify-content: center;
     align-items: center;
-
-
-
-
 
 }
 
@@ -72,13 +78,10 @@ testar {
     display: flex;
     height: 100%;
     width: 100%;
-   
-    
-
 }
 
-.navega{
-   
+.navega {
+
     height: auto;
     width: 100%;
     z-index: 21;
@@ -87,32 +90,31 @@ testar {
 
 .item-um {
 
-    width: 40%;
+    width: 60%;
     height: 100%;
-   
-
+    margin-left: 12%;
+    margin-right: 5%;
     z-index: 20;
-
-
-
-
 }
-.elementos-item-um{
-    margin-top: 30%;
+
+.elementos-item-um {
+
+    margin-right: 15%;
+    margin-top: 25%;
 }
 
 
 .item-dois {
 
 
-   
-   
-    width: 60%;
+
+
+    width: 40%;
     height: 100%;
-   
-   
- 
- 
+
+
+
+
 
 
 
@@ -126,15 +128,15 @@ testar {
         position: absolute;
         left: -1%;
         top: 8%;
-     
-        
-        
-      
+
+
+
+
     }
 
 }
 
-.elementos-item-dois{
+.elementos-item-dois {
     margin-top: 13%;
 }
 
@@ -147,7 +149,7 @@ testar {
     text-align: right;
 
     a {
-        color: rgb(70, 7, 88);
+        color: #460758;
         text-decoration: none;
         font-weight: bold;
         font-size: 25px;
@@ -382,6 +384,30 @@ testar {
 .cadastrar-js .conteudo-um .coluna-um {
     z-index: 15;
 }
+
+
+.mural {
+    
+    text-align: center;  
+    margin-top: 3%;
+    margin-left: 14.5%;
+    background: #ffffff;
+    width: 70%;
+    
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

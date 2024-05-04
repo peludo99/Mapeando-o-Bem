@@ -63,14 +63,14 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
     <div class="conteudo conteudo-um">
       <div class="coluna-um">
         <h2 class="titulo-bem">
-          Bem vindo de volta!
+          Bem-vindo de volta!
         </h2>
-        <p class="descricao">Conecte-se com nosco</p>
+        <p class="descricao">Conecte-se conosco</p>
 
-        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" id="Idlogin" class="btn btn-outline-primary">Entrar na conta</button>
+        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" id="Idlogin" class="btn btn-outline-primary">Acesse sua conta</button>
       </div>
       <div class="coluna-dois">
-        <h2 class="titulo-cad">Criar conta</h2>
+        <h2 class="titulo-cad">Criar cadastro</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
             <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
@@ -79,7 +79,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
           </ul>
         </div>
         <!-- redes -->
-        <p class="descricao descricao-um">Ou utilise seu email para o cadastro</p>
+        <p class="descricao descricao-um">ou utilize seu e-mail para o cadastro</p>
         <form action="login.php" method="post" class="forms">
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
@@ -103,15 +103,17 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
     <!-- coluna dois -->
     <div class="conteudo conteudo-dois">
       <div class="coluna-um">
+        <img src="css/assets/casinhabola.png" alt="bola">
         <h2 class="titulo-bem">Seja bem-vindo
         </h2>
-        <p class="descricao">Não Possui conta?</p>
+        <p class="descricao">Não possui conta?</p>
         <form action="cadastrar.php" method="post">
           <button type="post" id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
         </form>
       </div>
       <div class="coluna-dois">
-        <h2 class="titulo-cad">Entre em sua conta</h2>
+        <img src="css/assets/logomob.png" alt="logo">
+        <h2 class="titulo-cad">Acesse sua conta</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
             <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
@@ -120,7 +122,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
           </ul>
         </div>
         <!-- redes -->
-        <p class="descricao descricao-um">Ou utilise seu email</p>
+        <p class="descricao descricao-um">ou utilize seu e-mail</p>
         <form action="" method="post" class="forms">
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>

@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
   <title>Tela Inicial</title>
 
@@ -28,6 +29,21 @@
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       color: rgb(100, 8, 80);
     }
+
+    .btn-outline-primary {
+      background-color: rgb(238, 84, 204);
+
+    }
+
+    .btn-outline-primary:hover,.btn-outline-primary:active {
+
+      background-color: rgb(145, 7, 122);
+
+
+
+    }
+
+
   </style>
 
 </head>
@@ -38,39 +54,42 @@
 
 
 
- 
-    <div class="navega">
 
-      <!-- Barra de Navegação -->
+  <div class="navega">
 
-      <nav style="background: rgba(156, 9, 197, 0.37)" class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <!-- Barra de Navegação -->
 
-            <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"> Mapeando o Bem</a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+    <nav style="background: rgb(219 164 234)" class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-                <!--Itens da Barra de Navegação -->
-                <a class="nav-link" aria-current="page" href="#">Quem somos</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Redes Sociais</a>
-                <div style="background:rgba(193, 98, 219, 0.979)" class="dropdown-menu">
-                  <a style="background:rgba(193, 98, 219, 0.979);" class="dropdown-item" href="#">Instagram</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Contribua</a>
-              </li>
-            </ul>
-          </div>
+          <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"> Mapeando o Bem</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!--Itens da Barra de Navegação -->
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true">Redes Sociais</a>
+
+
+              <div style="width: 180px;text-align: center;border-color: rgba(179, 112, 167, 0);background:rgb(219 164 234)" class="dropdown-menu">
+                <a style="background:rgba(202, 46, 176, 0); margin:auto" class="dropdown-item" href="https://www.instagram.com/mapeandoobem/" target="_blank"><i style="font-size: 22px;" class="fa-brands fa-instagram fa-fade">
+                    <nome style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"> Instagram</nome>
+                  </i></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
 
-    </div> 
-    <div class="container-bem-vindo">
+  </div>
+  <div class="container-bem-vindo">
     <div class="base">
 
       <div class="item-um">
@@ -83,16 +102,18 @@
           <br>
           <div>
             <h2>
-              Com um click de distância, encontre a casa de apoio mais próxima de você.
+              Com um click de distância, encontre a casa de apoio mais próxima de você. <br>
             </h2>
           </div>
           <div>
             <form action="./login.php" method="post">
-              <input type="submit" class="btn btn-primary" value="Acessar" style=" background:rgb(238, 84, 204);width:400px; border:palevioletred; box-sizing: border-box;">
+              <button type="post" id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Acessar</button>
+
+              <!-- background-color:rgb(238, 84, 204); -->
             </form>
           </div>
-                </div>
         </div>
+      </div>
       <div class="item-dois">
 
         <img src="./css/assets/bg_pessoa.png" alt="">
