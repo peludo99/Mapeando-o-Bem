@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 
     <!-- Barra de Navegação (NÃO CONSEGUI FAZER O BAGULHO DO LADO ABRIR) -->
     <nav style="background: rgb(219 164 234)" class="navbar fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <span class="navbar-toggler-icon">
+                </span>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
@@ -54,59 +57,220 @@
             </div>
         </div>
     </nav>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="grande">
+
+                        <div class="foto">
+
+                            <img class="foto" src="css/assets/perfil.png" alt="">
+
+                        </div>
+
+                        <div class="botoes">
+
+
+
+                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="#"><img class="logo" src="css/assets/home_2544087.png" alt="">
+                                <texto style="color: white">Entidades Parceiras</texto>
+                            </a>
+
+                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" href="#">
+                                <img class="logo" src="css/assets/donate_1655108.png" alt="">
+                                <texto style="color: white"> Ajude-nos
+                            </a></texto>
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modal {
+
+
+            margin-left: 70%;
+            width: 30%;
+
+
+
+        }
+
+        .btn-outline-primary:hover {
+
+            background-color: rgb(59, 3, 50);
+
+
+
+        }
+
+        .btn-outline-primary {
+
+            background-color: #19afddbd
+        }
+
+        .modal-content {
+
+
+            width: 30%;
+            background: rgb(219 164 234)
+        }
+
+        .modal-header {
+            border: none;
+        }
+
+        .modal-footer {
+            border: none;
+
+
+        }
+
+        .foto {
+
+
+
+
+
+            width: 150px;
+            height: 150px;
+
+            margin: auto;
+
+
+        }
+
+        texto {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .logo {
+
+            width: 25px;
+            height: 25px;
+
+        }
+
+        .btn {
+            margin: 4px;
+
+        }
+
+        .direito{
+
+          
+            margin: 10px;
+       
+            img{
+                border: 2px solid black;
+                border-radius: 15px;
+                width: 500px;
+                height: 400px;
+                background-color: white;
+            }
+        }
+    </style>
+
+
 </head>
 
 <body>
 
-    <div class="mural" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; align-items: center; color: #460758">
-        <label>
-            <img src="./css/assets/logomob.png" alt="logo">
-        </label>
-        <div>
-            <hr style="color: #313131bd">
-            <br><h1>Gostaria de ser Voluntário?</h1>
-            <h2 style="font-size: 20px;">Veja aqui as atividades disponíveis em tempo real:</h2><br>
 
-            <!-- Carrossel 1 -->
-            <div id="carouselExampleCaptions" class="carousel slide" style="background-color: #97979725; text-align: center">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://cdn.churchplants.com/wp-content/uploads/2018/05/forgottenstepstokidmin.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Casa 1</h5>
-                            <p>Precisamos de ajuda para fazer companhia aos idosos.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://th.bing.com/th/id/OIP.lHOXU7yoSFYK37kirQTJcAHaE8?rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Casa 2</h5>
-                            <p>Estamos precisando de doações! Venha nos conhecer!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://vomo-core-web.s3.amazonaws.com/media/2019/10/2110-ge2gKEsM-l.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Casa 3</h5>
-                            <p>Hoje tivemos aula de pintura para os idosos.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+
+    <div class="mural">
+        <div class="topo">
+
+            <label>
+                <img src="./css/assets/logomob.png" alt="logo">
+            </label>
         </div>
+
+
+        <div class="blocos">
+
+            <div class="esquerdo">
+
+                
+                
+                <h1>Gostaria de ser Voluntário?</h1>
+                <h2 style="font-size: 20px;">Veja aqui as atividades disponíveis em tempo real:</h2><br>
+
+
+
+            </div>
+
+            <div class="direito">
+                
+                <div id="carouselExampleCaptions" class="carousel slide" style="background-color: #97979725; text-align: center">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img     src="https://cdn.churchplants.com/wp-content/uploads/2018/05/forgottenstepstokidmin.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Casa 1</h5>
+                                <p>Precisamos de ajuda para fazer companhia aos idosos.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img   src="https://th.bing.com/th/id/OIP.lHOXU7yoSFYK37kirQTJcAHaE8?rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Casa 2</h5>
+                                <p>Estamos precisando de doações! Venha nos conhecer!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img     src="https://vomo-core-web.s3.amazonaws.com/media/2019/10/2110-ge2gKEsM-l.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Casa 3</h5>
+                                <p>Hoje tivemos aula de pintura para os idosos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div>
+
+        <!-- Carrossel 1 -->
 
         <!-- Carrossel 2 -->
         <div style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; align-items: center;">
@@ -204,6 +368,22 @@
 
 
         </div>
+
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
 
 
 

@@ -112,8 +112,8 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         </form>
       </div>
       <div class="coluna-dois">
-        <img src="css/assets/logomob.png" alt="logo">
-        <h2 class="titulo-cad">Acesse sua conta</h2>
+        <img  src="css/assets/logomob.png" alt="logo">
+        <h2 class="titulo-cad">Acesse Sua conta</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
             <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
