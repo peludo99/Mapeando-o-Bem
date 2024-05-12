@@ -4,6 +4,8 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    box-sizing: border-box;
 
 }
 
@@ -388,47 +390,67 @@ testar {
 
 
 .mural {
-  
+
+
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin: auto;
     margin-top: 3%;
-    height: 100%;
-    
+
+
     background-color: #ffffff;
     width: 95%;
- 
+    height: 100vh;
+
 
 
 }
 
-.blocos{
+.blocos {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+
     align-items: center;
 }
 
-.esquerdo{
-   
- 
+.esquerdo {
+
+
     align-items: center;
     height: 100%;
     width: 100%;
     margin-top: 10px;
- 
 
-    
+
+
+
+
+
 
 }
-.direito{
-  
-    
+
+.textoEsquerdo {
+    margin-top: 10%;
+}
+
+.direito {
+
+
     height: 100%;
     width: 100%;
     margin-top: 10px;
-    
-    
 
+
+
+}
+
+.baixo {
+
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #ffffff;
 }
 
 
@@ -436,29 +458,377 @@ testar {
     display: flex;
 
     flex-direction: column;
-  
+
     padding: 2px;
 }
-.botoes{
+
+.botoes {
     display: flex;
     padding: 10px;
-    
+
     flex-direction: column;
+
+
+}
+
+
+.main {
+    width: 900px;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.newPost {
+
+    background-color: #bdbdbd;
+
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 50px 0;
+    padding: 25px;
+
+    border-radius: 10px;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.411);
+}
+
+.formPost {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+}
+
+.infoUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.imgUser {
+
+    width: 70px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #130f0fd3;
+
+
 }
 
 
 
 
+.nomeUser {
+
+    font-size: 20px;
+    width: 70%;
+    margin-left: 10px;
+    color: #bc0fc2;
+
+}
+
+.textarea {
+    background-color: #ffffff;
+    margin: 15px 0;
+    height: 100px;
+    padding: 23px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.13);
+    resize: none;
+    outline: none;
+    border: 0;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    font-weight: bold;
+}
+
+.iconsAndButton {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.icons {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+
+    margin-right: 15px;
+    border: none;
+    outline: none;
+
+
+    cursor: pointer;
+
+}
+
+.btnFieforms {
+
+    font-size: 30px;
+    margin: 5px;
+    background-color: #40580700;
+
+    border: none;
+
+}
+
+
+.mainpost {
+    width: 100%;
+    height: 100%;
+    
+    
+
+    background-color: #ffffff;
+
+}
+
+.Post {
+
+    background-color: #fdfdfd;
+
+    width: 900px;
+    height: auto;
+    margin: auto;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+    padding: 25px;
+
+    border-radius: 10px;
+   
+}
+
+.hora{
+    display: flex;
+    color: #818181;
+    font-size: 11px;
+   
+}
+
+.formPostA {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  
+
+    hora{
+
+  
+    display: flex;
+  
+    padding: 10px;
+    padding-top: 0;
+
+    
+    }
+
+    stron{
+   
+    display: flex;
+    text-align: start;
+    font-weight: bold;
+    padding: 10px;
+    }
+
+}
 
 
 
+.hack{
+
+font-size: 20px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.btnpost{
+
+    display: flex;
+    width: 900px;
+    
+
+}
+.share-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80px;
+  height: 50px;
+  margin: 5px;
+  height: 40px;
+  position: relative;
+  border: 1px solid #ac819e;
+  background-color: rgb(219 164 234);
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+}
+.button__text {
+  width: 80%;
+  height: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__icon {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(197, 93, 226);
+  position: absolute;
+  right: 0;
+  transition: all 0.3s;
+}
+.button__icon svg {
+  width: 18px;
+}
+.share-button:hover .button__icon {
+  width: 100%;
+}
 
 
 
+.button-pub {
+  font-family: inherit;
+  font-size: 15px;
+  background: rgb(225, 65, 185);
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.button-pub span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-pub svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button-pub:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.button-pub:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.button-pub:hover span {
+  transform: translateX(5em);
+}
+
+.button-pub:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
 
 
 
+.buttonadd {
+    width: 150px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: rgb(0, 132, 255);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #2270e6;
+   }
+   
+   .buttonadd, .buttonadd span {
+    transition: 200ms;
+   }
+   
+   .buttonadd .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   .buttonadd .icon {
+    position: absolute;
+  
+    transform: translateX(110px);
+    height: 40px;
 
-
-
-/* --------------------------- -fim-------------------------- */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 40px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   .buttonadd svg {
+    width: 15px;
+    fill: #eee;
+   }
+   
+   .buttonadd:hover {
+    background: #367cff;
+   }
+   
+   .buttonadd:hover .text {
+    color: transparent;
+   }
+   
+   .buttonadd:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+   }
+   
+   .buttonadd:focus {
+    outline: none;
+   }
+   
+   .buttonadd:active .icon svg {
+    transform: scale(0.8);
+   }

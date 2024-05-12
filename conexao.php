@@ -94,6 +94,21 @@ class Pessoa
         // RETORNA A LISTA
         return $res;
     }
+
+    function addPost($conteudo){
+
+          // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
+          $comando = $this->pdo->prepare("INSERT INTO  publicaçoes(conteudo) VALUES(:c)");
+     
+          $comando->bindValue(":c", "$conteudo");
+         
+          // EXECUTA OS COMANDOS
+          $comando->execute();
+          Mensagem("Publicado", "success");
+          // RETORNA VERDADEIRO
+          return true;
+
+    }
 }
 // FIM CLASSE PESSOA
 
@@ -105,3 +120,8 @@ function Mensagem($mensagem, $tipo)
                 </div>
                 <br>";
 }
+
+
+
+
+
