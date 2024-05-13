@@ -15,13 +15,13 @@
     <script type="module" src="./js/FormPost.js"></script>
     <title>Document</title>
 
-    <!-- Barra de Navegação (NÃO CONSEGUI FAZER O BAGULHO DO LADO ABRIR) -->
+    <!-- Barra de Navegação -->
     <nav style="background: rgb(219 164 234)" class="navbar fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <span class="navbar-toggler-icon">
-                </span>
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fa-solid fa-ellipsis-vertical"></i>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
@@ -81,7 +81,9 @@
 
                         <div class="botoes">
 
-
+                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./usuario.php"><i class="fa-solid fa-gear"></i>
+                                <texto style="color: white">Editar Perfil</texto>
+                            </a>
 
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="#"><img class="logo" src="css/assets/home_2544087.png" alt="">
                                 <texto style="color: white">Entidades Parceiras</texto>
@@ -89,8 +91,13 @@
 
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" href="#">
                                 <img class="logo" src="css/assets/donate_1655108.png" alt="">
-                                <texto style="color: white"> Ajude-nos
-                            </a></texto>
+                                <texto style="color: white"> Ajude-nos</texto>
+                            </a>
+
+
+                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./login.php"><i class="fa-solid fa-right-from-bracket"></i>
+                                <texto style="color: white">Encerrar Sessão</texto>
+                            </a>
 
 
 
@@ -104,6 +111,7 @@
             </div>
         </div>
     </div>
+
 
     <style>
         .modal {

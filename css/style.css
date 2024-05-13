@@ -38,7 +38,7 @@ body {
 
 
 testar {
-    color: #24aad3bd;
+    color: #e9e9e9;
     border-color: none;
 
 
@@ -832,3 +832,6 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    .buttonadd:active .icon svg {
     transform: scale(0.8);
    }
+
+
+   
