@@ -1,4 +1,4 @@
-# Mapeando o Bem ❤️‍🩹
+# Mapeando o Bem 
  Projeto de PI
 
  
