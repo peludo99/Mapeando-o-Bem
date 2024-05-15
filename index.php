@@ -3,10 +3,10 @@
 
 <head>
   <title>Redirecionamento</title>
-  <meta http-equiv="refresh" content="3; URL=./bem_vindo.php">
-  <link rel="stylesheet" href="./css/style.css">
+  <meta http-equiv="refresh" content="3; URL=./views/bem_vindo.php">
+  <link rel="stylesheet" href="..viwes/css/style.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="..views/css/bootstrap.min.css">
 
   <style>
 

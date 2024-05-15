@@ -8,10 +8,10 @@
 
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="../views/css/style.css">
+  <link rel="stylesheet" href="../views/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-  <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../views/css/assets/favicon.ico" type="image/x-icon">
   <title>Tela Inicial</title>
 
   <style>

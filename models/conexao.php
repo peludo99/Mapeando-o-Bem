@@ -2,7 +2,7 @@
 // AREA PHP
 
 // CRIAR CLASSE PESSOA
-class Pessoa
+class Conexao
 {
     // CRIAR VARIAVEL PRIVADA $pdo
     private $pdo;
@@ -81,7 +81,7 @@ class Pessoa
     function BuscarDadosSenha($email,$senha)
     {
         // CRIA ARRAY $res
-        $res = array();
+       $res = array();
         // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
         $cmd = $this->pdo->prepare("SELECT * FROM cadastros WHERE email = :n and senha = :s ORDER BY idcadastro");
         // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
