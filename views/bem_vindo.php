@@ -35,15 +35,29 @@
 
     }
 
-    .btn-outline-primary:hover,.btn-outline-primary:active {
+    .btn-outline-primary:hover,
+    .btn-outline-primary:active {
 
       background-color: rgb(145, 7, 122);
 
-
-
     }
 
+    /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
+    .nav-item {
+      margin-left: 60px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
+    .navbar-brand {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(70, 7, 88);
+    }
+
+    /* ---------------------------------------- */
   </style>
 
 </head>

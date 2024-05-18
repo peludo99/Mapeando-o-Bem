@@ -38,30 +38,11 @@ body {
 
 
 testar {
-    color: #e9e9e9;
+    color: #5a5a5a;
     border-color: none;
 
 
 }
-
-
-
-/* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
-.nav-item {
-    margin-left: 60px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.navbar-brand {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(70, 7, 88);
-}
-
-/* ---------------------------------------- */
 
 
 
@@ -396,12 +377,12 @@ testar {
     flex-direction: column;
     text-align: center;
     margin: auto;
-    margin-top: 3%;
+    margin-top: 0%;
 
 
     background-color: #ffffff;
-    width: 95%;
-    height: 100vh;
+    width: 80%;
+    height: auto;
 
 
 

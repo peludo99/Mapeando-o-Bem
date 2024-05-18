@@ -55,7 +55,7 @@
 
 <body>
   
-  <p>Aguarde, você será redirecionado.</p>
+  <p>Aguarde, você será redirecionado...</p>
 
   <div class="carregando">
   <i class="fa-solid fa-circle-notch fa-spin fa-4x" style="color: #27232625;"></i>

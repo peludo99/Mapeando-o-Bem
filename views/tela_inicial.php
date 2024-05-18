@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 $nomeusuario = $_SESSION['user'];
@@ -28,7 +28,15 @@ $nomeusuario = $_SESSION['user'];
     <!-- Barra de Navegação -->
     <nav style="background: rgb(219 164 234)" class="navbar fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"></a>
+            <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
+            <tr class="navbar-nav me-auto mb-2 mb-lg-0">
+                <td class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
+                </td>
+                <td class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+                </td>
+            </tr>
             <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <!-- <span class="navbar-toggler-icon"></span> -->
                 <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -40,30 +48,6 @@ $nomeusuario = $_SESSION['user'];
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -71,7 +55,7 @@ $nomeusuario = $_SESSION['user'];
 
 
 
-    <!-- Modal -->
+    <!-- Barra de navegação - Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
@@ -108,48 +92,37 @@ $nomeusuario = $_SESSION['user'];
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./login.php"><i class="fa-solid fa-right-from-bracket"></i>
                                 <texto style="color: white">Encerrar Sessão</texto>
                             </a>
-
-
-
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
 
 
     <style>
+
+        /* ------------- BARRA DE NAVEG ------------- */
+
+        .logo {
+            width: 25px;
+            height: 25px;
+        }
+
         .modal {
-
-
             margin-left: 70%;
             width: 30%;
-
-
-
         }
 
         .btn-outline-primary:hover {
-
             background-color: rgb(59, 3, 50);
-
-
-
         }
 
         .btn-outline-primary {
-
             background-color: #19afddbd
         }
 
         .modal-content {
-
-
             width: 30%;
             background: rgb(219 164 234)
         }
@@ -160,58 +133,165 @@ $nomeusuario = $_SESSION['user'];
 
         .modal-footer {
             border: none;
-
-
         }
 
         .foto {
-
-
-
-
-
             width: 150px;
             height: 150px;
-
             margin: auto;
-
-
         }
 
         ul {
             margin: auto;
         }
 
-        texto {
+        .btn {
+            margin: 4px;
+        }
+
+        .nav-item {
+            margin: 20px;
+
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* ---------------- CORPO DO MURAL ---------------- */
+
+        text {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-size: 15px;
         }
 
-        .logo {
-
-            width: 25px;
-            height: 25px;
-
+        .topo img {
+            width: 80%;
+            margin: 20px;
         }
 
-        .btn {
-            margin: 4px;
+        /* ---------------- VOLUNTARIADO ---------------- */
 
+        .blocos {
+            background-color: #ff6edb15;
         }
 
         .direito {
-
-
-            margin: 10px;
+            margin: 50px;
 
             img {
                 border: 2px solid black;
                 border-radius: 15px;
-                width: 500px;
-                height: 400px;
+                height: 500px;
                 background-color: white;
             }
         }
+
+        .esquerdo {
+            width: 900px;
+            margin: 20px;
+            margin-left: 70px;
+
+            h1 {
+            color: #444;
+            font-size: 35px;
+            position: relative;
+            }
+
+            strong {
+                color: #a71aac;
+            }
+
+            h2 {
+            color: #444;
+            font-size: 25px;
+
+            }
+        }
+
+        .carousel-caption {
+            background-color: #272727be;
+        }
+
+        /*  ---------------- INFORMES ----------------  */
+
+        .informes {
+            background-color: white;
+            margin: 80px;
+
+        }
+        .card {
+            border-radius: 8%;
+            background-color: #00d9ff15;
+            border: 20px outset #00d9ff15;
+            margin-top: 100px;
+            margin-left: 75px;
+            margin-bottom: -140px;
+            width: 330px;
+            height: 330px;
+
+        }
+
+        .card:hover {
+            width: 320px;
+            height: 320px;
+            -xpedu-transform: rotatez(10deg);
+            -ms-transform: rotateZ(10deg);
+            transform: rotateZ(10deg);
+        }
+
+        .card-caption {
+            background-color: orange;
+        }
+
+        /*  ---------------- SOBRE NÓS ----------------  */
+
+        .img-fluid {
+            width: 70%;
+            margin-top: -2px;
+        }
+
+        .sobrenos {
+            background-color: #f9f9f9;
+        }
+
+        .main-title {
+            color: #444;
+            margin: 215px 0 50px 0;
+            font-size: 40px;
+            text-align: center;
+            position: relative
+        }
+
+        .main-title::after {
+            content: "";
+            border-top: 1.5px solid #333;
+            width: 16%;
+            position: absolute;
+            top: 65px;
+            left: 42.5%;
+        }
+
+        .sobrenos-titulo {
+            font-size: 17px;
+            color: #444;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 60px;
+        }
+
+        h4 {
+                font-size: 13px;
+                color: #5a5a5a;
+            }
+
+        h6 {
+            color: #444;
+            margin-top: 14px;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        /* ----------------------------------------------- */
     </style>
 
 
@@ -219,60 +299,57 @@ $nomeusuario = $_SESSION['user'];
 
 <body style="background-repeat: repeat-y;">
 
-
-
     <div class="mural">
         <div class="topo">
-
             <label>
-                <img src="./css/assets/logomob.png" alt="logo">
+                <img src="./css/assets/logomob.png" alt="logo" style="width: 200;">
             </label>
         </div>
 
-
         <div class="blocos">
-
             <div class="esquerdo">
-
-
-
                 <div class="textoEsquerdo">
-                    <h1>Gostaria de ser Voluntário?</h1>
-                    <h2 style="font-size: 20px;">Veja aqui as atividades disponíveis em tempo real:</h2><br>
+                    <h1>Gostaria de ser <strong>Voluntário?</strong></h1><br>
+                    <h2>Em nossa plataforma você pode se <strong>conectar</strong> com diversas <i>ONGs</i> e escolher a atividade que mais <u>tem a ver com você</u>!</h2>
+                    <br><h2>Veja em tempo real as atividades disponíveis em sua região:</h2>
                 </div>
-
-
-
             </div>
 
             <div class="direito">
-
                 <div id="carouselExampleCaptions" class="carousel slide" style="background-color: #97979725; text-align: center">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://cdn.churchplants.com/wp-content/uploads/2018/05/forgottenstepstokidmin.jpg" class="d-block w-100" alt="...">
+                            <img src="https://th.bing.com/th/id/R.6ace8942274419b98fb850824931ecab?rik=YsUU4nWma9RJhQ&riu=http%3a%2f%2fwww.casavilladeifiori.com%2fcasas-de-repouso%2fimagens%2frecreacao-com-idosos-em-asilo-particular.jpg&ehk=dQrtuPq9sKZi5GKi4c%2bwmWa04RZ1dxKezZF3SNHkHwQ%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Casa 1</h5>
                                 <p>Precisamos de ajuda para fazer companhia aos idosos.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://th.bing.com/th/id/OIP.lHOXU7yoSFYK37kirQTJcAHaE8?rs=1&pid=ImgDetMain" class="d-block w-100" alt="...">
+                            <img src="https://euclideseder.com.br/wp-content/uploads/2021/05/Merenda-1.jpeg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Casa 2</h5>
                                 <p>Estamos precisando de doações! Venha nos conhecer!</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://vomo-core-web.s3.amazonaws.com/media/2019/10/2110-ge2gKEsM-l.jpg" class="d-block w-100" alt="...">
+                            <img src="https://www.ilhanoticias.com.br/uploads/imagens/shares/noticias/anteriores/7c8b20525f41e6a8d59910b6cd6e1ae1.jpg.jpg" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Casa 3</h5>
-                                <p>Hoje tivemos aula de pintura para os idosos.</p>
+                                <p>Venham nos ajudar com atividades de recreação!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://th.bing.com/th/id/R.d133f0a8766d5cfc975f67935dbfe3c1?rik=xk%2bIitWisHcEmw&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Casa 4</h5>
+                                <p>Estaremos com um evento de adoção neste final de semana. ajude-nos!</p>
                             </div>
                         </div>
                     </div>
@@ -286,14 +363,130 @@ $nomeusuario = $_SESSION['user'];
                     </button>
                 </div>
             </div>
+        </div>
+
+
+        <div class="informes">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card">
+                        <a href="#anchor-voluntario">
+                            <img src="https://www.newyorkfamily.com/wp-content/uploads/2021/10/GettyImages-1175986554-822x822.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="carousel-caption">O que é ser voluntário?</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <a href="#anchor-beneficio">
+                            <img src="https://media.istockphoto.com/id/1474708790/vector/pensive-male-student-character-sitting-on-floor-with-laptop-and-paper-sheet-thinking-on-task.jpg?s=612x612&w=0&k=20&c=1lR1efScvegGuIImPJy2SdGA1LhibJooICLZIb46HaY=" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="carousel-caption">O que ganho com essas atividades?</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <a href="#anchor-vaga">
+                            <img src="https://image.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148583914.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="carousel-caption">A Vaga Perfeita</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
+        <div class="container" id="sobrenos">
+            <div class="row">
+                <div class="col-12" id="anchor-quemsomos">
+                    <h3 class="main-title">Sobre a Mapeando o Bem</h3>
+                </div>
+                <div class="main-title-linha">
+
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="https://alpasbox.com/wp-content/uploads/2019/11/1-28.png" alt="agencia mob">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="sobrenos-titulo">Uma plataforma que impulsiona o voluntariado.</h3><br>
+                    <h6>Focamos em ampliar o contato das Casas de Apoio com o público, tornando-as mais acessíveis e mais evidentes para pessoas que buscam desenvolver o voluntariado.</h6>
+                    <h6>Utilize os recursos disponíveis em nossa plataforma para encontrar facilmente a casa de apoio mais próxima de você. Saiba exatamente como ajudar.</h6>
+                    <h6>Você é o gestor de uma casa de apoio? com nossa plataforma será possível alcançar um público maior de voluntários, além de conseguir elencar suas necessidades em tempo real. Torne claro para as pessoas de que maneira podem ajudar!</h6><br>
+                    <i><h4>Somos uma iniciativa de estudantes da instituição de ensino ETE Ginásio Pernambucano, de Recife/PE.</h4></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="anchor-voluntario">
+            <div class="row">
+                <div class="col-12" id="anchor">
+                    <h3 class="main-title" >O que é ser voluntário</h3>
+                </div>
+                <div class="main-title-linha">
+
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="https://www.newyorkfamily.com/wp-content/uploads/2021/10/GettyImages-1175986554-822x822.jpg" alt="voluntariar">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="sobrenos-titulo">Ser voluntário....</h3><br>
+                    <h6>texto</h6>
+                    <h6>texto</h6>
+                    <h6>texto</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="anchor-beneficio">
+            <div class="row">
+                <div class="col-12" id="anchor">
+                    <h3 class="main-title">O Que Ganho Com Essas Atividades?</h3>
+                </div>
+                <div class="main-title-linha">
+
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="https://media.istockphoto.com/id/1474708790/vector/pensive-male-student-character-sitting-on-floor-with-laptop-and-paper-sheet-thinking-on-task.jpg?s=612x612&w=0&k=20&c=1lR1efScvegGuIImPJy2SdGA1LhibJooICLZIb46HaY=" alt="voluntariar">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="sobrenos-titulo">Benefícios....</h3><br>
+                    <h6>texto</h6>
+                    <h6>texto</h6>
+                    <h6>texto</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="anchor-vaga">
+            <div class="row">
+                <div class="col-12" id="anchor">
+                    <h3 class="main-title">Escolhendo a Vaga Perfeita</h3>
+                </div>
+                <div class="main-title-linha">
+
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="https://image.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148583914.jpg" alt="vaga_perfeita">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="sobrenos-titulo">A melhor vaga para você....</h3><br>
+                    <h6>texto</h6>
+                    <h6>texto</h6>
+                    <h6>texto</h6>
+                </div>
+            </div>
         </div>
 
         <div class="baixo">
 
-            <h1>Linha do Tempo</h1>
+            <h1 class="main-title">Linha do Tempo</h1>
 
             <main class="main">
                 <!-- formulario de envio -->
@@ -302,10 +495,10 @@ $nomeusuario = $_SESSION['user'];
                         <div class="imgUser">
 
                         </div>
-                        <?php echo"<Strong class='nomeUser'>".$nomeusuario."</Strong>" ?>
+                        <?php echo "<Strong class='nomeUser'>" . $nomeusuario . "</Strong>" ?>
                     </div>
                     <form action="tela_inicial.php" method="post" class="formPost" id="idformpost">
-                        <textarea class="textarea" name="textarea" id="idtextarea"placeholder="Vamos mudar o mundo?" cols="30" rows="10"></textarea>
+                        <textarea class="textarea" name="textarea" id="idtextarea" placeholder="Vamos mudar o mundo?" cols="30" rows="10"></textarea>
 
 
 
