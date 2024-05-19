@@ -14,7 +14,9 @@ function Buscardadosdelogin($email, $senha)
 
 
     return $conexao->BuscarDadosSenha($email, $senha);
-}
+};
+
+
 
 function Buscardadosdecadastro($email)
 {
@@ -25,7 +27,9 @@ function Buscardadosdecadastro($email)
 
         return $conexao->BuscarDados($email);
     }
-}
+};
+
+
 
 function CadastrarUsuarios($nome, $email, $senha)
 {
@@ -36,4 +40,114 @@ function CadastrarUsuarios($nome, $email, $senha)
 
         return true;
     }
-}
+};
+
+
+function AdicionarPost($conteudo, $file, $email)
+{
+    global $conexao;
+
+    if ($conexao->addPost($conteudo, $file, $email)) {
+
+        return true;
+    }
+};
+
+
+function Exibirposts()
+{
+    global $conexao;
+    $resultado = $conexao->Buscarpost();
+
+    return   $resultado;
+};
+
+function Telainicial($post_user,$post)
+{
+    echo "<ul class='Post' id='posts'>";
+    echo "<div class='infoUser'>";
+    echo " <div class='imgUser'>";
+
+    echo "  </div>";
+    echo "  <Strong class='nomeUser'>" .$post_user. "</Strong>";
+
+    echo " </div>";
+
+    echo " <li class='formPostA'>";
+    echo " <stron>" . $post. "";
+    echo "  </stron>";
+    echo "  <div class='hora'>";
+
+    echo "     <hora> Postado em 21h</hora>";
+    echo " </div>";
+    echo "<div class='iconsAndButton'>";
+    echo "<div class='btnpost'>";
+    echo " <button type='button' class='share-button'>";
+    echo " <span class='button__text'>Curtir</span>";
+    echo "  <span class='button__icon'>";
+
+    echo " <i class='fa-solid fa-heart'></i>";
+    echo "  </span>";
+    echo " </button>";
+    echo " <button style='width: 100px;' type='button' class='share-button'>";
+    echo " <span class='button__text'>Comentar</span>";
+    echo " <span class='button__icon'>";
+
+    echo " <i class='fa-solid fa-comments'></i>";
+    echo "  </span>";
+    echo "  </button>";
+    echo " <button style='width: 120px;' type='button' class='share-button'>";
+    echo " <span class='button__text'>Compartilhar</span>   ";
+    echo "<span class='button__icon'>";
+
+    echo " <i class='fa-solid fa-share-nodes'></i>";
+    echo " </span>";
+    echo " </button>";
+
+    echo " </div>";
+
+
+    echo "  </div>";
+    echo "  </li>";
+    echo "</ul>";
+
+};
+
+
+
+
+function quantidadedeposts()
+{
+    $todos = Exibirposts();
+    $dados = array();
+
+    for ($i = 0; count($todos) > $i; $i++) {
+       
+        foreach ($todos[$i] as $conteudo) {
+            $dados[] = $conteudo;
+
+            
+        }
+    }
+   
+    $quantidadedeposts = count($dados);
+
+    return $quantidadedeposts/4;
+};
+
+
+
+//  $files_post[] = (($i * 4) - 2) - 1;
+// 
+//  $id_post[] = (($i * 4)) - 1;
+
+
+// $files_post = array();
+// $email_post = array();
+// $id_post = array();
+
+
+
+
+?>
+

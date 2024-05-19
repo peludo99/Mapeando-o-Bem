@@ -1,7 +1,17 @@
 <?php
 
+require_once('../controllers/funcoes.php');
 session_start();
 $nomeusuario = $_SESSION['user'];
+$email = $_SESSION['email'];
+
+if (isset($_POST['textarea'])) {
+
+    $conteudo = $_POST['textarea'];
+    $file = '';
+    if (AdicionarPost($conteudo, $file, $email)) {
+    }
+}
 
 ?>
 
@@ -101,7 +111,6 @@ $nomeusuario = $_SESSION['user'];
 
 
     <style>
-
         /* ------------- BARRA DE NAVEG ------------- */
 
         .logo {
@@ -192,9 +201,9 @@ $nomeusuario = $_SESSION['user'];
             margin-left: 70px;
 
             h1 {
-            color: #444;
-            font-size: 35px;
-            position: relative;
+                color: #444;
+                font-size: 35px;
+                position: relative;
             }
 
             strong {
@@ -202,8 +211,8 @@ $nomeusuario = $_SESSION['user'];
             }
 
             h2 {
-            color: #444;
-            font-size: 25px;
+                color: #444;
+                font-size: 25px;
 
             }
         }
@@ -219,6 +228,7 @@ $nomeusuario = $_SESSION['user'];
             margin: 80px;
 
         }
+
         .card {
             border-radius: 8%;
             background-color: #00d9ff15;
@@ -280,9 +290,9 @@ $nomeusuario = $_SESSION['user'];
         }
 
         h4 {
-                font-size: 13px;
-                color: #5a5a5a;
-            }
+            font-size: 13px;
+            color: #5a5a5a;
+        }
 
         h6 {
             color: #444;
@@ -311,7 +321,8 @@ $nomeusuario = $_SESSION['user'];
                 <div class="textoEsquerdo">
                     <h1>Gostaria de ser <strong>Voluntário?</strong></h1><br>
                     <h2>Em nossa plataforma você pode se <strong>conectar</strong> com diversas <i>ONGs</i> e escolher a atividade que mais <u>tem a ver com você</u>!</h2>
-                    <br><h2>Veja em tempo real as atividades disponíveis em sua região:</h2>
+                    <br>
+                    <h2>Veja em tempo real as atividades disponíveis em sua região:</h2>
                 </div>
             </div>
 
@@ -419,7 +430,9 @@ $nomeusuario = $_SESSION['user'];
                     <h6>Focamos em ampliar o contato das Casas de Apoio com o público, tornando-as mais acessíveis e mais evidentes para pessoas que buscam desenvolver o voluntariado.</h6>
                     <h6>Utilize os recursos disponíveis em nossa plataforma para encontrar facilmente a casa de apoio mais próxima de você. Saiba exatamente como ajudar.</h6>
                     <h6>Você é o gestor de uma casa de apoio? com nossa plataforma será possível alcançar um público maior de voluntários, além de conseguir elencar suas necessidades em tempo real. Torne claro para as pessoas de que maneira podem ajudar!</h6><br>
-                    <i><h4>Somos uma iniciativa de estudantes da instituição de ensino ETE Ginásio Pernambucano, de Recife/PE.</h4></i>
+                    <i>
+                        <h4>Somos uma iniciativa de estudantes da instituição de ensino ETE Ginásio Pernambucano, de Recife/PE.</h4>
+                    </i>
                 </div>
             </div>
         </div>
@@ -427,7 +440,7 @@ $nomeusuario = $_SESSION['user'];
         <div class="container" id="anchor-voluntario">
             <div class="row">
                 <div class="col-12" id="anchor">
-                    <h3 class="main-title" >O que é ser voluntário</h3>
+                    <h3 class="main-title">O que é ser voluntário</h3>
                 </div>
                 <div class="main-title-linha">
 
@@ -527,52 +540,42 @@ $nomeusuario = $_SESSION['user'];
                 </div>
             </main>
         </div>
-
-
-
-
-
-
-        <div class="mainpost">
-            <!-- formulario de envio -->
-            <ul class="Post" id="posts">
-
-            </ul>
-        </div>
-
-
-
-
-
-
     </div>
 
+
+  
     <?php
 
+    $quantidadedepost = quantidadedeposts();
+    $conteudo_post = array();
+    $files_post = array();
+    $email_post = array();
+    $id_post = array();
 
-    require_once '../controllers/funcoes.php';
-
-
-    if (isset($_POST['textarea'])) {
-
-        $conteudo = $_POST['textarea'];
-        if ($p->addPost($conteudo)) {
-
-            echo "foi";
-        } else {
-            echo "erro";
-        }
+    for ($i = 1; $quantidadedepost + 1 > $i; $i++) {
+        $conteudo_post[] = (($i * 4) - 3) - 1;
+        $files_post[] = (($i * 4) - 2) - 1;
+        $email_post[] = (($i * 4) - 1) - 1;
+        $id_post[] = (($i * 4)) - 1;
     }
 
+    $post_one = Exibirposts();
+    $post_supremo = array();
+    $post_ultra = array();
+    foreach ($post_one as $post) {
+        $post_supremo[] = $post;
+    }
+    for ($i = 0; $i < quantidadedeposts(); $i++) {
 
+        foreach ($post_supremo[$i] as $elemento) {
+            $post_ultra[] = $elemento;
+        }
+    }
+    for ($i = 0; $i < count($conteudo_post); $i++) {
 
-
-
+        Telainicial($post_ultra[$email_post[$i]], $post_ultra[$conteudo_post[$i]]);
+    }
     ?>
-
-
-
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

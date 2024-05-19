@@ -95,18 +95,31 @@ class Conexao
         return $res;
     }
 
-    function addPost($conteudo){
+    function addPost($conteudo,$file,$email){
 
           // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
-          $comando = $this->pdo->prepare("INSERT INTO  publicaçoes(conteudo) VALUES(:c)");
-     
+          $comando = $this->pdo->prepare("INSERT INTO  publi(conteudo,files,email_user) VALUES(:c, :f, :e)");
           $comando->bindValue(":c", "$conteudo");
-         
+          $comando->bindValue(":f", "$file");
+          $comando->bindValue(":e", "$email");
           // EXECUTA OS COMANDOS
           $comando->execute();
-          Mensagem("Publicado", "success");
           // RETORNA VERDADEIRO
           return true;
+
+    }
+
+
+
+
+    function Buscarpost(){
+
+        $cmd = $this->pdo->prepare("SELECT * FROM publi");
+        $cmd->execute();
+        $resultado = $cmd->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultado;
+
 
     }
 }
@@ -120,6 +133,7 @@ function Mensagem($mensagem, $tipo)
                 </div>
                 <br>";
 }
+
 
 
 
