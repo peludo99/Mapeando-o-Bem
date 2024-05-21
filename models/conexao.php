@@ -95,13 +95,14 @@ class Conexao
         return $res;
     }
 
-    function addPost($conteudo,$file,$email){
+    function addPost($conteudo,$file,$email,$nomeusuario){
 
           // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
-          $comando = $this->pdo->prepare("INSERT INTO  publi(conteudo,files,email_user) VALUES(:c, :f, :e)");
+          $comando = $this->pdo->prepare("INSERT INTO  publi(conteudo,files,email_user,nome) VALUES(:c, :f, :e, :n)");
           $comando->bindValue(":c", "$conteudo");
           $comando->bindValue(":f", "$file");
           $comando->bindValue(":e", "$email");
+          $comando->bindValue(":n", "$nomeusuario");
           // EXECUTA OS COMANDOS
           $comando->execute();
           // RETORNA VERDADEIRO
@@ -121,6 +122,48 @@ class Conexao
         return $resultado;
 
 
+    }
+
+
+
+    function Buscarcadastro1($id)
+    {
+        // CRIA ARRAY $res
+        $res = array();
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("SELECT * FROM cadastros WHERE idcadastro = :i ORDER BY idcadastro");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":i", $id);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        // RETORNA A LISTA
+        return $res;
+    }
+
+
+
+    function Alterarcadastro($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id)
+    {
+       
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("UPDATE cadastros SET nick= :n, email= :e,senha= :s, cep= :c, rua= :r, bairro= :b , estado= :T WHERE idcadastro = :i");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":i", $id);
+        $cmd->bindValue(":n", $nome);
+        $cmd->bindValue(":e", $email);
+        $cmd->bindValue(":s", $senha);
+        $cmd->bindValue(":r", $rua);
+        $cmd->bindValue(":c", $cep);
+        $cmd->bindValue(":T", $estado);
+        $cmd->bindValue(":b", $bairro);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $cmd->fetchAll(PDO::FETCH_ASSOC);
+        // RETORNA A LISTA
+        return true;
     }
 }
 // FIM CLASSE PESSOA

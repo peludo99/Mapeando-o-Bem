@@ -4,14 +4,23 @@ require_once('../controllers/funcoes.php');
 session_start();
 $nomeusuario = $_SESSION['user'];
 $email = $_SESSION['email'];
+$id = $_SESSION['id'];
 
 if (isset($_POST['textarea'])) {
 
     $conteudo = $_POST['textarea'];
     $file = '';
-    if (AdicionarPost($conteudo, $file, $email)) {
+    if (!$conteudo == "" or !$conteudo == NULL) {
+        AdicionarPost($conteudo, $file, $email, $nomeusuario);
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'post') {
+        echo "olaaaa";
+
+        $conteudo = ""; // Limpa o valor do textarea
     }
 }
+
 
 ?>
 
@@ -29,7 +38,7 @@ if (isset($_POST['textarea'])) {
     <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script type="module" src="./js/FormPost.js"></script>
+    <script type="module" src="../controllers/funcoes.js"></script>
     <title>Document</title>
 
 
@@ -85,7 +94,13 @@ if (isset($_POST['textarea'])) {
 
                         <div class="botoes">
 
-                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./usuario.php"><i class="fa-solid fa-gear"></i>
+                            <?php
+
+                            echo"<a class='btn btn-outline-primary' style='border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);'' href='./usuario.php?'><i class='fa-solid fa-gear'>"
+                            
+                            
+                            
+                            ?></i>
                                 <texto style="color: white">Editar Perfil</texto>
                             </a>
 
@@ -299,6 +314,11 @@ if (isset($_POST['textarea'])) {
             margin-top: 14px;
             font-size: 18px;
             text-align: justify;
+        }
+
+        .posteant{
+            display: flex;
+            flex-direction: column-reverse;
         }
 
         /* ----------------------------------------------- */
@@ -539,45 +559,53 @@ if (isset($_POST['textarea'])) {
                     </form>
                 </div>
             </main>
-        </div>
-    </div>
+       
 
 
-  
-    <?php
-
-    $quantidadedepost = quantidadedeposts();
-    $conteudo_post = array();
-    $files_post = array();
-    $email_post = array();
-    $id_post = array();
-
-    for ($i = 1; $quantidadedepost + 1 > $i; $i++) {
-        $conteudo_post[] = (($i * 4) - 3) - 1;
-        $files_post[] = (($i * 4) - 2) - 1;
-        $email_post[] = (($i * 4) - 1) - 1;
-        $id_post[] = (($i * 4)) - 1;
-    }
-
-    $post_one = Exibirposts();
-    $post_supremo = array();
-    $post_ultra = array();
-    foreach ($post_one as $post) {
-        $post_supremo[] = $post;
-    }
-    for ($i = 0; $i < quantidadedeposts(); $i++) {
-
-        foreach ($post_supremo[$i] as $elemento) {
-            $post_ultra[] = $elemento;
+<div class="posteant">
+    
+        <?php
+    
+        $quantidadedepost = quantidadedeposts();
+        $conteudo_post = array();
+        $files_post = array();
+        $email_post = array();
+        $id_post = array();
+    
+        for ($i = 1; $quantidadedepost + 1 > $i; $i++) {
+            $conteudo_post[] = (($i * 5) - 4) - 1;
+            $files_post[] = (($i * 5) - 3) - 1;
+            $email_post[] = (($i * 5) - 2) - 1;
+            $nome_post[] = (($i * 5) - 1) - 1;
+            $id_post[] = (($i * 5));
         }
-    }
-    for ($i = 0; $i < count($conteudo_post); $i++) {
+    
+        $post_one = Exibirposts();
+    
+        $post_supremo = array();
+        $post_ultra = array();
+        foreach ($post_one as $post) {
+            $post_supremo[] = $post;
+        }
+        for ($i = 0; $i < quantidadedeposts(); $i++) {
+    
+            foreach ($post_supremo[$i] as $elemento) {
+                $post_ultra[] = $elemento;
+            }
+        }
+    
+        for ($i = 0; $i < count($conteudo_post); $i++) {
+    
+            Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]]);
+        }
+    
+        ?>
+</div>
+  
+ </div>
+    </div> 
 
-        Telainicial($post_ultra[$email_post[$i]], $post_ultra[$conteudo_post[$i]]);
-    }
-    ?>
     <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

@@ -578,8 +578,12 @@ testar {
 
 .Post {
 
-    background-color: #fdfdfd;
+    
 
+    background-color: #ebebeb;
+    
+    border: 2px solid;
+border-color: #ac819e;
     width: 900px;
     height: auto;
     margin: auto;
@@ -812,7 +816,9 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    
    .buttonadd:active .icon svg {
     transform: scale(0.8);
+   
    }
+
 
 
    

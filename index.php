@@ -4,7 +4,7 @@
 <head>
   <title>Redirecionamento</title>
   <meta http-equiv="refresh" content="3; URL=./views/bem_vindo.php">
-  <link rel="stylesheet" href="..viwes/css/style.css">
+  <link rel="stylesheet" href="./views/css/style.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="..views/css/bootstrap.min.css">
 
@@ -60,7 +60,7 @@
   <div class="carregando">
   <i class="fa-solid fa-circle-notch fa-spin fa-4x" style="color: #27232625;"></i>
   </div>
-  <img style="margin-top: 15%;width:17%;" src="./css/assets/casinhabola.png" class="pulse">
+  <img style="margin-top: 15%;width:17%;" src="./views/css/assets/casinhabola.png" class="pulse">
 
 
 

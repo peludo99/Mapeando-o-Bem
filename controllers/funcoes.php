@@ -43,11 +43,11 @@ function CadastrarUsuarios($nome, $email, $senha)
 };
 
 
-function AdicionarPost($conteudo, $file, $email)
+function AdicionarPost($conteudo, $file, $email,$nomeusuario)
 {
     global $conexao;
 
-    if ($conexao->addPost($conteudo, $file, $email)) {
+    if ($conexao->addPost($conteudo, $file, $email, $nomeusuario)) {
 
         return true;
     }
@@ -132,8 +132,8 @@ function quantidadedeposts()
    
     $quantidadedeposts = count($dados);
 
-    return $quantidadedeposts/4;
-};
+    return $quantidadedeposts/5;
+}
 
 
 
@@ -147,6 +147,22 @@ function quantidadedeposts()
 // $id_post = array();
 
 
+
+function BuscarDadosCadastro1($id)
+{
+
+    global $conexao;
+    $res = $conexao->Buscarcadastro1($id);
+
+    return $res;
+}
+
+
+function Alterardados($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id)
+{
+    global $conexao;
+    $conexao->Alterarcadastro($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id);
+}
 
 
 ?>
