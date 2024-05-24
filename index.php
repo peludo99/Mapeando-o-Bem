@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="..views/css/bootstrap.min.css">
 
   <style>
-
     /* IMAGEM DE CARREGAMENTO PULSANDO */
     .pulse {
       animation: pulse 0.7s infinite;
@@ -20,6 +19,30 @@
       -webkit-animation-name: pulse;
       animation-name: pulse;
     }
+
+    .busher-direito {
+
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 3px;
+      right: -20px;
+      overflow: hidden;
+
+    }
+
+    .busher-esquerdo {
+
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0px;
+      
+      overflow: hidden;
+
+    }
+
+
 
     @-webkit-keyframes pulse {
       0% {
@@ -44,9 +67,8 @@
         filter: brightness(200%);
       }
     }
+
     /* ---------------------------------------- */
-
-
   </style>
 
 
@@ -54,13 +76,18 @@
 </head>
 
 <body>
-  
-  <p>Aguarde, você será redirecionado...</p>
 
-  <div class="carregando">
-  <i class="fa-solid fa-circle-notch fa-spin fa-4x" style="color: #27232625;"></i>
+  <div class="conteudo-index">
+
+    <img style="margin-top: 15%;width:17%;" src="./views/css/assets/casinhabola.png" class="pulse">
+
+
+
   </div>
-  <img style="margin-top: 15%;width:17%;" src="./views/css/assets/casinhabola.png" class="pulse">
+
+  <img class="busher-direito" src="./views/css/assets/busher_index_direito.png" alt="">
+
+  <img src="./views/css/assets/busher_index_superior esquerdo.png" alt="" class="busher-esquerdo">
 
 
 

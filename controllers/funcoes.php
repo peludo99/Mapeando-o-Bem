@@ -64,6 +64,13 @@ function Exibirposts()
 
 function Telainicial($post_user,$post)
 {
+
+    
+ date_default_timezone_set('America/Sao_Paulo');  
+    $hoje = date('d/m/Y');
+    $hora_atual = date('H:i');
+
+
     echo "<ul class='Post' id='posts'>";
     echo "<div class='infoUser'>";
     echo " <div class='imgUser'>";
@@ -78,7 +85,7 @@ function Telainicial($post_user,$post)
     echo "  </stron>";
     echo "  <div class='hora'>";
 
-    echo "     <hora> Postado em 21h</hora>";
+    echo "     <hora> Postado em ".$hoje." as ".$hora_atual."h </hora>";
     echo " </div>";
     echo "<div class='iconsAndButton'>";
     echo "<div class='btnpost'>";

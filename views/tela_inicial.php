@@ -12,13 +12,10 @@ if (isset($_POST['textarea'])) {
     $file = '';
     if (!$conteudo == "" or !$conteudo == NULL) {
         AdicionarPost($conteudo, $file, $email, $nomeusuario);
+        header("location: tela_inicial.php#anchor-linhadotempo");
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'post') {
-        echo "olaaaa";
-
-        $conteudo = ""; // Limpa o valor do textarea
-    }
+    
 }
 
 
@@ -519,7 +516,7 @@ if (isset($_POST['textarea'])) {
 
         <div class="baixo">
 
-            <h1 class="main-title">Linha do Tempo</h1>
+            <h1 class="main-title" id="anchor-linhadotempo">Linha do Tempo</h1>
 
             <main class="main">
                 <!-- formulario de envio -->
@@ -539,7 +536,7 @@ if (isset($_POST['textarea'])) {
 
                             <div class="btnimg">
 
-                                <button class="buttonadd"><span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span></button>
+                                <button type="file" class="buttonadd"><span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span></button>
 
                             </div>
 

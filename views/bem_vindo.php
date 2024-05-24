@@ -8,8 +8,9 @@
 
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../views/css/style.css">
+
   <link rel="stylesheet" href="../views/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../views/css/style.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="../views/css/assets/favicon.ico" type="image/x-icon">
   <title>Tela Inicial</title>
@@ -55,6 +56,33 @@
       font-size: 20px;
       font-weight: bold;
       color: rgb(70, 7, 88);
+      top: 0;
+    }
+
+    .blob-direito {
+      position: absolute;
+      top: 28%;
+      right: -10px;
+
+      width: 700px;
+      height: 525px;
+      z-index: -1;
+    }
+
+    .blob-esquerdo {
+
+      position: absolute;
+      top: -230px;
+      z-index: -1;
+
+    }
+
+    .bg-pessoa {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 1.1%;
+      top: 8%;
     }
 
     /* ---------------------------------------- */
@@ -130,13 +158,16 @@
       </div>
       <div class="item-dois">
 
-        <img src="./css/assets/bg_pessoa.png" alt="">
+       
+
       </div>
     </div>
 
 
   </div>
-
+  <img src="./css/assets/Dual_blob_bemvindo_direito.png" alt="" class="blob-direito">
+  <img src="./css/assets/blob_bemvindo_direito.png" alt="" class="blob-esquerdo"> 
+  <img src="./css/assets/bg_pessoas.png" alt="" class="bg-pessoa">
 </body>
 
 </html>
