@@ -14,7 +14,6 @@ if (isset($_POST['textarea'])) {
         AdicionarPost($conteudo, $file, $email, $nomeusuario);
         header("location: tela_inicial.php#anchor-linhadotempo");
     }
-
 }
 
 ?>
@@ -319,8 +318,6 @@ if (isset($_POST['textarea'])) {
             display: flex;
             flex-direction: column-reverse;
         }
-
-        
     </style>
 
 
@@ -556,6 +553,75 @@ if (isset($_POST['textarea'])) {
 
                         </div>
                     </form>
+                </div>
+
+
+                <div class="chatbox-wrapper">
+                    <div class="chatbox-toggle">
+                        <i class="fa-solid fa-message"></i>
+
+                    </div>
+                    <div class="chatbox-menssage-wrapper">
+                        <div class="chatbox-menssage-header">
+                            <div class="chatbox-menssege-profile">
+                                <div class="div">
+                                    <img class="chatbox-message-imagem" src="./css/assets/perfil.png" alt="">
+                                    <h4 class="chatbox-message-name">Bot</h4>
+                                    <p class="chatbox-message-status">online</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox-message-content">
+
+                        <h4 class="chatbox-message-no-message">Tire suas duvidas aqui!</h4>
+
+
+
+<!-- 
+                            <div class="chatbox-message-item sent">
+                                <span class="chatbox-message-item-text">
+                                    Ola seja bem vindo digite uma das opçoes abaixo
+                                </span>
+                                <span class="chatbox-messege-item-time"></span>
+                            </div>
+
+
+
+
+                            <div class="chatbox-message-item sent">
+                                <span class="chatbox-message-item-text">
+                                    1 Sobre nos
+                                    <br>
+                                    2 Alterar senha
+                                    <br>
+                                    3 torna-se membro Mapeando o bem
+                                    <br>
+                                </span>
+                                <span class="chatbox-messege-item-time"></span>
+                            </div> -->
+
+
+
+                            <div class="chatbox-message-item received">
+                                <span class="chatbox-message-item-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt blanditiis dolorem quas, reiciendis culpa necessitatibus unde laborum, delectus repellat ipsum ab modi ratione repudiandae, porro tenetur officia explicabo dicta pariatur!
+                                </span>
+                                <span class="chatbox-messege-item-time"></span>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="chatbox-message-bottom">
+                            <form action="#" class="chatbox-message-form">
+                                <textarea name="" id="" rows="1" placeholder="escreva algo" class="chatbox-message-input"></textarea>
+
+
+                                <button class="chatbox-message-submit" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </main>
 
