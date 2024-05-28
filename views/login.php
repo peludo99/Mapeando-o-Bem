@@ -12,18 +12,18 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
   $resultado = array();
   // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
   $resultado = Buscardadosdelogin($email, $senha);
- 
+
   // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
   if (count($resultado) > 0) {
     // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
     $usuario = $resultado[0];
     $user = array();
-    foreach($usuario as $nome){
+    foreach ($usuario as $nome) {
       $user[] = $nome;
     };
 
-  
-    
+
+
     session_start();
 
     $_SESSION['user'] = $user[0];
@@ -33,6 +33,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
     header("Location: tela_inicial.php");
   }
 }
+
 ?>
 
 
@@ -46,6 +47,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
+
   <title>Login</title>
   <style>
     .btn-outline-primary:hover {
@@ -62,13 +64,15 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 
 <body class="logar-js">
 
- 
 
- 
+
+
+
+
 
   <!-- AREA HTML -->
 
-  <div class="containerlog">
+  <div id='status' class="containerlog">
     <div class="conteudo conteudo-um">
       <div class="coluna-um">
         <h2 class="titulo-bem">
@@ -82,7 +86,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         <h2 class="titulo-cad">Criar cadastro</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
-            <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li class="item-rede"><a href="#" id="logar"><i class="fa-brands fa-facebook"></i></a></li>
             <li class="item-rede"><a href="#"><i class="fa-brands fa-google"></i></a></li>
             <li class="item-rede"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
           </ul>
@@ -121,7 +125,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         </form>
       </div>
       <div class="coluna-dois">
-        <img  src="css/assets/logomob.png" alt="logo">
+        <img src="css/assets/logomob.png" alt="logo">
         <h2 class="titulo-cad">Acesse Sua conta</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
@@ -145,6 +149,10 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
           <a class="senha" href="#">Esqueceu a senha?</a>
           <br>
 
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+          </fb:login-button>
+          <br>
+
           <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171) ;" class="btn btn-outline-primary" value="Logar">
           <br>
 
@@ -154,14 +162,13 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         <?php
         // INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
         if (isset($_POST["email"])) {
-           // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
+          // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
           $email = $_POST["email"];
           $senha = $_POST["senha"];
           // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
           $resultado = Buscardadosdelogin($email, $senha);
           // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
           if (count($resultado) > 0) {
-                
           } else {
             // CASO O ARRAY ESTIVER VAZIO O CLIENTE NÃO TEM CADASTRO
             Mensagem("OPS!, Email ou Senha incorreto!", "danger");

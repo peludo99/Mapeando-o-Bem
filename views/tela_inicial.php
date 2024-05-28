@@ -12,12 +12,7 @@ if (isset($_POST['textarea'])) {
     $file = '';
     if (!$conteudo == "" or !$conteudo == NULL) {
         AdicionarPost($conteudo, $file, $email, $nomeusuario);
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'post') {
-        echo "olaaaa";
-
-        $conteudo = ""; // Limpa o valor do textarea
+        header("location: tela_inicial.php#anchor-linhadotempo");
     }
 }
 
@@ -39,14 +34,14 @@ if (isset($_POST['textarea'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script type="module" src="../controllers/funcoes.js"></script>
-    <title>Document</title>
+    <title>Tela Inicial</title>
 
 
 
 
     <!-- Barra de Navegação -->
     <nav style="background: rgb(219 164 234)" class="navbar fixed-top">
-        <div class="container-fluid">
+        <div class="container-fluid" style="justify-content:start;">
             <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
             <tr class="navbar-nav me-auto mb-2 mb-lg-0">
                 <td class="nav-item">
@@ -55,11 +50,13 @@ if (isset($_POST['textarea'])) {
                 <td class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Quem somos</a>
                 </td>
+                <td>
+                    <button style="margin-left: auto;" class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <!-- <span class="navbar-toggler-icon"></span> -->
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </td>
             </tr>
-            <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <!-- <span class="navbar-toggler-icon"></span> -->
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
@@ -96,12 +93,12 @@ if (isset($_POST['textarea'])) {
 
                             <?php
 
-                            echo"<a class='btn btn-outline-primary' style='border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);'' href='./usuario.php?'><i class='fa-solid fa-gear'>"
-                            
-                            
-                            
+                            echo "<a class='btn btn-outline-primary' style='border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);'' href='./usuario.php?'><i class='fa-solid fa-gear'>"
+
+
+
                             ?></i>
-                                <texto style="color: white">Editar Perfil</texto>
+                            <texto style="color: white">Editar Perfil</texto>
                             </a>
 
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="#"><img class="logo" src="css/assets/home_2544087.png" alt="">
@@ -316,12 +313,14 @@ if (isset($_POST['textarea'])) {
             text-align: justify;
         }
 
-        .posteant{
+
+        /* MODIFICAÇÕES NO POST */
+        .posteant {
             display: flex;
             flex-direction: column-reverse;
         }
 
-        /* ----------------------------------------------- */
+        
     </style>
 
 
@@ -519,7 +518,7 @@ if (isset($_POST['textarea'])) {
 
         <div class="baixo">
 
-            <h1 class="main-title">Linha do Tempo</h1>
+            <h1 class="main-title" id="anchor-linhadotempo">Linha do Tempo</h1>
 
             <main class="main">
                 <!-- formulario de envio -->
@@ -539,7 +538,7 @@ if (isset($_POST['textarea'])) {
 
                             <div class="btnimg">
 
-                                <button class="buttonadd"><span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span></button>
+                                <button type="file" class="buttonadd"><span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span></button>
 
                             </div>
 
@@ -559,51 +558,51 @@ if (isset($_POST['textarea'])) {
                     </form>
                 </div>
             </main>
-       
 
 
-<div class="posteant">
-    
-        <?php
-    
-        $quantidadedepost = quantidadedeposts();
-        $conteudo_post = array();
-        $files_post = array();
-        $email_post = array();
-        $id_post = array();
-    
-        for ($i = 1; $quantidadedepost + 1 > $i; $i++) {
-            $conteudo_post[] = (($i * 5) - 4) - 1;
-            $files_post[] = (($i * 5) - 3) - 1;
-            $email_post[] = (($i * 5) - 2) - 1;
-            $nome_post[] = (($i * 5) - 1) - 1;
-            $id_post[] = (($i * 5));
-        }
-    
-        $post_one = Exibirposts();
-    
-        $post_supremo = array();
-        $post_ultra = array();
-        foreach ($post_one as $post) {
-            $post_supremo[] = $post;
-        }
-        for ($i = 0; $i < quantidadedeposts(); $i++) {
-    
-            foreach ($post_supremo[$i] as $elemento) {
-                $post_ultra[] = $elemento;
-            }
-        }
-    
-        for ($i = 0; $i < count($conteudo_post); $i++) {
-    
-            Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]]);
-        }
-    
-        ?>
-</div>
-  
- </div>
-    </div> 
+
+            <div class="posteant">
+
+                <?php
+
+                $quantidadedepost = quantidadedeposts();
+                $conteudo_post = array();
+                $files_post = array();
+                $email_post = array();
+                $id_post = array();
+
+                for ($i = 1; $quantidadedepost + 1 > $i; $i++) {
+                    $conteudo_post[] = (($i * 5) - 4) - 1;
+                    $files_post[] = (($i * 5) - 3) - 1;
+                    $email_post[] = (($i * 5) - 2) - 1;
+                    $nome_post[] = (($i * 5) - 1) - 1;
+                    $id_post[] = (($i * 5));
+                }
+
+                $post_one = Exibirposts();
+
+                $post_supremo = array();
+                $post_ultra = array();
+                foreach ($post_one as $post) {
+                    $post_supremo[] = $post;
+                }
+                for ($i = 0; $i < quantidadedeposts(); $i++) {
+
+                    foreach ($post_supremo[$i] as $elemento) {
+                        $post_ultra[] = $elemento;
+                    }
+                }
+
+                for ($i = 0; $i < count($conteudo_post); $i++) {
+
+                    Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]]);
+                }
+
+                ?>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
