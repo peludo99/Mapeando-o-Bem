@@ -13,9 +13,6 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 2px;
-    
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 /* ---------------------------------------- */
@@ -34,7 +31,6 @@ body {
     align-items: center;
 }
 
-
 testar {
     color: rgba(238, 84, 205, 0.541);
     border-color: none;
@@ -52,7 +48,6 @@ testar {
 
     height: auto;
     width: 100%;
-    z-index: 10;
 }
 
 /* -------------------tela login--------------------------- */

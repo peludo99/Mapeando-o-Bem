@@ -14,8 +14,8 @@ if (isset($_POST['textarea'])) {
         AdicionarPost($conteudo, $file, $email, $nomeusuario);
         header("location: tela_inicial.php#anchor-linhadotempo");
     }
-}
 
+}
 
 ?>
 

@@ -14,7 +14,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 
-
     <title>Bem-Vindo(a)</title>
 
     <style>
@@ -172,7 +171,6 @@
         }
     </style>
 
-
 </head>
 
 <body>
@@ -226,6 +224,7 @@
                 <!-- background-color:rgb(238, 84, 204); -->
             </form>
         </div>
+
     </div>
 
 
