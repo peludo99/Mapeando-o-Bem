@@ -577,41 +577,6 @@ if (isset($_POST['textarea'])) {
 
 
 
-<!-- 
-                            <div class="chatbox-message-item sent">
-                                <span class="chatbox-message-item-text">
-                                    Ola seja bem vindo digite uma das opçoes abaixo
-                                </span>
-                                <span class="chatbox-messege-item-time"></span>
-                            </div>
-
-
-
-
-                            <div class="chatbox-message-item sent">
-                                <span class="chatbox-message-item-text">
-                                    1 Sobre nos
-                                    <br>
-                                    2 Alterar senha
-                                    <br>
-                                    3 torna-se membro Mapeando o bem
-                                    <br>
-                                </span>
-                                <span class="chatbox-messege-item-time"></span>
-                            </div> -->
-
-
-
-                            <div class="chatbox-message-item received">
-                                <span class="chatbox-message-item-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt blanditiis dolorem quas, reiciendis culpa necessitatibus unde laborum, delectus repellat ipsum ab modi ratione repudiandae, porro tenetur officia explicabo dicta pariatur!
-                                </span>
-                                <span class="chatbox-messege-item-time"></span>
-                            </div>
-
-
-
-
                         </div>
                         <div class="chatbox-message-bottom">
                             <form action="#" class="chatbox-message-form">

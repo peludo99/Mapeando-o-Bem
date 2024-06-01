@@ -860,6 +860,9 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 .chatbox-message-item.received{
     text-align: justify;
+    display: flex;
+    justify-content: space-between;
+    
     background-color: white;
     border-radius: 0 .75rem .75rem .75rem;
     box-shadow: .25rem .25rem 1.5rem rgba(0, 0, 0, 0.089);

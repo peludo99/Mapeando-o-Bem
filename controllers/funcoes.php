@@ -172,5 +172,15 @@ function Alterardados($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id)
 }
 
 
+function Mensagems($mensagem, $tipo)
+{
+
+    echo "<div class='alert alert-$tipo' role='alert'>
+                $mensagem
+                </div>
+                <br>";
+}
+
+
 ?>
 

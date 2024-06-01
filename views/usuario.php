@@ -216,120 +216,148 @@
 
  </head>
 
- <body>
 
-     <?php
-        $dados_bruto = BuscarDadosCadastro1($id_user);
-        $dados = array();
 
-        for ($i = 0; $i < count($dados_bruto); $i++) {
+ <?php
 
-            foreach ($dados_bruto[$i] as $elemento) {
-                $dados[] = $elemento;
+
+
+    if (isset($_POST['email'])) {
+
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $nome = $_POST['nome'];
+
+        // Buscar cep 
+
+
+        if (isset($_POST['cep'])) {
+
+
+
+
+
+            if (mb_strlen($_POST['cep']) == 8) {
+                $cepvia = $_POST['cep'];
+                $endereco = array();
+                if (!$cepvia == null) {
+
+                    $url = "https://viacep.com.br/ws/{$cepvia}/json/";
+                    $endereco = json_decode(file_get_contents($url), true);
+
+                    if (isset($endereco['erro'])) {
+                        if ($endereco['erro'] == true) {
+                            Mensagems("CEP não encontrado", "danger");
+                        }
+                    } else {
+
+                        $cep = $_POST['cep'];
+                        $estado = $endereco['uf'];
+                        $bairro = $endereco['bairro'];
+                        $rua = $endereco['logradouro'];
+
+                        Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id_user);
+                    }
+                }
+            } else {
+                Mensagems("CEP incompleto", "danger");
             }
         }
-
-        if (isset($_POST['email'])) {
-            $rua = $_POST['rua'];
-            $email = $_POST['email'];
-            $senha = $_POST['senha'];
-            $nome = $_POST['nome'];
-            $cep = $_POST['cep'];
-            $estado = $_POST['estado'];
-            $bairro = $_POST['bairro'];
+    }
 
 
+    $dados_bruto = BuscarDadosCadastro1($id_user);
+    $dados = array();
 
+    for ($i = 0; $i < count($dados_bruto); $i++) {
 
-            Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id_user);
+        foreach ($dados_bruto[$i] as $elemento) {
+            $dados[] = $elemento;
         }
+    }
 
 
 
 
 
 
+    ?>
 
 
-
-        ?>
-
-
-     <body style="align-itens:center">
+ <body style="aling-item:center">
 
 
-         <div class="editusuario">
+     <div class="editusuario">
 
-             <div class="header">
-                 <H1>Perfil</H1>
-                 <?php echo "<h2>$nome_usuario</h2>"; ?>
-                 <img class="foto" src="css/assets/perfil.png" alt="">
-             </div>
+         <div class="header">
+             <H1>Perfil</H1>
+             <?php echo "<h2>$nome_usuario</h2>"; ?>
+             <img class="foto" src="css/assets/perfil.png" alt="">
+         </div>
 
-             <div class="about">
-                 <h1>Sobre mim:</h2>
-                     <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas. <br>Atualmente tenho mais contato com <strong>abrigos de animais</strong> e <strong>asilos</strong>.</p>
-             </div>
+         <div class="about">
+             <h1>Sobre mim:</h2>
+                 <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas. <br>Atualmente tenho mais contato com <strong>abrigos de animais</strong> e <strong>asilos</strong>.</p>
+         </div>
 
-             <div class="social">
-                 <p>Me acompanhe:</p>
-                 <i class="fa-brands fa-square-instagram"></i>
-                 <i class="fa-brands fa-square-facebook"></i>
-             </div>
 
-             <div class="modificacoes">
-                 <form class="form" action="../views/usuario.php" method="post">
-                     <h2>Informações Pessoais</h2>
+         <?php
+            ?>
 
+         <div class="social">
+             <p>Me acompanhe:</p>
+             <i class="fa-brands fa-square-instagram"></i>
+             <i class="fa-brands fa-square-facebook"></i>
+         </div>
+
+         <div class="modificacoes">
+             <form class="form" action="../views/usuario.php" method="post">
+                 <h2>Informações Pessoais</h2>
+
+                 <span class="input-span">
+                     <label for="nome" class="label">Nome</label>
+                     <input type="text" name="nome" id="nome" value="<?php echo $dados[0]; ?>"></span>
+                 <span class="input-span">
+                     <label for="cep" class="label">CEP</label>
+                     <input type="text" name="cep" id="cep" placeholder="Digite seu cep" value="<?php echo $dados[3]; ?>"></span>
+                 <span class="input-span">
                      <span class="input-span">
-                         <label for="nome" class="label">Nome</label>
-                         <input type="text" name="nome" id="nome" value="<?php echo $dados[0]; ?>"></span>
+                         <label for="rua" class="label">Rua</label>
+                         <input type="text" name="rua" id="rua" placeholder="Digite sua Rua (opcional)" value="<?php echo $dados[4]; ?>"></span>
                      <span class="input-span">
-                         <label for="cep" class="label">CEP</label>
-                         <input type="text" name="cep" id="cep" value="<?php echo $dados[3]; ?>"></span>
+
+                         <label for="bairro" class="label">Bairro</label>
+                         <input type="text" name="bairro" id="bairro" placeholder="Digite seu Bairro (opcional)" value="<?php echo $dados[5]; ?>"></span>
                      <span class="input-span">
+
+                         <label for="estado" class="label">Estado</label>
+                         <input type="text" name="estado" id="estado" placeholder="Digite seu Estado (opcional)" value="<?php echo $dados[6]; ?>"></span>
+
+
+
+                     <div class="seguranca">
+                         <h2>Segurança da Conta</h2>
+
                          <span class="input-span">
-                             <label for="rua" class="label">Rua</label>
-                             <input type="text" name="rua" id="rua" value="<?php echo $dados[4]; ?>"></span>
+                             <label for="email" class="label">Email</label>
+                             <input type="email" name="email" id="email" value="<?php echo $dados[1]; ?>"></span>
                          <span class="input-span">
-
-                             <label for="bairro" class="label">bairro</label>
-                             <input type="text" name="bairro" id="bairro" value="<?php echo $dados[5]; ?>"></span>
-                         <span class="input-span">
-
-                             <label for="estado" class="label">Estado</label>
-                             <input type="text" name="estado" id="estado" value="<?php echo $dados[6]; ?>"></span>
+                             <label for="password" class="label">Password</label>
+                             <input type="password" name="senha" id="password" value="<?php echo $dados[2]; ?>"></span><br>
 
 
-
-                         <div class="seguranca">
-                             <h2>Segurança da Conta</h2>
-
-                             <span class="input-span">
-                                 <label for="email" class="label">Email</label>
-                                 <input type="email" name="email" id="email" value="<?php echo $dados[1]; ?>"></span>
-                             <span class="input-span">
-                                 <label for="password" class="label">Password</label>
-                                 <input type="password" name="senha" id="password" value="<?php echo $dados[2]; ?>"></span><br>
+                         <input type="hidden" name="id" value="<?php echo $dados[7]; ?>">
 
 
-                             <input type="hidden" name="id" value="<?php echo $dados[7]; ?>">
+                         <button type="submit" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Atualizar informaçoes</button>
 
-
-                             <button type="submit" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Atualizar informaçoes</button>
-
-                             <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
+                         <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
 
 
 
 
-                         </div>
-                 </form>
-
-
-             </div>
-
-
+                     </div>
+             </form>
 
 
          </div>
@@ -337,10 +365,15 @@
 
 
 
+     </div>
 
 
 
 
-     </body>
+
+
+
+
+ </body>
 
  </html>
