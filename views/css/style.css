@@ -19,13 +19,13 @@ body {
 
 .carregando {
 
-    
+
     width: 100px;
     margin: auto;
 
 }
 
-.conteudo-index{
+.conteudo-index {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -285,7 +285,7 @@ testar {
     flex-direction: column;
     text-align: center;
     margin: auto;
-    margin-top: 0%;
+    margin-top: 1%;
 
 
     background-color: #ffffff;
@@ -299,8 +299,12 @@ testar {
 .blocos {
     display: flex;
     flex-direction: row;
-
+    z-index: -10;
     align-items: center;
+}
+
+.hidden {
+    display: none;
 }
 
 .esquerdo {
@@ -397,27 +401,62 @@ testar {
 .infoUser {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+    width: 100%;
+    height: 60px;
+    margin: 5px;
+    padding: 5px;
+
 
 }
+
+
+
+
+
+
+
+
+
 
 .imgUser {
 
     width: 70px;
-    height: 60px;
+    height: 70px;
     border-radius: 100%;
     background-color: #130f0fd3;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 0px;
+
 
 
 }
 
+.imgpostdiv{
+
+    width: 850px;
+    width: 900px;
+    object-fit: cover;
+
+    
+}
 
 
 
-.nomeUser {
+.imgpost{
+    width: 100%;
+    height: 100%;
+}
 
+.imgpost img[src=""] {
+    display: none;
+}
+
+
+.nomeuser {
+    display: flex;
     font-size: 20px;
-    width: 70%;
     margin-left: 10px;
     color: #bc0fc2;
 
@@ -477,8 +516,8 @@ testar {
 .mainpost {
     width: 100%;
     height: 100%;
-    
-    
+
+
 
     background-color: #ffffff;
 
@@ -486,12 +525,12 @@ testar {
 
 .Post {
 
-    
+
 
     background-color: #ebebeb;
-    
+
     border: 2px solid;
-border-color: #ac819e;
+    border-color: #ac819e;
     width: 900px;
     height: auto;
     margin: auto;
@@ -500,18 +539,18 @@ border-color: #ac819e;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-   
+
     padding: 25px;
 
     border-radius: 10px;
-   
+
 }
 
-.hora{
+.hora {
     display: flex;
     color: #818181;
     font-size: 11px;
-   
+
 }
 
 .formPostA {
@@ -520,142 +559,146 @@ border-color: #ac819e;
     flex-direction: column;
     width: 100%;
     height: 100%;
-  
 
-    hora{
 
-  
-    display: flex;
-  
-    padding: 10px;
-    padding-top: 0;
+    hora {
 
-    
+
+        display: flex;
+
+        padding: 10px;
+        padding-top: 0;
+
+
     }
 
-    stron{
-   
-    display: flex;
-    text-align: start;
-    font-weight: bold;
-    padding: 10px;
+    stron {
+
+        display: flex;
+        text-align: start;
+        font-weight: bold;
+        padding: 10px;
     }
 
 }
 
 
 
-.hack{
+.hack {
 
-font-size: 20px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
-.btnpost{
+.btnpost {
 
     display: flex;
     width: 900px;
-    
+
 
 }
+
 .share-button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 80px;
-  height: 50px;
-  margin: 5px;
-  height: 40px;
-  position: relative;
-  border: 1px solid #ac819e;
-  background-color: rgb(219 164 234);
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-  color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80px;
+    height: 50px;
+    margin: 5px;
+    height: 40px;
+    position: relative;
+    border: 1px solid #ac819e;
+    background-color: rgb(219 164 234);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
 }
+
 .button__text {
-  width: 80%;
-  height: 100%;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 80%;
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button__icon {
-  width: 25%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(197, 93, 226);
-  position: absolute;
-  right: 0;
-  transition: all 0.3s;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(197, 93, 226);
+    position: absolute;
+    right: 0;
+    transition: all 0.3s;
 }
+
 .button__icon svg {
-  width: 18px;
+    width: 18px;
 }
+
 .share-button:hover .button__icon {
-  width: 100%;
+    width: 100%;
 }
 
 
 
 .button-pub {
-  font-family: inherit;
-  font-size: 15px;
-  background: rgb(225, 65, 185);
-  color: white;
-  padding: 0.7em 1em;
-  padding-left: 0.9em;
-  display: flex;
-  align-items: center;
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.2s;
-  cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    background: rgb(225, 65, 185);
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
 }
 
 .button-pub span {
-  display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
 }
 
 .button-pub svg {
-  display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
 }
 
 .button-pub:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
+    animation: fly-1 0.6s ease-in-out infinite alternate;
 }
 
 .button-pub:hover svg {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
 }
 
 .button-pub:hover span {
-  transform: translateX(5em);
+    transform: translateX(5em);
 }
 
 .button-pub:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 @keyframes fly-1 {
-  from {
-    transform: translateY(0.1em);
-  }
+    from {
+        transform: translateY(0.1em);
+    }
 
-  to {
-    transform: translateY(-0.1em);
-  }
+    to {
+        transform: translateY(-0.1em);
+    }
 }
 
 
@@ -669,23 +712,24 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: rgb(0, 132, 255);
     border: none;
     border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     background: #2270e6;
-   }
-   
-   .buttonadd, .buttonadd span {
+}
+
+.buttonadd,
+.buttonadd span {
     transition: 200ms;
-   }
-   
-   .buttonadd .text {
+}
+
+.buttonadd .text {
     transform: translateX(35px);
     color: white;
     font-weight: bold;
-   }
-   
-   .buttonadd .icon {
+}
+
+.buttonadd .icon {
     position: absolute;
-  
+
     transform: translateX(110px);
     height: 40px;
 
@@ -693,57 +737,57 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     text-align: center;
     width: 40px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
-   }
-   
-   .buttonadd svg {
+}
+
+.buttonadd svg {
     width: 15px;
     fill: #eee;
-   }
-   
-   .buttonadd:hover {
+}
+
+.buttonadd:hover {
     background: #367cff;
-   }
-   
-   .buttonadd:hover .text {
+}
+
+.buttonadd:hover .text {
     color: transparent;
-   }
-   
-   .buttonadd:hover .icon {
+}
+
+.buttonadd:hover .icon {
     width: 150px;
     border-left: none;
     transform: translateX(0);
-   }
-   
-   .buttonadd:focus {
+}
+
+.buttonadd:focus {
     outline: none;
-   }
-   
-   .buttonadd:active .icon svg {
+}
+
+.buttonadd:active .icon svg {
     transform: scale(0.8);
-   
-   }
+
+}
 
 
 
 
-   
-   /* Chatbox */
+
+/* Chatbox */
 
 
 
-   .chatbox-wrapper{
+.chatbox-wrapper {
     position: fixed;
     bottom: 0rem;
     right: 2rem;
     width: 4rem;
     height: 4rem;
-   }
+}
 
-   .chatbox-toggle{
+.chatbox-toggle {
     width: 100%;
     height: 100%;
     background-color: rgb(242, 103, 255);
@@ -758,11 +802,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
-.chatbox-toggle:active{
+.chatbox-toggle:active {
     transform: scale(.9);
 }
 
-.chatbox-menssage-wrapper{
+.chatbox-menssage-wrapper {
     position: absolute;
     bottom: calc(100% + 1rem);
     right: 0;
@@ -777,11 +821,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
-.chatbox-menssage-wrapper.show{
+.chatbox-menssage-wrapper.show {
     transform: scale(1);
 }
 
-.chatbox-menssage-header{
+.chatbox-menssage-header {
 
     display: flex;
     align-items: center;
@@ -791,36 +835,35 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: .75rem 1.5rem;
 
 }
-.div{
+
+.div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.chatbox-menssege-profile{
+.chatbox-menssege-profile {
     display: flex;
     align-items: center;
     grid-gap: .5rem;
 
 }
 
-.chatbox-message-imagem
-{
+.chatbox-message-imagem {
     width: 3rem;
     height: 3rem;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.chatbox-message-name{
+.chatbox-message-name {
     font-size: 1.125rem;
     font-weight: 600;
     display: flex;
     margin-left: 10px;
 }
 
-.chatbox-message-status
-{
+.chatbox-message-status {
     font-size: .875rem;
     color: #446471;
     display: flex;
@@ -831,7 +874,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
-.chatbox-message-content{
+.chatbox-message-content {
     background-color: rgb(226, 226, 226);
     padding: 1.5rem;
     display: flex;
@@ -840,7 +883,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
-.chatbox-message-item{
+.chatbox-message-item {
     width: 90%;
     padding: 1rem;
 }
@@ -849,7 +892,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     align-items: flex-end;
     background-color: rgb(247, 0, 255);
     color: white;
-    border-radius: .75rem 0 .75rem .75rem ;
+    border-radius: .75rem 0 .75rem .75rem;
     text-align: justify;
     display: flex;
     justify-content: space-between;
@@ -858,11 +901,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
-.chatbox-message-item.received{
+.chatbox-message-item.received {
     text-align: justify;
     display: flex;
     justify-content: space-between;
-    
+
     background-color: white;
     border-radius: 0 .75rem .75rem .75rem;
     box-shadow: .25rem .25rem 1.5rem rgba(0, 0, 0, 0.089);
@@ -870,16 +913,15 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
-.chatbox-messege-item-time{
-  
+.chatbox-messege-item-time {
+
     font-size: .75rem;
     margin-top: .5rem;
     display: inline-block;
 
 }
 
-.chatbox-message-bottom
-{
+.chatbox-message-bottom {
     background-color: white;
     padding: .75rem 1.5rem;
     display: flex;
@@ -887,7 +929,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
-.chatbox-message-form{
+.chatbox-message-form {
     display: flex;
     align-items: center;
     background-color: #dddddd;
@@ -898,8 +940,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 
 
-.chatbox-message-input
-{
+.chatbox-message-input {
     width: 100%;
     background: transparent;
     outline: none;
@@ -909,11 +950,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
-.chatbox-message-input::-webkit-scrollbar{
+.chatbox-message-input::-webkit-scrollbar {
     display: none;
 }
 
-.chatbox-message-submit{
+.chatbox-message-submit {
     font-size: 1.25rem;
     color: #e622dc;
     background: transparent;
@@ -921,7 +962,3 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     outline: none;
     cursor: pointer;
 }
-
-
-
-   

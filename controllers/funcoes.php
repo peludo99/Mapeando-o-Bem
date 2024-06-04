@@ -76,9 +76,12 @@ function Telainicial($post_user,$post)
     echo " <div class='imgUser'>";
 
     echo "  </div>";
-    echo "  <Strong class='nomeUser'>" .$post_user. "</Strong>";
+    echo "  <div class='nomeuser'> <Strong class='nomeuser'>" .$post_user. " </div> </Strong>";
 
     echo " </div>";
+
+    echo " <div class='imgpostdiv'> <img id='myimg' class='imgpost' src='' alt=''>
+</div>";
 
     echo " <li class='formPostA'>";
     echo " <stron>" . $post. "";

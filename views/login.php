@@ -48,14 +48,39 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
 
-  <title>Login</title>
+  <title>Mapeando o Bem</title>
   <style>
-    .btn-outline-primary:hover {
+    .btn-cadastrar {
 
+      font-weight: bold;
+
+      background-color: #ffffff00;
+      border-radius: 10px;
+      height: 40px;
+      width: 150px;
+      border: 1px solid rgb(59, 3, 50);
+      color: rgb(255, 255, 255)
+    }
+
+    .btn-cadastrar:hover {
       background-color: rgb(59, 3, 50);
+    }
 
 
 
+    .btn-logar {
+
+      font-weight: bold;
+      border: 1px solid rgb(59, 3, 50);
+      color: rgb(204, 50, 171);
+      background-color: #ffffff00;
+      border-radius: 10px;
+      height: 40px;
+
+    }
+
+    .btn-logar:hover {
+      background-color: rgb(59, 3, 50);
     }
   </style>
 
@@ -63,56 +88,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 </head>
 
 <body class="logar-js">
-
-
-
-
-
-
-
-  <!-- AREA HTML -->
-
-  <div id='status' class="containerlog">
-    <div class="conteudo conteudo-um">
-      <div class="coluna-um">
-        <h2 class="titulo-bem">
-          Bem-vindo de volta!
-        </h2>
-        <p class="descricao">Conecte-se conosco</p>
-
-        <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" id="Idlogin" class="btn btn-outline-primary">Acesse sua conta</button>
-      </div>
-      <div class="coluna-dois">
-        <h2 class="titulo-cad">Criar cadastro</h2>
-        <div class="redes-sociais">
-          <ul class="rede-social-list">
-            <li class="item-rede"><a href="#" id="logar"><i class="fa-brands fa-facebook"></i></a></li>
-            <li class="item-rede"><a href="#"><i class="fa-brands fa-google"></i></a></li>
-            <li class="item-rede"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-          </ul>
-        </div>
-        <!-- redes -->
-        <p class="descricao descricao-um">ou utilize seu e-mail para o cadastro</p>
-        <form action="login.php" method="post" class="forms">
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-            <input type="text" name="nome_usuario" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
-
-          </div>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="email_usuario" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
-          </div>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" name="senha_usuario" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
-          </div>
-          <br>
-          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" class="btn btn-outline-primary" value="Cadastrar"> <br>
-
-        </form>
-      </div>
-    </div>
+  <div class="containerlog">
     <!-- coluna dois -->
     <div class="conteudo conteudo-dois">
       <div class="coluna-um">
@@ -121,7 +97,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         </h2>
         <p class="descricao">Não possui conta?</p>
         <form action="cadastrar.php" method="post">
-          <button type="post" id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
+          <button type="post" id="Idcadastro" class="btn-cadastrar">Cadastrar-se</button>
         </form>
       </div>
       <div class="coluna-dois">
@@ -145,15 +121,16 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
             <input type="password" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
           </div>
+          <br>
 
           <a class="senha" href="#">Esqueceu a senha?</a>
           <br>
 
           <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
           </fb:login-button>
-          <br>
 
-          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171) ;" class="btn btn-outline-primary" value="Logar">
+
+          <input type="submit" class="btn-logar" value="Logar">
           <br>
 
 

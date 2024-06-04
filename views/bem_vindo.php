@@ -24,11 +24,11 @@
 
         body {
             width: 100vw;
-            height: 91.3vh;
+            height: 100vh;
         }
 
         /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
-        
+
         .nav-item {
             margin-left: 60px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -44,11 +44,11 @@
             top: 0;
         }
 
-        #navbarTogglerDemo01 > a {
+        #navbarTogglerDemo01>a {
             color: black;
         }
 
-        #navbarTogglerDemo01 > a:hover {
+        #navbarTogglerDemo01>a:hover {
             color: rgb(238, 84, 204);
         }
 
@@ -85,13 +85,7 @@
         }
 
         /* PARA MUDANÇAS NO BOTÃO */
-        .btn-outline-primary {
-            background-color: rgb(238, 84, 204);
-
-        }
-
-        .btn-outline-primary:hover,
-        .btn-outline-primary:active {
+        .btn-acessar:hover {
 
             background-color: rgb(145, 7, 122);
 
@@ -102,7 +96,7 @@
             display: flex;
             width: 100%;
             height: 80%;
-            
+
             background-color: black;
             overflow: hidden;
         }
@@ -134,7 +128,8 @@
             background-color: black;
             display: block;
             z-index: 10;
-            height: 20%;
+            height: 190px;
+
         }
 
         .row {
@@ -167,6 +162,29 @@
             font-weight: bold;
             text-transform: uppercase;
             text-align: left;
+
+        }
+
+
+        .btn-acessar:active {
+
+            background-color: palevioletred;
+
+        }
+
+
+        .btn-acessar {
+
+            background-color: rgb(238, 84, 204);
+            border-radius: 10px;
+            font-size: 20px;
+            padding-bottom: 5px;
+            font-weight: bold;
+            border: 1px solid rgb(238, 84, 204);
+            width: 300px;
+            color: rgb(255, 255, 255);
+            margin-top: 2%;
+            height: 40px;
 
         }
     </style>
@@ -213,14 +231,14 @@
     <div class="mural">
 
         <div class="imagem">
-        <!-- DIV DA IMAGEM. NÃO APAGAR! -->
+            <!-- DIV DA IMAGEM. NÃO APAGAR! -->
         </div>
 
         <div class="anuncio">
             <p class="titulo">Seja Um Voluntário!</p>
             <p class="sub_titulo">Com um click de distância, encontre a casa de apoio mais próxima de você.</p>
             <form action="./login.php" method="post">
-                <button type="post" id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Acessar</button>
+                <button type="post" id="Idcadastro" class="btn-acessar">Acessar</button>
                 <!-- background-color:rgb(238, 84, 204); -->
             </form>
         </div>

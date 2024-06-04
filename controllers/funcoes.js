@@ -46,12 +46,50 @@ const hoje = new Date();
 
 chatboxform.addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     escreverMensagem()
     setTimeout(retornoAutomatico, 1000)
-    
 
-})
+
+});
+
+
+
+
+
+const hideSessionButton = document.getElementById('botao-ocultar');
+const sessionInfo = document.getElementById('off');
+
+
+const ShowSessionButton = document.getElementById('botao-mostrar');
+
+hideSessionButton.addEventListener('click', () => {
+    sessionInfo.style.display = 'none';
+    ShowSessionButton.style.display = 'inline';
+
+
+});
+
+
+ShowSessionButton.addEventListener('click', () => {
+    sessionInfo.style.display = 'block';
+    hideSessionButton.style.display = 'inline';
+    ShowSessionButton.style.display = 'none';
+});
+
+
+
+function checkImageExists(src) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', src);
+    xhr.onload = function () {
+        if (xhr.status === 404) {
+            // Ocultar a imagem
+            document.getElementById('myimg').style.display = 'none';
+        }
+    };
+    xhr.send();
+}
 
 
 
@@ -61,12 +99,11 @@ function addzero(num) {
 
 function escreverMensagem() {
 
-    if(textarea.value == '')
-        {
+    if (textarea.value == '') {
 
-        }
+    }
 
-    else{
+    else {
 
         let message = `
 
@@ -80,7 +117,7 @@ function escreverMensagem() {
         
         
         `;
-    
+
         chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
         chatboxform.style.alingItems = 'center';
         textarea.rows = 1;
@@ -88,20 +125,19 @@ function escreverMensagem() {
         chatboxnomessege.style.display = 'none';
         setTimeout(() => textarea.focus(), 10);
 
-     
+
 
 
 
 
     }
 
-   
+
 
 }
 
-function retornoAutomatico(valor)
-{
-    
+function retornoAutomatico(valor) {
+
     let message = `
 
     <div class="chatbox-message-item received">

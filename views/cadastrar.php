@@ -8,14 +8,37 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-  <title>Login</title>
+  <title>Mapeando o Bem</title>
   <style>
-    .btn-outline-primary:hover {
+    .btn-entrarnaconta {
 
+      font-weight: bold;
+
+      background-color: #ffffff00;
+      border-radius: 10px;
+      height: 40px;
+      width: 150px;
+      border: 1px solid rgb(59, 3, 50);
+      color: rgb(255, 255, 255)
+    }
+
+    .btn-entrarnaconta:hover {
       background-color: rgb(59, 3, 50);
+    }
 
+    .btn-cadastrar {
 
+      font-weight: bold;
+      border: 1px solid rgb(59, 3, 50);
+      color: rgb(204, 50, 171);
+      background-color: #ffffff00;
+      border-radius: 10px;
+      height: 40px;
 
+    }
+
+    .btn-cadastrar:hover {
+      background-color: rgb(59, 3, 50);
     }
   </style>
 
@@ -31,7 +54,7 @@
 
   // Mesclar Funcoes de conexao.php
 
-  
+
   ?>
 
   <!-- AREA HTML -->
@@ -39,18 +62,18 @@
   <div class="containerlog">
     <div class="conteudo conteudo-um">
       <div class="coluna-um">
-      <img src="css/assets/casinhabola.png" alt="bola">
+        <img src="css/assets/casinhabola.png" alt="bola">
         <h2 class="titulo-bem">
           Bem vindo de volta!
         </h2>
         <p class="descricao">Conecte-se com nosco</p>
 
         <form action="login.php" method="post">
-          <button style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" id="Idlogin" class="btn btn-outline-primary">Entrar na conta</button>
+          <button class="btn-entrarnaconta">Entrar na conta</button>
         </form>
       </div>
       <div class="coluna-dois">
-      <img src="css/assets/logomob.png" alt="logo">
+        <img src="css/assets/logomob.png" alt="logo">
         <h2 class="titulo-cad">Criar conta</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
@@ -64,19 +87,19 @@
         <form action="cadastrar.php" method="post" class="forms">
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-            <input type="text" name="nome_usuario" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
+            <input required type="text" name="nome_usuario" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
 
           </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="email_usuario" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+            <input required type="text" name="email_usuario" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
           </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" name="senha_usuario" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
+            <input required type="password" name="senha_usuario" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
           </div>
           <br>
-          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" class="btn btn-outline-primary" value="Cadastrar"> <br>
+          <input type="submit" class="btn-cadastrar" value="Cadastrar"> <br>
 
         </form>
         <?php
@@ -94,59 +117,18 @@
         ?>
       </div>
     </div>
-    <!-- coluna dois -->
-    <div class="conteudo conteudo-dois">
-      <div class="coluna-um">
-        <h2 class="titulo-bem">Seja bem-vindo
-        </h2>
-        <p class="descricao">Não possui conta?</p>
-        <form action="cadastrar.php" method="post">
-          <button type="post" id="Idcadastro" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(255, 255, 255)" class="btn btn-outline-primary">Cadastrar-se</button>
-      </form>
-      </div>
-      <div class="coluna-dois">
-        <h2 class="titulo-cad">Acesse sua conta</h2>
-        <div class="redes-sociais">
-          <ul class="rede-social-list">
-            <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li class="item-rede"><a href="#"><i class="fa-brands fa-google"></i></a></li>
-            <li class="item-rede"><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-          </ul>
-        </div>
-        <!-- redes -->
-        <p class="descricao descricao-um">Ou utilize seu e-mail</p>
-        <form action="" method="post" class="forms">
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping" required>
-          </div>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
-          </div>
 
-          <a class="senha" href="#">Esqueceu a senha?</a>
-          <br>
+    <?php
+    if (isset($_POST["email"])) {
+      $pesquisar = $_POST["email"];
+      $resultado = $p->Buscardadosdecadastro($pesquisar);
+      if (count($resultado) > 0) {
+      } else {
+        Mensagem("OPS!, Você Não possui uma conta!", "danger");
+      }
+    }
+    ?>
 
-          <input type="submit" style="font-weight:bold;border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171) ;" class="btn btn-outline-primary" value="Logar">
-          <br>
-
-
-
-        </form>
-        <?php
-        if (isset($_POST["email"])) {
-          $pesquisar = $_POST["email"];
-          $resultado = $p->Buscardadosdecadastro($pesquisar);
-          if (count($resultado) > 0) {
-           
-          } else {
-            Mensagem("OPS!, Você Não possui uma conta!", "danger");
-          }
-        }
-        ?>
-      </div>
-    </div>
     <!-- coluna dois -->
   </div>
 
