@@ -27,6 +27,7 @@ if (isset($_POST['textarea'])) {
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,12 +39,294 @@ if (isset($_POST['textarea'])) {
     <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
     <script type="module" src="../controllers/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
     <title>Tela Inicial</title>
 
 
+    <style>
+        /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
 
+        .nav-item {
+            margin: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-link>a {
+            color: black;
+        }
+
+        .nav-link>a:hover {
+            color: rgb(238, 84, 204);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: rgb(59, 3, 50);
+        }
+
+        .btn-outline-primary {
+            background-color: #19afddbd
+        }
+
+        .foto {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+
+        ul {
+            margin: auto;
+        }
+
+        .btn {
+            margin: 4px;
+        }
+
+        .logo {
+            width: 25px;
+            height: 25px;
+        }
+
+        /* ---------------- CORPO DO MURAL ---------------- */
+
+        text {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        /* FORMATAÇÃO TEXTO */
+
+        .titulo {
+            font-size: 50px;
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #444;
+            align-items: center;
+
+        }
+
+        .titulo>strong {
+            color: rgb(238, 84, 204);
+        }
+
+        #mob {
+            font-size: 80px;
+            color: white;
+        }
+
+        .sub_titulo {
+            font-size: 40px;
+            font-family: "Poetsen One", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            color: white;
+            align-items: center;
+
+        }
+
+        #sub_car {
+            text-align: center;
+            font-size: 36px;
+            color: #444;
+        }
+
+        /* INTRO NO ESTILO PARALLAX */
+
+        .parallax {
+            /* imagem utilizada */
+            background-image: url("./voluntariolegal.jpg");
+            height: 100vh;
+            opacity: 40%;
+
+
+            /* mantém uma altura especifica */
+            min-height: 500px;
+
+            /* cria o efeito scrolling do parallax */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .color_fundo {
+            background-color: black;
+        }
+
+        .bloco-paralax {
+            height: 1px;
+
+            position: relative;
+            margin: 0 auto;
+            /* alinha a div no centro */
+            top: -500px;
+            /*CONTROLE AQUI A DISTANCIA*/
+        }
+
+        .texto_intro {
+            width: 900px;
+            margin: 20px;            
+            margin-left: 25%;
+            border-radius: 5%;
+        }
+
+        /*  ---------------- INFORMES / CARDS ----------------  */
+
+        .informes {
+            z-index: 10px;
+            margin: 50px;
+        }
+
+        .card {
+            border-radius: 8%;
+            background-color: #00d9ff15;
+            border: 20px outset #00d9ff15;
+            margin-top: 150px;
+            margin-left: 15%;
+            margin-bottom: 130px;
+            width: 400px;
+            height: 400px;
+
+        }
+
+        .card:hover {
+            width: 390px;
+            height: 390px;
+            -xpedu-transform: rotatez(10deg);
+            -ms-transform: rotateZ(10deg);
+            transform: rotateZ(10deg);
+        }
+
+        .card-caption {
+            background-color: orange;
+        }
+
+        /* PARTE DO CARROSSEL VOLUNTARIADO */
+
+        .blocos {
+            background-color: #ff6edb15;
+            height: 800px;
+        }
+
+        #intro {
+            background-color: rgba(255, 255, 255, 0);
+            /* ESSA COR MEXE NO BG DO TEXTO DA INTRO */
+
+        }
+
+        .direito {
+            margin: 50px;
+            margin-top: 8%;
+
+            img {
+
+                border: 2px solid grey;
+                border-radius: 15px;
+                height: 700px;
+                background-color: white;
+            }
+        }
+
+        .esquerdo {
+
+            margin-top: 22%;
+            margin-left: 2.5%;
+            width: 900px;
+        }
+
+        .carousel-caption {
+            background-color: #272727be;
+        }
+
+        /*  ---------------- SOBRE NÓS ----------------  */
+
+        .img-fluid {
+            width: 70%;
+            margin-top: -2px;
+        }
+
+        .sobrenos {
+            background-color: #f9f9f9;
+        }
+
+        .main-title {
+            color: #444;
+            margin: 215px 0 50px 0;
+            font-size: 40px;
+            text-align: center;
+            position: relative
+        }
+
+        .main-title::after {
+            content: "";
+            border-top: 1.5px solid #333;
+            width: 16%;
+            position: absolute;
+            top: 65px;
+            left: 42.5%;
+        }
+
+        .sobrenos-titulo {
+            font-size: 17px;
+            color: #444;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 60px;
+        }
+
+        h4 {
+            font-size: 13px;
+            color: #5a5a5a;
+        }
+
+        h6 {
+            color: #444;
+            margin-top: 14px;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+
+        /* MODIFICAÇÕES NO POST */
+        .posteant {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+
+        .OnorOff {
+            display: flex;
+            width: 100px;
+            margin: auto;
+            background-color: rgba(163, 163, 163, 0.651);
+            margin-top: 5%;
+
+
+            button {
+
+                width: 100%;
+                border: none;
+
+            }
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+    </style>
 
     <!-- Barra de Navegação -->
     <nav style="background: rgb(219 164 234)" class="navbar fixed-top">
@@ -54,7 +337,7 @@ if (isset($_POST['textarea'])) {
                     <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
                 </td>
                 <td class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+                    <a class="nav-link" aria-current="page" href="#anchor-linhadotempo">Comunidade</a>
                 </td>
                 <td>
                     <button style="margin-left: auto;" class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -127,224 +410,74 @@ if (isset($_POST['textarea'])) {
         </div>
     </div>
 
-
-    <style>
-        /* ------------- BARRA DE NAVEG ------------- */
-
-        .logo {
-            width: 25px;
-            height: 25px;
-        }
-
-        .btn-outline-primary:hover {
-            background-color: rgb(59, 3, 50);
-        }
-
-        .btn-outline-primary {
-            background-color: #19afddbd
-        }
-
-        .foto {
-            width: 150px;
-            height: 150px;
-            margin: auto;
-        }
-
-        ul {
-            margin: auto;
-        }
-
-        .btn {
-            margin: 4px;
-        }
-
-        .nav-item {
-            margin: 20px;
-
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        /* ---------------- CORPO DO MURAL ---------------- */
-
-        text {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 15px;
-        }
-
-        .topo img {
-            width: 80%;
-            margin: 20px;
-        }
-
-        /* ---------------- VOLUNTARIADO ---------------- */
-
-        .blocos {
-            background-color: #ff6edb15;
-        }
-
-        .direito {
-            margin: 50px;
-
-            img {
-                border: 2px solid black;
-                border-radius: 15px;
-                height: 500px;
-                background-color: white;
-            }
-        }
-
-        .esquerdo {
-            width: 900px;
-            margin: 20px;
-            margin-left: 70px;
-
-            h1 {
-                color: #444;
-                font-size: 35px;
-                position: relative;
-            }
-
-            strong {
-                color: #a71aac;
-            }
-
-            h2 {
-                color: #444;
-                font-size: 25px;
-
-            }
-        }
-
-        .carousel-caption {
-            background-color: #272727be;
-        }
-
-        /*  ---------------- INFORMES ----------------  */
-
-        .informes {
-            background-color: white;
-            margin: 80px;
-
-        }
-
-        .card {
-            border-radius: 8%;
-            background-color: #00d9ff15;
-            border: 20px outset #00d9ff15;
-            margin-top: 100px;
-            margin-left: 75px;
-            margin-bottom: -140px;
-            width: 330px;
-            height: 330px;
-
-        }
-
-        .card:hover {
-            width: 320px;
-            height: 320px;
-            -xpedu-transform: rotatez(10deg);
-            -ms-transform: rotateZ(10deg);
-            transform: rotateZ(10deg);
-        }
-
-        .card-caption {
-            background-color: orange;
-        }
-
-        /*  ---------------- SOBRE NÓS ----------------  */
-
-        .img-fluid {
-            width: 70%;
-            margin-top: -2px;
-        }
-
-        .sobrenos {
-            background-color: #f9f9f9;
-        }
-
-        .main-title {
-            color: #444;
-            margin: 215px 0 50px 0;
-            font-size: 40px;
-            text-align: center;
-            position: relative
-        }
-
-        .main-title::after {
-            content: "";
-            border-top: 1.5px solid #333;
-            width: 16%;
-            position: absolute;
-            top: 65px;
-            left: 42.5%;
-        }
-
-        .sobrenos-titulo {
-            font-size: 17px;
-            color: #444;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-top: 60px;
-        }
-
-        h4 {
-            font-size: 13px;
-            color: #5a5a5a;
-        }
-
-        h6 {
-            color: #444;
-            margin-top: 14px;
-            font-size: 18px;
-            text-align: justify;
-        }
-
-
-        /* MODIFICAÇÕES NO POST */
-        .posteant {
-            display: flex;
-            flex-direction: column-reverse;
-        }
-
-
-        .OnorOff {
-            display: flex;
-            width: 100px;
-            margin: auto;
-            background-color: rgba(163, 163, 163, 0.651);
-
-
-            button {
-                width: 100%;
-
-                border: none;
-
-            }
-        }
-    </style>
-
-
 </head>
 
 <body>
 
+
+
+
     <div class="mural">
-        <div class="topo">
-            <label>
-                <img src="./css/assets/logomob.png" alt="logo" style="width: 200;">
-            </label>
-        </div>
 
         <div class="on-off" id="off">
+
+
+            <div class="color_fundo">
+                <div class="parallax">
+
+                </div>
+                <div class="bloco-paralax" id="intro">
+                    <div class="texto_intro">
+                        <h1 class="titulo" id="mob">Mapeando o Bem</h1><br>
+                        <h2 class="sub_titulo">Conecte-se com diversas ONGs e escolha a atividade que mais tem a ver com você!</h2>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="informes">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <a href="#anchor-voluntario">
+                                <img src="https://www.newyorkfamily.com/wp-content/uploads/2021/10/GettyImages-1175986554-822x822.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="carousel-caption">O que é ser voluntário?</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="#anchor-beneficio">
+                                <img src="https://media.istockphoto.com/id/1474708790/vector/pensive-male-student-character-sitting-on-floor-with-laptop-and-paper-sheet-thinking-on-task.jpg?s=612x612&w=0&k=20&c=1lR1efScvegGuIImPJy2SdGA1LhibJooICLZIb46HaY=" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="carousel-caption">O que ganho com essas atividades?</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="#anchor-vaga">
+                                <img src="https://image.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148583914.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="carousel-caption">A Vaga Perfeita</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <div class="blocos ">
                 <div class="esquerdo">
                     <div class="textoEsquerdo">
-                        <h1>Gostaria de ser <strong>Voluntário?</strong></h1><br>
-                        <h2>Em nossa plataforma você pode se <strong>conectar</strong> com diversas <i>ONGs</i> e escolher a atividade que mais <u>tem a ver com você</u>!</h2>
-                        <br>
-                        <h2>Veja em tempo real as atividades disponíveis em sua região:</h2>
+                        <h1 class="titulo">Gostaria de ser <strong>Voluntário?</strong></h1><br>
+                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em sua região:</h2>
                     </div>
                 </div>
                 <div class="direito">
@@ -396,40 +529,8 @@ if (isset($_POST['textarea'])) {
                     </div>
                 </div>
             </div>
-            <div class="informes">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card">
-                            <a href="#anchor-voluntario">
-                                <img src="https://www.newyorkfamily.com/wp-content/uploads/2021/10/GettyImages-1175986554-822x822.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="carousel-caption">O que é ser voluntário?</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <a href="#anchor-beneficio">
-                                <img src="https://media.istockphoto.com/id/1474708790/vector/pensive-male-student-character-sitting-on-floor-with-laptop-and-paper-sheet-thinking-on-task.jpg?s=612x612&w=0&k=20&c=1lR1efScvegGuIImPJy2SdGA1LhibJooICLZIb46HaY=" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="carousel-caption">O que ganho com essas atividades?</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <a href="#anchor-vaga">
-                                <img src="https://image.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148583914.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="carousel-caption">A Vaga Perfeita</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
             <div class="container" id="sobrenos">
                 <div class="row">
                     <div class="col-12" id="anchor-quemsomos">
@@ -518,7 +619,7 @@ if (isset($_POST['textarea'])) {
         <div class="on">
 
             <div class="OnorOff">
-                <button  style="display: none;" id="botao-mostrar" name="botao-mostrar"><i class="fa-solid fa-caret-down"></i></button>
+                <button style="display: none;" id="botao-mostrar" name="botao-mostrar"><i class="fa-solid fa-caret-down"></i></button>
 
             </div>
 
@@ -544,8 +645,8 @@ if (isset($_POST['textarea'])) {
                         </div>
                         <div>
 
-                        <img id="myimg" src="./voluntarios-produtos.jpg" class="imgpost" alt="">
-                            
+                            <img id="myimg" src="./voluntarios-produtos.jpg" class="imgpost" alt="">
+
 
                         </div>
                         <form action="tela_inicial.php" method="post" class="formPost" id="idformpost">
@@ -701,10 +802,11 @@ if (isset($_POST['textarea'])) {
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        -->
+    </div>
 
 
 

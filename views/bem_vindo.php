@@ -197,9 +197,9 @@
 
         <!-- Barra de Navegação -->
 
-        <nav style="background: rgb(255, 255, 255)" class="navbar navbar-expand-lg">
+        <nav style="background: rgb(255, 255, 255); height: 30px;" class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="margin-top: 13px;">
 
                     <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"> Mapeando o Bem</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">

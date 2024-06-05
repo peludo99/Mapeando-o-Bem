@@ -80,7 +80,7 @@ function Telainicial($post_user,$post)
 
     echo " </div>";
 
-    echo " <div class='imgpostdiv'> <img id='myimg' class='imgpost' src='' alt=''>
+    echo " <div> <img id='myimg' class='imgpost' src='' alt=''>
 </div>";
 
     echo " <li class='formPostA'>";
