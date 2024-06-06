@@ -43,7 +43,7 @@ function CadastrarUsuarios($nome, $email, $senha)
 };
 
 
-function AdicionarPost($conteudo, $file, $email,$nomeusuario)
+function AdicionarPost($conteudo, $file, $email, $nomeusuario)
 {
     global $conexao;
 
@@ -62,11 +62,11 @@ function Exibirposts()
     return   $resultado;
 };
 
-function Telainicial($post_user,$post)
+function Telainicial($post_user, $post, $post_img_user)
 {
 
-    
- date_default_timezone_set('America/Sao_Paulo');  
+
+    date_default_timezone_set('America/Sao_Paulo');
     $hoje = date('d/m/Y');
     $hora_atual = date('H:i');
 
@@ -76,19 +76,32 @@ function Telainicial($post_user,$post)
     echo " <div class='imgUser'>";
 
     echo "  </div>";
-    echo "  <div class='nomeuser'> <Strong class='nomeuser'>" .$post_user. " </div> </Strong>";
+    echo "  <div class='nomeuser'> <Strong class='nomeuser'>" . $post_user . " </div> </Strong>";
 
     echo " </div>";
 
-    echo " <div> <img id='myimg' class='imgpost' src='' alt=''>
-</div>";
+    if (!$post_img_user == '') {
+        $imagem = file_get_contents($post_img_user);
+
+        if ($imagem !== false) {
+
+            echo " <div> <img src='data:image/jpeg;base64,' . base64_encode($imagem) . '> </div>";
+        } else {
+            echo 'Erro ao carregar a imagem.';
+        } {
+        }
+    }
+
+
+
+
 
     echo " <li class='formPostA'>";
-    echo " <stron>" . $post. "";
+    echo " <stron>" . $post . "";
     echo "  </stron>";
     echo "  <div class='hora'>";
 
-    echo "     <hora> Postado em ".$hoje." as ".$hora_atual."h </hora>";
+    echo "     <hora> Postado em " . $hoje . " as " . $hora_atual . "h </hora>";
     echo " </div>";
     echo "<div class='iconsAndButton'>";
     echo "<div class='btnpost'>";
@@ -120,7 +133,6 @@ function Telainicial($post_user,$post)
     echo "  </div>";
     echo "  </li>";
     echo "</ul>";
-
 };
 
 
@@ -132,17 +144,15 @@ function quantidadedeposts()
     $dados = array();
 
     for ($i = 0; count($todos) > $i; $i++) {
-       
+
         foreach ($todos[$i] as $conteudo) {
             $dados[] = $conteudo;
-
-            
         }
     }
-   
+
     $quantidadedeposts = count($dados);
 
-    return $quantidadedeposts/5;
+    return $quantidadedeposts / 5;
 }
 
 
@@ -168,10 +178,10 @@ function BuscarDadosCadastro1($id)
 }
 
 
-function Alterardados($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id)
+function Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id)
 {
     global $conexao;
-    $conexao->Alterarcadastro($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id);
+    $conexao->Alterarcadastro($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id);
 }
 
 
@@ -183,7 +193,3 @@ function Mensagems($mensagem, $tipo)
                 </div>
                 <br>";
 }
-
-
-?>
-

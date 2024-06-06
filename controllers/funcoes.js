@@ -1,3 +1,9 @@
+
+
+
+
+
+
 const chatboxToggle = document.querySelector('.chatbox-toggle');
 const chatboxMessage = document.querySelector('.chatbox-menssage-wrapper');
 
@@ -68,6 +74,9 @@ hideSessionButton.addEventListener('click', () => {
     ShowSessionButton.style.display = 'inline';
 
 
+
+
+
 });
 
 
@@ -75,7 +84,54 @@ ShowSessionButton.addEventListener('click', () => {
     sessionInfo.style.display = 'block';
     hideSessionButton.style.display = 'inline';
     ShowSessionButton.style.display = 'none';
+    carregarURL();
 });
+
+
+
+
+
+
+const inputfile = document.getElementById('imagem');
+
+inputfile.addEventListener('change', function (event) {
+    
+    const arquivoSelecionado = event.target.files[0];
+
+
+    const dadosimagem = JSON.stringify(inputfile);
+
+    $.ajax({
+        url: '../views/tela_inicial.php',
+        type: 'POST',
+        data: { data: dadosimagem },
+        success: function (result) {
+            console.log('mandou');
+        },
+        erro: function (jqXHR, textStatus, errorThrown) {
+            console.log('Erro, arquivo nao enviado');
+        }
+
+
+
+    });
+
+    if (arquivoSelecionado) {
+        const nomeDoArquivo = arquivoSelecionado.name;
+        const tamanhoDoArquivo = arquivoSelecionado.size;
+        const tipoDoArquivo = arquivoSelecionado.type;
+
+        console.log('Nome do Arquivo:', nomeDoArquivo);
+        console.log('Tamanho do Arquivo:', tamanhoDoArquivo);
+        console.log('Tipo do Arquivo:', tipoDoArquivo);
+    } else {
+        console.log('Nenhum arquivo selecionado.');
+    }
+
+
+});
+
+
 
 
 
@@ -95,6 +151,11 @@ function checkImageExists(src) {
 
 function addzero(num) {
     return num < 10 ? '0' + num : num
+}
+
+function carregarURL() {
+    const url = "../views/tela_inicial.php#anchor-vaga";
+    window.location.href = url;
 }
 
 function escreverMensagem() {

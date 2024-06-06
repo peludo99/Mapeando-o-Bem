@@ -6,6 +6,7 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
+    
 
 }
 
@@ -32,7 +33,7 @@ body {
 }
 
 testar {
-    color: rgba(0, 0, 0, 0.26);
+    color: rgba(0, 0, 0, 0);
     border-color: none;
 
 

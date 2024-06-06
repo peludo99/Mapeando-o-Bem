@@ -25,7 +25,7 @@ if (isset($_POST['textarea'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 
 <head>
@@ -34,36 +34,74 @@ if (isset($_POST['textarea'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/style.css">
+
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
+
     <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="../controllers/jquery-3.7.1.js"></script>
+
     <script type="module" src="../controllers/funcoes.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 
     <title>Tela Inicial</title>
 
 
     <style>
+        body {
+            overflow-x: hidden;
+        }
+
+
+
+
+
         /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
 
         .nav-item {
             margin: 20px;
+            margin-top: 0px;
+            justify-content: left;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 20px;
             font-weight: bold;
         }
 
-        .nav-link>a {
+
+        .navbar-brand {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(238, 84, 204);
+            top: 0;
+        }
+
+        #navbarTogglerDemo01>a {
             color: black;
         }
 
-        .nav-link>a:hover {
+        #navbarTogglerDemo01>a:hover {
             color: rgb(238, 84, 204);
         }
+
+
+
+
+
+
+
+
 
         .btn-outline-primary:hover {
             background-color: rgb(59, 3, 50);
@@ -140,7 +178,7 @@ if (isset($_POST['textarea'])) {
 
         .parallax {
             /* imagem utilizada */
-            background-image: url("./voluntariolegal.jpg");
+            background-image: url("./grupocomida.jpg");
             height: 100vh;
             opacity: 40%;
 
@@ -172,8 +210,7 @@ if (isset($_POST['textarea'])) {
 
         .texto_intro {
             width: 900px;
-            margin: 20px;            
-            margin-left: 25%;
+            margin: auto;
             border-radius: 5%;
         }
 
@@ -181,15 +218,15 @@ if (isset($_POST['textarea'])) {
 
         .informes {
             z-index: 10px;
-            margin: 50px;
+            margin: auto;
         }
 
         .card {
             border-radius: 8%;
             background-color: #00d9ff15;
             border: 20px outset #00d9ff15;
+            margin: auto;
             margin-top: 150px;
-            margin-left: 15%;
             margin-bottom: 130px;
             width: 400px;
             height: 400px;
@@ -316,6 +353,32 @@ if (isset($_POST['textarea'])) {
 
             }
         }
+
+
+        rosa {
+            color: rgb(220, 50, 171);
+        }
+
+        .direita {
+
+
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+
+            button {
+                width: 50px;
+                height: 30px;
+                background-color: rgba(0, 0, 0, 0);
+                ;
+                border: none;
+                border-radius: 5%;
+
+
+            }
+
+        }
     </style>
 
 
@@ -326,37 +389,56 @@ if (isset($_POST['textarea'])) {
 
 
 
-    </style>
 
     <!-- Barra de Navegação -->
-    <nav style="background: rgb(219 164 234)" class="navbar fixed-top">
-        <div class="container-fluid" style="justify-content:start;">
-            <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
-            <tr class="navbar-nav me-auto mb-2 mb-lg-0">
-                <td class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
-                </td>
-                <td class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#anchor-linhadotempo">Comunidade</a>
-                </td>
-                <td>
-                    <button style="margin-left: auto;" class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <!-- <span class="navbar-toggler-icon"></span> -->
+
+    <nav style="background: rgb(255, 255, 255); height: 55px; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" class="navbar navbar-expand-lg fixed-top">
+
+
+
+        <a class="navbar-brand" href="./bem_vindo.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -23px;" id="navbarTogglerDemo01">
+            <!--Itens da Barra de Navegação -->
+
+            <li class="nav-item" id="navbarTogglerDemo01">
+                <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+            </li>
+            <li class="nav-item dropdown" id="navbarTogglerDemo01">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="navbarTogglerDemo01">Redes Sociais</a>
+                <div style="width: 180px;text-align: center;border-color: rgb(255, 255, 255);background:rgb(255, 255, 255)" class="dropdown-menu" id="navbarTogglerDemo01">
+                    <a style="background:rgb(255, 255, 255); margin:auto" class="dropdown-item" href="https://www.instagram.com/mapeandoobem/" target="_blank" id="navbarTogglerDemo01"><i style="font-size: 22px;" class="fa-brands fa-instagram fa-fade">
+                            <nome style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"> Instagram</nome>
+                        </i></a>
+                </div>
+
+
+
+            </li>
+
+
+
+            <li class="nav-item" id="navbarTogglerDemo01">
+                <a class="nav-link" aria-current="page" href="#" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
+            </li>
+
+
+        </ul>
+
+        <div class="direita">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">
+                <li id="navbarTogglerDemo01">
+                    <button class="butaomodal" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </button>
-                </td>
-            </tr>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
+
     </nav>
+
+
+
 
 
 
@@ -428,13 +510,12 @@ if (isset($_POST['textarea'])) {
                 </div>
                 <div class="bloco-paralax" id="intro">
                     <div class="texto_intro">
-                        <h1 class="titulo" id="mob">Mapeando o Bem</h1><br>
+                        <h1 class="titulo" id="mob">Mapeando o <rosa>Bem</rosa>
+                        </h1><br>
                         <h2 class="sub_titulo">Conecte-se com diversas ONGs e escolha a atividade que mais tem a ver com você!</h2>
                     </div>
                 </div>
             </div>
-
-
 
             <div class="informes">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -555,7 +636,10 @@ if (isset($_POST['textarea'])) {
             <div class="container" id="anchor-voluntario">
                 <div class="row">
                     <div class="col-12" id="anchor">
-                        <h3 class="main-title">O que é ser voluntário</h3>
+                        <h3 class="main-title">O que é ser voluntário</h3><br>
+                        <h6>Significa doar seu tempo, seu conhecimento e suas habilidades em prol de uma ação social, visando beneficiar as comunidades locais.</h6>
+                        <h6></h6>
+
                     </div>
                     <div class="main-title-linha">
                     </div>
@@ -581,8 +665,12 @@ if (isset($_POST['textarea'])) {
                         <img class="img-fluid" src="https://media.istockphoto.com/id/1474708790/vector/pensive-male-student-character-sitting-on-floor-with-laptop-and-paper-sheet-thinking-on-task.jpg?s=612x612&w=0&k=20&c=1lR1efScvegGuIImPJy2SdGA1LhibJooICLZIb46HaY=" alt="voluntariar">
                     </div>
                     <div class="col-md-6">
-                        <h3 class="sobrenos-titulo">Benefícios....</h3><br>
-                        <h6>texto</h6>
+                        <h3 class="sobrenos-titulo">Impulsione seu desenvolvimento pessoal e profissional</h3><br>
+                        <h6>Participação em formações pedagógicas contínuas e eventos;
+                            Descoberta de novas potencialidades;
+                            Criação de novos círculos de amizades pessoais;
+                            Participação na construção de realidades mais justas;
+                            Comprovação de horas complementares para formação em nível de graduação e/ou diferencial para realização de intercâmbio acadêmico;</h6>
                         <h6>texto</h6>
                         <h6>texto</h6>
                     </div>
@@ -610,8 +698,9 @@ if (isset($_POST['textarea'])) {
 
 
 
-            <div class="OnorOff">
+            <div class="OnorOff" id="ancho-botao-ocultar">
                 <button id="botao-ocultar" name="botao-ocultar"><i class="fa-solid fa-caret-up"></i></button>
+
             </div>
         </div>
 
@@ -645,7 +734,9 @@ if (isset($_POST['textarea'])) {
                         </div>
                         <div>
 
-                            <img id="myimg" src="./voluntarios-produtos.jpg" class="imgpost" alt="">
+
+
+                            <img id="myimg" src="./voluntarios-produtos.jpg" class="imgpost" onerror="this.style.display = 'none'" alt="">
 
 
                         </div>
@@ -682,12 +773,19 @@ if (isset($_POST['textarea'])) {
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <input type="file" name="image" id="">
+
+                                                 
+                                                        <input type="file" name="image"  id="imagem">
+
+                                                    
+
+
+
                                                 </div>
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                    <button id="buttonaddimagem" type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
 
                                             </div>
@@ -786,7 +884,7 @@ if (isset($_POST['textarea'])) {
 
                     for ($i = 0; $i < count($conteudo_post); $i++) {
 
-                        Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]]);
+                        Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]], $post_ultra[$files_post[$i]]);
                     }
 
                     ?>
@@ -795,9 +893,37 @@ if (isset($_POST['textarea'])) {
             </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+
+    $varseila = $_POST['data'];
+
+    $dados = json_decode($varseila, true);
+
+    var_dump($dados);
+
+
+
+?>
+
+
+
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+       
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->

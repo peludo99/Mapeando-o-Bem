@@ -35,6 +35,13 @@
 
 
      <style>
+
+
+    body{
+        
+        overflow-x: hidden;
+    }
+        
          .editusuario {
 
              background: white;
