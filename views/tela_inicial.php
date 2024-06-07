@@ -230,6 +230,7 @@ if (isset($_POST['textarea'])) {
             margin-bottom: 130px;
             width: 400px;
             height: 400px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
         }
 
@@ -250,6 +251,7 @@ if (isset($_POST['textarea'])) {
         .blocos {
             background-color: #ff6edb15;
             height: 800px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
 
         #intro {
@@ -501,10 +503,8 @@ if (isset($_POST['textarea'])) {
 
     <div class="mural">
 
-        <div class="on-off" id="off">
 
-
-            <div class="color_fundo">
+    <div class="color_fundo">
                 <div class="parallax">
 
                 </div>
@@ -516,6 +516,16 @@ if (isset($_POST['textarea'])) {
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+        <div class="on-off" id="off">
+
+
+            
 
             <div class="informes">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -558,7 +568,7 @@ if (isset($_POST['textarea'])) {
                 <div class="esquerdo">
                     <div class="textoEsquerdo">
                         <h1 class="titulo">Gostaria de ser <strong>Voluntário?</strong></h1><br>
-                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em sua região:</h2>
+                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em nossas entidades parceiras.</h2><p class="sub_titulo" id="sub_car">Neste momento, em sua região:</p>
                     </div>
                 </div>
                 <div class="direito">
@@ -578,7 +588,7 @@ if (isset($_POST['textarea'])) {
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://euclideseder.com.br/wp-content/uploads/2021/05/Merenda-1.jpeg" class="d-block w-100" alt="...">
+                                <img src="https://img.freepik.com/fotos-gratis/grupo-de-diferentes-pessoas-oferecendo-se-como-voluntario-em-um-banco-de-alimentos-para-pessoas-pobres_23-2149012209.jpg?t=st=1717717355~exp=1717720955~hmac=084fb9bdec18204a265cd9ce05d1e9b42aeaed5e15b922d3ff815c11a22a0622&w=1380" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Casa 2</h5>
                                     <p>Estamos precisando de doações! Venha nos conhecer!</p>
@@ -592,7 +602,7 @@ if (isset($_POST['textarea'])) {
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://th.bing.com/th/id/R.d133f0a8766d5cfc975f67935dbfe3c1?rik=xk%2bIitWisHcEmw&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                                <img src="https://img.freepik.com/fotos-gratis/mulher-brincando-com-caes-de-resgate-em-abrigo_23-2148682984.jpg?w=1480&t=st=1717716506~exp=1717717106~hmac=e9e0579eefe8c1eef4c928783fa5f8006f0cb2a7c62e2baf07a4b99ef951fdd1" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Casa 4</h5>
                                     <p>Estaremos com um evento de adoção neste final de semana. ajude-nos!</p>

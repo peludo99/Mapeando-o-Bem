@@ -35,20 +35,17 @@
 
 
      <style>
+         body {
 
+             overflow: hidden;
+         }
 
-    body{
-        
-        overflow-x: hidden;
-    }
-        
          .editusuario {
 
-             background: white;
-             width: 45%;
+
+             width: 100%;
              height: auto;
-             margin-left: auto;
-             margin-right: auto;
+             margin: 10px;
              z-index: 50;
 
 
@@ -96,11 +93,7 @@
              outline: 2px solid var(--clr);
          }
 
-         .label {
-             align-self: flex-start;
-             color: var(--clr);
-             font-weight: 600;
-         }
+
 
          form .submit {
              padding: 1rem 0.75rem;
@@ -219,6 +212,153 @@
              background-color: rgb(145, 7, 122);
 
          }
+
+
+         .container-usuario {
+             height: 100vh;
+             width: 100vw;
+
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             flex-direction: row;
+
+         }
+
+
+
+
+         .esquerda {
+             height: 100%;
+             width: 60%;
+             background-color: #e9e9e9;
+         }
+
+         .direita {
+             height: 100%;
+             width: 40%;
+
+
+         }
+
+         .conteudo-direita {
+
+
+             width: 100%;
+             height: 100%;
+             padding: 20px;
+             background-color: #efefef;
+             background-color: white;
+             box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+         }
+
+         .conteudo-esquerda {
+
+             display: flex;
+             flex-direction: row;
+
+
+             width: 100%;
+             height: 100%;
+             margin-top: 10px;
+
+
+             padding: 20px;
+
+
+         }
+
+         .wave-group {
+             position: relative;
+         }
+
+         .wave-group .input {
+             font-size: 16px;
+             padding: 10px 10px 10px 5px;
+             display: block;
+             width: 200px;
+             border: none;
+             border-bottom: 1px solid #515151;
+             background: transparent;
+         }
+
+         .wave-group .input:focus {
+             outline: none;
+         }
+
+         .wave-group .label {
+             color: #999;
+             font-size: 18px;
+             font-weight: normal;
+             position: absolute;
+             pointer-events: none;
+             left: 5px;
+             top: 10px;
+             display: flex;
+         }
+
+         .wave-group .label-char {
+             transition: 0.2s ease all;
+             transition-delay: calc(var(--index) * .05s);
+         }
+
+         .wave-group .input:focus~label .label-char,
+         .wave-group .input:valid~label .label-char {
+             transform: translateY(-20px);
+             font-size: 14px;
+             color: #5264AE;
+         }
+
+         .wave-group .bar {
+             position: relative;
+             display: block;
+             width: 200px;
+         }
+
+         .wave-group .bar:before,
+         .wave-group .bar:after {
+             content: '';
+             height: 2px;
+             width: 0;
+             bottom: 1px;
+             position: absolute;
+             background: #5264AE;
+             transition: 0.2s ease all;
+             -moz-transition: 0.2s ease all;
+             -webkit-transition: 0.2s ease all;
+         }
+
+         .wave-group .bar:before {
+             left: 50%;
+         }
+
+         .wave-group .bar:after {
+             right: 50%;
+         }
+
+         .wave-group .input:focus~.bar:before,
+         .wave-group .input:focus~.bar:after {
+             width: 50%;
+         }
+
+
+
+         .direita-esquerda-info {
+             width: 100%;
+             height: 100%;
+             padding: 20px;
+             background-color: #efefef;
+
+         }
+
+         .esquerda-esquerda-info {
+             width: 100%;
+             height: 100%;
+             padding: 20px;
+             background-color: black;
+
+         }
      </style>
 
  </head>
@@ -294,86 +434,173 @@
  <body style="aling-item:center">
 
 
-     <div class="editusuario">
 
-         <div class="header">
-             <H1>Perfil</H1>
-             <?php echo "<h2>$nome_usuario</h2>"; ?>
-             <img class="foto" src="css/assets/perfil.png" alt="">
+
+
+     <div class="container-usuario">
+
+         <div class="direita">
+             <div class="conteudo-direita">
+
+                 <div class="header">
+                     <H1>Perfil</H1>
+                     <?php echo "<h2>$nome_usuario</h2>"; ?>
+                     <img class="foto" src="css/assets/perfil.png" alt="">
+                 </div>
+
+                 <div class="about">
+                     <h1>Sobre mim:</h2>
+                         <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas. <br>Atualmente tenho mais contato com <strong>abrigos de animais</strong> e <strong>asilos</strong>.</p>
+                 </div>
+
+
+                 <?php
+                    ?>
+
+                 <div class="social">
+                     <p>Me acompanhe:</p>
+                     <i class="fa-brands fa-square-instagram"></i>
+                     <i class="fa-brands fa-square-facebook"></i>
+                 </div>
+
+
+
+             </div>
          </div>
 
-         <div class="about">
-             <h1>Sobre mim:</h2>
-                 <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas. <br>Atualmente tenho mais contato com <strong>abrigos de animais</strong> e <strong>asilos</strong>.</p>
-         </div>
+         <div class="esquerda">
+             <div class="conteudo-esquerda">
 
 
-         <?php
-            ?>
+                 <div class="direita-esquerda-info">
 
-         <div class="social">
-             <p>Me acompanhe:</p>
-             <i class="fa-brands fa-square-instagram"></i>
-             <i class="fa-brands fa-square-facebook"></i>
-         </div>
-
-         <div class="modificacoes">
-             <form class="form" action="../views/usuario.php" method="post">
-                 <h2>Informações Pessoais</h2>
-
-                 <span class="input-span">
-                     <label for="nome" class="label">Nome</label>
-                     <input type="text" name="nome" id="nome" value="<?php echo $dados[0]; ?>"></span>
-                 <span class="input-span">
-                     <label for="cep" class="label">CEP</label>
-                     <input type="text" name="cep" id="cep" placeholder="Digite seu cep" value="<?php echo $dados[3]; ?>"></span>
-                 <span class="input-span">
-                     <span class="input-span">
-                         <label for="rua" class="label">Rua</label>
-                         <input type="text" name="rua" id="rua" placeholder="Digite sua Rua (opcional)" value="<?php echo $dados[4]; ?>"></span>
-                     <span class="input-span">
-
-                         <label for="bairro" class="label">Bairro</label>
-                         <input type="text" name="bairro" id="bairro" placeholder="Digite seu Bairro (opcional)" value="<?php echo $dados[5]; ?>"></span>
-                     <span class="input-span">
-
-                         <label for="estado" class="label">Estado</label>
-                         <input type="text" name="estado" id="estado" placeholder="Digite seu Estado (opcional)" value="<?php echo $dados[6]; ?>"></span>
+                  
 
 
 
-                     <div class="seguranca">
-                         <h2>Segurança da Conta</h2>
-
-                         <span class="input-span">
-                             <label for="email" class="label">Email</label>
-                             <input type="email" name="email" id="email" value="<?php echo $dados[1]; ?>"></span>
-                         <span class="input-span">
-                             <label for="password" class="label">Password</label>
-                             <input type="password" name="senha" id="password" value="<?php echo $dados[2]; ?>"></span><br>
+                         <div class="modificacoes">
+                             <form class="form" action="../views/usuario.php" method="post">
+                                 <h2>Informações Pessoais</h2>
 
 
-                         <input type="hidden" name="id" value="<?php echo $dados[7]; ?>">
+                                 <div class="wave-group">
+                                     <input required="" type="text" name="nome" id="nome" class="input" value="<?php echo $dados[0]; ?>">
+                                     <span class="bar"></span>
+                                     <label class="label">
+                                         <span class="label-char" style="--index: 0">N</span>
+                                         <span class="label-char" style="--index: 1">o</span>
+                                         <span class="label-char" style="--index: 2">m</span>
+                                         <span class="label-char" style="--index: 3">e</span>
+                                     </label>
+                                 </div>
+
+                                 <div class="wave-group">
+                                     <input required="" type="text" class="input" name="cep" id="cep" placeholder="" value="<?php echo $dados[3]; ?>">
+                                     <span class="bar"></span>
+                                     <label class="label">
+                                         <span class="label-char" style="--index: 0">C</span>
+                                         <span class="label-char" style="--index: 1">E</span>
+                                         <span class="label-char" style="--index: 2">P</span>
+                                     </label>
+                                 </div>
+
+                                 <div class="wave-group">
+                                     <input required="" type="text" class="input" name="rua" id="rua" placeholder="Digite sua Rua (opcional)" value="<?php echo $dados[4]; ?>">
+                                     <span class="bar"></span>
+                                     <label class="label">
+                                         <span class="label-char" style="--index: 0">R</span>
+                                         <span class="label-char" style="--index: 1">u</span>
+                                         <span class="label-char" style="--index: 2">a</span>
+                                     </label>
+                                 </div>
+
+                                 <div class="wave-group">
+                                     <input required="" type="text" class="input" name="bairro" id="bairro" placeholder="Digite seu Bairro (opcional)" value="<?php echo $dados[5]; ?>">
+                                     <span class="bar"></span>
+                                     <label class="label">
+                                         <span class="label-char" style="--index: 0">B</span>
+                                         <span class="label-char" style="--index: 1">a</span>
+                                         <span class="label-char" style="--index: 2">i</span>
+                                         <span class="label-char" style="--index: 3">r</span>
+                                         <span class="label-char" style="--index: 4">r</span>
+                                         <span class="label-char" style="--index: 5">o</span>
+                                     </label>
+                                 </div>
+
+                                 <div class="wave-group">
+                                     <input required="" type="text" class="input" name="estado" id="estado" placeholder="Digite seu Estado (opcional)" value="<?php echo $dados[6]; ?>">
+                                     <span class="bar"></span>
+                                     <label class="label">
+                                         <span class="label-char" style="--index: 0">E</span>
+                                         <span class="label-char" style="--index: 1">s</span>
+                                         <span class="label-char" style="--index: 2">t</span>
+                                         <span class="label-char" style="--index: 3">a</span>
+                                         <span class="label-char" style="--index: 4">d</span>
+                                         <span class="label-char" style="--index: 5">o</span>
+                                     </label>
+                                 </div>
 
 
-                         <button type="submit" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Atualizar informaçoes</button>
+                         </div>
+                     </div>
 
-                         <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
+
+                     <div class="esquerda-esquerda-info">
+                        
+                             <div class=" seguranca">
+                                 <h2>Segurança da Conta</h2>
+
+                                 <span class="input-span">
+                                     <label for="email" class="label">Email</label>
+                                     <input type="email" name="email" id="email" value="<?php echo $dados[1]; ?>"></span>
+                                 <span class="input-span">
+                                     <label for="password" class="label">Password</label>
+                                     <input type="password" name="senha" id="password" value="<?php echo $dados[2]; ?>"></span><br>
 
 
+                                 <input type="hidden" name="id" value="<?php echo $dados[7]; ?>">
+
+
+
+                             </div>
+
+                             <div class="baixo-esquerda">
+
+
+                             </div>
+
+
+
+
+
+
+
+                             <button type="submit" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Atualizar informaçoes</button>
+
+                             <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
+
+
+
+
+                         </div>
+                         </form>
 
 
                      </div>
-             </form>
 
 
+
+
+                 </div>
+
+
+
+
+
+
+             </div>
          </div>
-
-
-
-
      </div>
-
 
 
 
