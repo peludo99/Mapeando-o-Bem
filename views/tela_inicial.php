@@ -63,10 +63,6 @@ if (isset($_POST['textarea'])) {
             overflow-x: hidden;
         }
 
-
-
-
-
         /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
 
         .nav-item {
@@ -94,14 +90,6 @@ if (isset($_POST['textarea'])) {
         #navbarTogglerDemo01>a:hover {
             color: rgb(238, 84, 204);
         }
-
-
-
-
-
-
-
-
 
         .btn-outline-primary:hover {
             background-color: rgb(59, 3, 50);
@@ -647,9 +635,6 @@ if (isset($_POST['textarea'])) {
                 <div class="row">
                     <div class="col-12" id="anchor">
                         <h3 class="main-title">O que é ser voluntário</h3><br>
-                        <h6>Significa doar seu tempo, seu conhecimento e suas habilidades em prol de uma ação social, visando beneficiar as comunidades locais.</h6>
-                        <h6></h6>
-
                     </div>
                     <div class="main-title-linha">
                     </div>
@@ -657,10 +642,9 @@ if (isset($_POST['textarea'])) {
                         <img class="img-fluid" src="https://www.newyorkfamily.com/wp-content/uploads/2021/10/GettyImages-1175986554-822x822.jpg" alt="voluntariar">
                     </div>
                     <div class="col-md-6">
-                        <h3 class="sobrenos-titulo">Ser voluntário....</h3><br>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
+                        <h3 class="sobrenos-titulo">Doe seu tempo e habilidades em prol de uma ação social.</h3><br>
+                        <h6>O voluntariado é uma ação transformadora que beneficia tanto a quem recebe quanto a quem se doa.</h6>
+                        <h6>Através da doação de seu tempo, habilidades e conhecimentos, o voluntário contribui para o bem-estar da comunidade e para o seu próprio desenvolvimento pessoal e profissional, através das experiências adquiridas.</h6>
                     </div>
                 </div>
             </div>
@@ -697,10 +681,10 @@ if (isset($_POST['textarea'])) {
                         <img class="img-fluid" src="https://image.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148583914.jpg" alt="vaga_perfeita">
                     </div>
                     <div class="col-md-6">
-                        <h3 class="sobrenos-titulo">A melhor vaga para você....</h3><br>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
+                        <h3 class="sobrenos-titulo">Ajude a quem precisa realizando atividades que você se identifica.</h3><br>
+                        <h6>A chave para encontrar a vaga certa é focar nas atividades em que você se sentiria mais motivado em realizar.</h6>
+                        <h6>Como um quebra cabeça, analise bem o que se encaixa no seu perfil e será como encontrar a peça que estava faltando!</h6>
+                        <h6>Alinhe bem com seus interesses, habilidades e disponibilidade. Pense bem na causa que você deseja apoiar e tudo ficará mais claro!</h6>
                     </div>
                 </div>
             </div>
