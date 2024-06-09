@@ -3,21 +3,52 @@
 require_once('../controllers/funcoes.php');
 session_start();
 $nomeusuario = $_SESSION['user'];
+
+$link_user = "";
 $email = $_SESSION['email'];
 $id = $_SESSION['id'];
+$permisssao = $_SESSION['permissoes'];
 
-if (isset($_POST['submit'])) {
-    $nome_imagem_post = $_FILES['image']['name'];
-    $nometemp = $_FILES['image']['temp_name'];
-    $pasta = '../controllers/temp/' . $nome_imagem;
+
+$imagem =  Buscardadosimagem($email);
+$texto = Buscartextoimagem($email);
+
+
+$imagem1 = array();
+
+for ($i = 0; $i < count($imagem); $i++) {
+
+    foreach ($imagem[$i] as $elemento) {
+        $imagem1[] = $elemento;
+    }
 }
+
+
+$texto1 = array();
+
+for ($i = 0; $i < count($texto); $i++) {
+
+    foreach ($texto[$i] as $elemento) {
+        $texto1[] = $elemento;
+    }
+}
+
+
+date_default_timezone_set('America/Sao_Paulo');
+$hoje = date('d/m/Y');
+$hora_atual = date('H:i');
+$conteudo = end($texto1);
+
+$data = "Postado " . $hoje . " as " . $hora_atual . "h";
+
 
 if (isset($_POST['textarea'])) {
 
     $conteudo = $_POST['textarea'];
-    $file = '';
+    $file =  end($imagem1);
     if (!$conteudo == "" or !$conteudo == NULL) {
-        AdicionarPost($conteudo, $file, $email, $nomeusuario);
+        AdicionarPost($conteudo, $file, $email, $nomeusuario, $data, $id);
+        Deletarimg($email);
         header("location: tela_inicial.php#anchor-linhadotempo");
     }
 }
@@ -32,6 +63,11 @@ if (isset($_POST['textarea'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
+
+    <script src="../controllers/jquery-3.7.1.js"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -45,7 +81,7 @@ if (isset($_POST['textarea'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <script src="../controllers/jquery-3.7.1.js"></script>
+
 
     <script type="module" src="../controllers/funcoes.js"></script>
 
@@ -59,9 +95,7 @@ if (isset($_POST['textarea'])) {
 
 
     <style>
-        body {
-            overflow-x: hidden;
-        }
+        body {}
 
 
 
@@ -230,6 +264,7 @@ if (isset($_POST['textarea'])) {
             margin-bottom: 130px;
             width: 400px;
             height: 400px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
         }
 
@@ -250,6 +285,7 @@ if (isset($_POST['textarea'])) {
         .blocos {
             background-color: #ff6edb15;
             height: 800px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
 
         #intro {
@@ -339,19 +375,9 @@ if (isset($_POST['textarea'])) {
 
 
         .OnorOff {
-            display: flex;
-            width: 100px;
-            margin: auto;
-            background-color: rgba(163, 163, 163, 0.651);
-            margin-top: 5%;
 
 
-            button {
-
-                width: 100%;
-                border: none;
-
-            }
+            button {}
         }
 
 
@@ -378,6 +404,102 @@ if (isset($_POST['textarea'])) {
 
             }
 
+        }
+
+
+        .buttononof {
+            width: 140px;
+            height: 56px;
+            overflow: hidden;
+            border: none;
+            color: black;
+            background: none;
+            position: relative;
+            padding-bottom: 2em;
+            cursor: pointer;
+        }
+
+        .buttononof>div,
+        .buttononof>svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .buttononof:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            background: currentColor;
+            transition: transform 0.25s ease-out;
+        }
+
+        .buttononof:hover:before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .buttononof .clone>*,
+        .buttononof .text>* {
+            opacity: 1;
+            font-size: 1.3rem;
+            transition: 0.2s;
+            margin-left: 4px;
+        }
+
+        .buttononof .clone>* {
+            transform: translateY(60px);
+        }
+
+        .buttononof:hover .clone>* {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+        }
+
+        .buttononof:hover .text>* {
+            opacity: 1;
+            transform: translateY(-60px);
+            transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+        }
+
+        .buttononof:hover .clone> :nth-child(1) {
+            transition-delay: 0.15s;
+        }
+
+        .buttononof:hover .clone> :nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .buttononof:hover .clone> :nth-child(3) {
+            transition-delay: 0.25s;
+        }
+
+        .buttononof:hover .clone> :nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        /* icon style and hover */
+        .buttononof svg {
+            width: 20px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(-50deg);
+            transition: 0.2s ease-out;
+        }
+
+        .buttononof:hover svg {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+        .imgpost {
+            object-fit: cover;
         }
     </style>
 
@@ -445,7 +567,7 @@ if (isset($_POST['textarea'])) {
     <!-- Barra de navegação - Modal -->
     <div class="modal fade" style="margin-left: 70%; width: 30%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="width: 30%; background: rgb(219 164 234);">
+            <div class="modal-content" style="width: 30%; background: rgb(226, 176, 215);;">
                 <div class="modal-header" style="border: none;">
                     <h5 class="modal-title" id="exampleModalLabel">Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -492,6 +614,7 @@ if (isset($_POST['textarea'])) {
         </div>
     </div>
 
+
 </head>
 
 <body>
@@ -501,21 +624,29 @@ if (isset($_POST['textarea'])) {
 
     <div class="mural">
 
+
+        <div class="color_fundo">
+            <div class="parallax">
+
+            </div>
+            <div class="bloco-paralax" id="intro">
+                <div class="texto_intro">
+                    <h1 class="titulo" id="mob">Mapeando o <rosa>Bem</rosa>
+                    </h1><br>
+                    <h2 class="sub_titulo">Conecte-se com diversas ONGs e escolha a atividade que mais tem a ver com você!</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
         <div class="on-off" id="off">
 
 
-            <div class="color_fundo">
-                <div class="parallax">
 
-                </div>
-                <div class="bloco-paralax" id="intro">
-                    <div class="texto_intro">
-                        <h1 class="titulo" id="mob">Mapeando o <rosa>Bem</rosa>
-                        </h1><br>
-                        <h2 class="sub_titulo">Conecte-se com diversas ONGs e escolha a atividade que mais tem a ver com você!</h2>
-                    </div>
-                </div>
-            </div>
 
             <div class="informes">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -558,7 +689,8 @@ if (isset($_POST['textarea'])) {
                 <div class="esquerdo">
                     <div class="textoEsquerdo">
                         <h1 class="titulo">Gostaria de ser <strong>Voluntário?</strong></h1><br>
-                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em sua região:</h2>
+                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em nossas entidades parceiras.</h2>
+                        <p class="sub_titulo" id="sub_car">Neste momento, em sua região:</p>
                     </div>
                 </div>
                 <div class="direito">
@@ -578,7 +710,7 @@ if (isset($_POST['textarea'])) {
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://euclideseder.com.br/wp-content/uploads/2021/05/Merenda-1.jpeg" class="d-block w-100" alt="...">
+                                <img src="https://img.freepik.com/fotos-gratis/grupo-de-diferentes-pessoas-oferecendo-se-como-voluntario-em-um-banco-de-alimentos-para-pessoas-pobres_23-2149012209.jpg?t=st=1717717355~exp=1717720955~hmac=084fb9bdec18204a265cd9ce05d1e9b42aeaed5e15b922d3ff815c11a22a0622&w=1380" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Casa 2</h5>
                                     <p>Estamos precisando de doações! Venha nos conhecer!</p>
@@ -592,7 +724,7 @@ if (isset($_POST['textarea'])) {
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="https://th.bing.com/th/id/R.d133f0a8766d5cfc975f67935dbfe3c1?rik=xk%2bIitWisHcEmw&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                                <img src="https://img.freepik.com/fotos-gratis/mulher-brincando-com-caes-de-resgate-em-abrigo_23-2148682984.jpg?w=1480&t=st=1717716506~exp=1717717106~hmac=e9e0579eefe8c1eef4c928783fa5f8006f0cb2a7c62e2baf07a4b99ef951fdd1" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Casa 4</h5>
                                     <p>Estaremos com um evento de adoção neste final de semana. ajude-nos!</p>
@@ -610,7 +742,6 @@ if (isset($_POST['textarea'])) {
                     </div>
                 </div>
             </div>
-
 
             <div class="container" id="sobrenos">
                 <div class="row">
@@ -637,9 +768,6 @@ if (isset($_POST['textarea'])) {
                 <div class="row">
                     <div class="col-12" id="anchor">
                         <h3 class="main-title">O que é ser voluntário</h3><br>
-                        <h6>Significa doar seu tempo, seu conhecimento e suas habilidades em prol de uma ação social, visando beneficiar as comunidades locais.</h6>
-                        <h6></h6>
-
                     </div>
                     <div class="main-title-linha">
                     </div>
@@ -647,10 +775,9 @@ if (isset($_POST['textarea'])) {
                         <img class="img-fluid" src="https://www.newyorkfamily.com/wp-content/uploads/2021/10/GettyImages-1175986554-822x822.jpg" alt="voluntariar">
                     </div>
                     <div class="col-md-6">
-                        <h3 class="sobrenos-titulo">Ser voluntário....</h3><br>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
+                        <h3 class="sobrenos-titulo">Doe seu tempo e habilidades em prol de uma ação social.</h3><br>
+                        <h6>O voluntariado é uma ação transformadora que beneficia tanto a quem recebe quanto a quem se doa.</h6>
+                        <h6>Através da doação de seu tempo, habilidades e conhecimentos, o voluntário contribui para o bem-estar da comunidade e para o seu próprio desenvolvimento pessoal e profissional, através das experiências adquiridas.</h6>
                     </div>
                 </div>
             </div>
@@ -687,10 +814,10 @@ if (isset($_POST['textarea'])) {
                         <img class="img-fluid" src="https://image.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148583914.jpg" alt="vaga_perfeita">
                     </div>
                     <div class="col-md-6">
-                        <h3 class="sobrenos-titulo">A melhor vaga para você....</h3><br>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
+                        <h3 class="sobrenos-titulo">Ajude a quem precisa realizando atividades que você se identifica.</h3><br>
+                        <h6>A chave para encontrar a vaga certa é focar nas atividades em que você se sentiria mais motivado em realizar.</h6>
+                        <h6>Como um quebra cabeça, analise bem o que se encaixa no seu perfil e será como encontrar a peça que estava faltando!</h6>
+                        <h6>Alinhe bem com seus interesses, habilidades e disponibilidade. Pense bem na causa que você deseja apoiar e tudo ficará mais claro!</h6>
                     </div>
                 </div>
             </div>
@@ -699,7 +826,21 @@ if (isset($_POST['textarea'])) {
 
 
             <div class="OnorOff" id="ancho-botao-ocultar">
-                <button id="botao-ocultar" name="botao-ocultar"><i class="fa-solid fa-caret-up"></i></button>
+                <button class="buttononof" id="botao-ocultar" name="botao-ocultar">
+                    <div class="text">
+                        <span style="margin: auto; margin-top: 0px">Ocultar</span>
+
+                    </div>
+                    <div class="clone">
+                        <span style="margin: auto; margin-top: 0px">Para Cima</span>
+
+
+                    </div>
+                    <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="20px">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                </button>
+
 
             </div>
         </div>
@@ -708,56 +849,62 @@ if (isset($_POST['textarea'])) {
         <div class="on">
 
             <div class="OnorOff">
-                <button style="display: none;" id="botao-mostrar" name="botao-mostrar"><i class="fa-solid fa-caret-down"></i></button>
+
+                <button style="display: none;" class="buttononof" id="botao-mostrar" name="botao-mostrar">
+                    <div class="text">
+                        <span style="margin: auto; margin-top: 0px">Mostrar</span>
+
+                    </div>
+                    <div class="clone">
+                        <span style="margin: auto; margin-top: 0px">Conteudo</span>
+
+
+                    </div>
+                    <svg style="transform: translateY(-50%) rotate(50deg); transform: translateY(-50%) rotate(90deg);" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="20px">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                </button>
 
             </div>
 
-
-
-
             <div class="baixo">
-
-
-
-                <script type="module" src="../controllers/funcoes.js"></script>
-
                 <h1 class="main-title" id="anchor-linhadotempo">Linha do Tempo</h1>
 
-                <main class="main">
+                <?php
+
+                if ($permisssao == 1) {
+                    echo ' <main class="main">
                     <!-- formulario de envio -->
                     <div class="newPost">
                         <div class="infoUser">
                             <div class="imgUser">
 
                             </div>
-                            <div class="nomeuser"><?php echo "<Strong class='nomeUser'>" . $nomeusuario . "</Strong>" ?></div>
+                            <div class="nomeuser"><Strong class="nomeUser">' . $nomeusuario . '</Strong></div>
                         </div>
-                        <div>
+                        <div>';
 
 
+                    if (!$imagem == null or !$imagem == "") {
 
-                            <img id="myimg" src="./voluntarios-produtos.jpg" class="imgpost" onerror="this.style.display = 'none'" alt="">
+                        echo ' <img id="myimg" src=' . end($imagem1) . ' class="imgpost">';
+                    };
 
 
-                        </div>
+                    echo '</div>
                         <form action="tela_inicial.php" method="post" class="formPost" id="idformpost">
-                            <textarea class="textarea" name="textarea" id="idtextarea" placeholder="Vamos mudar o mundo?" cols="30" rows="10"></textarea>
-
-
+                            <textarea class="textarea" name="textarea" id="idtextarea" placeholder="Vamos mudar o mundo?" cols="30" rows="10" value="">' . $conteudo . '</textarea>
 
                             <div class="iconsAndButton">
 
                                 <div class="btnimg">
-
 
                                     <button class="buttonadd" type="button" data-bs-toggle="modal" data-bs-target="#addarquivo">
                                         <span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span>
 
                                     </button>
 
-
                                     <!-- Modal -->
-
                                     <div class="modal fade" id="addarquivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                                         <div class="modal-dialog" role="document">
@@ -774,12 +921,7 @@ if (isset($_POST['textarea'])) {
 
                                                 <div class="modal-body">
 
-                                                 
-                                                        <input type="file" name="image"  id="imagem">
-
-                                                    
-
-
+                                                    <input type="file" name="image" id="imagem">
 
                                                 </div>
 
@@ -793,7 +935,6 @@ if (isset($_POST['textarea'])) {
                                         </div>
 
                                     </div>
-
 
                                 </div>
 
@@ -811,41 +952,50 @@ if (isset($_POST['textarea'])) {
 
                             </div>
                         </form>
+                    </div>';
+                }
+
+
+
+                ?>
+
+
+
+
+                <div class="chatbox-wrapper">
+                    <div class="chatbox-toggle">
+                        <i class="fa-solid fa-message"></i>
+
                     </div>
-
-
-                    <div class="chatbox-wrapper">
-                        <div class="chatbox-toggle">
-                            <i class="fa-solid fa-message"></i>
-
-                        </div>
-                        <div class="chatbox-menssage-wrapper">
-                            <div class="chatbox-menssage-header">
-                                <div class="chatbox-menssege-profile">
-                                    <div class="div">
-                                        <img class="chatbox-message-imagem" src="./css/assets/perfil.png" alt="">
-                                        <h4 class="chatbox-message-name">Bot</h4>
-                                        <p class="chatbox-message-status">online</p>
-                                    </div>
+                    <div class="chatbox-menssage-wrapper">
+                        <div class="chatbox-menssage-header">
+                            <div class="chatbox-menssege-profile">
+                                <div class="div">
+                                    <img class="chatbox-message-imagem" src="./css/assets/perfil.png" alt="">
+                                    <h4 class="chatbox-message-name">Bot</h4>
+                                    <p class="chatbox-message-status">online</p>
                                 </div>
                             </div>
-                            <div class="chatbox-message-content">
+                        </div>
+                        <div class="chatbox-message-content">
 
-                                <h4 class="chatbox-message-no-message">Tire suas duvidas aqui!</h4>
-
-
-
-                            </div>
-                            <div class="chatbox-message-bottom">
-                                <form action="#" class="chatbox-message-form">
-                                    <textarea name="" id="" rows="1" placeholder="escreva algo" class="chatbox-message-input"></textarea>
+                            <h4 class="chatbox-message-no-message">Tire suas duvidas aqui!</h4>
 
 
-                                    <button class="chatbox-message-submit" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-                                </form>
-                            </div>
+
+                        </div>
+                        <div class="chatbox-message-bottom">
+                            <form action="#" class="chatbox-message-form">
+                                <textarea name="" id="" rows="1" placeholder="escreva algo" class="chatbox-message-input"></textarea>
+
+
+                                <button class="chatbox-message-submit" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                            </form>
                         </div>
                     </div>
+
+
+                </div>
                 </main>
 
 
@@ -859,16 +1009,25 @@ if (isset($_POST['textarea'])) {
                     $files_post = array();
                     $email_post = array();
                     $id_post = array();
+                    $data_post = array();
+                    $id_post_user = array();
+
+
 
                     for ($i = 1; $quantidadedepost + 1 > $i; $i++) {
-                        $conteudo_post[] = (($i * 5) - 4) - 1;
-                        $files_post[] = (($i * 5) - 3) - 1;
-                        $email_post[] = (($i * 5) - 2) - 1;
-                        $nome_post[] = (($i * 5) - 1) - 1;
-                        $id_post[] = (($i * 5));
+                        $conteudo_post[] = (($i * 7) - 6) - 1;
+                        $files_post[] = (($i * 7) - 5) - 1;
+                        $email_post[] = (($i * 7) - 4) - 1;
+                        $nome_post[] = (($i * 7) - 3) - 1;
+                        $data_post[] = (($i * 7) - 2) - 1;
+                        $id_post_user[] = (($i * 7) - 1) - 1;
+                        $id_post[] = (($i * 6));
                     }
 
                     $post_one = Exibirposts();
+
+
+
 
                     $post_supremo = array();
                     $post_ultra = array();
@@ -884,11 +1043,13 @@ if (isset($_POST['textarea'])) {
 
                     for ($i = 0; $i < count($conteudo_post); $i++) {
 
-                        Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]], $post_ultra[$files_post[$i]]);
+                        Telainicial($post_ultra[$nome_post[$i]], $post_ultra[$conteudo_post[$i]], $post_ultra[$files_post[$i]], $post_ultra[$data_post[$i]], $post_ultra[$id_post_user[$i]]);
                     }
 
                     ?>
                 </div>
+
+
 
             </div>
         </div>
@@ -907,23 +1068,13 @@ if (isset($_POST['textarea'])) {
 
 
 
-<?php 
 
-    $varseila = $_POST['data'];
-
-    $dados = json_decode($varseila, true);
-
-    var_dump($dados);
-
-
-
-?>
 
 
 
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-       
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
         <!-- Option 2: Separate Popper and Bootstrap JS -->
