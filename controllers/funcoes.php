@@ -29,6 +29,17 @@ function Buscardadosdecadastro($email)
     }
 };
 
+function  DadosPermissoes($email)
+{
+    global $conexao;
+    if ($conexao->BuscarDadosPermissoesSIM($email) == null or $conexao->BuscarDadosPermissoesSIM($email) == '') {
+        return "no";
+    } else {
+
+        return "yes";
+    }
+}
+
 
 
 function CadastrarUsuarios($nome, $email, $senha)
@@ -43,11 +54,11 @@ function CadastrarUsuarios($nome, $email, $senha)
 };
 
 
-function AdicionarPost($conteudo, $file, $email, $nomeusuario)
+function AdicionarPost($conteudo, $file, $email, $nomeusuario, $data, $id)
 {
     global $conexao;
 
-    if ($conexao->addPost($conteudo, $file, $email, $nomeusuario)) {
+    if ($conexao->addPost($conteudo, $file, $email, $nomeusuario, $data,$id)) {
 
         return true;
     }
@@ -62,7 +73,18 @@ function Exibirposts()
     return   $resultado;
 };
 
-function Telainicial($post_user, $post, $post_img_user)
+
+
+function Exibirpostsbyid($id)
+{
+    global $conexao;
+    $resultado = $conexao->Buscarpostbyid($id);
+
+    return   $resultado;
+};
+
+
+function Telainicial($post_user, $post, $post_img_user, $data_post,$id)
 {
 
 
@@ -71,26 +93,26 @@ function Telainicial($post_user, $post, $post_img_user)
     $hora_atual = date('H:i');
 
 
+
     echo "<ul class='Post' id='posts'>";
     echo "<div class='infoUser'>";
     echo " <div class='imgUser'>";
 
     echo "  </div>";
-    echo "  <div class='nomeuser'> <Strong class='nomeuser'>" . $post_user . " </div> </Strong>";
+    echo "  <div class='nomeuser'>
+     <Strong class='nomeuser'> 
+     <a style='text-decoration: none;'  class='nomeuser' href='./cateto.php?id=".$id."'>".$post_user."</a> </div> </Strong>";
 
     echo " </div>";
 
     if (!$post_img_user == '') {
-        $imagem = file_get_contents($post_img_user);
 
-        if ($imagem !== false) {
 
-            echo " <div> <img src='data:image/jpeg;base64,' . base64_encode($imagem) . '> </div>";
-        } else {
-            echo 'Erro ao carregar a imagem.';
-        } {
-        }
+        echo " <img id='myimg' style='margin-top: 20px;' src='" . $post_img_user . "' class='imgpost'>";
+    } else {
+    } {
     }
+
 
 
 
@@ -101,7 +123,7 @@ function Telainicial($post_user, $post, $post_img_user)
     echo "  </stron>";
     echo "  <div class='hora'>";
 
-    echo "     <hora> Postado em " . $hoje . " as " . $hora_atual . "h </hora>";
+    echo "     <hora> " . $data_post . "</hora>";
     echo " </div>";
     echo "<div class='iconsAndButton'>";
     echo "<div class='btnpost'>";
@@ -135,6 +157,29 @@ function Telainicial($post_user, $post, $post_img_user)
     echo "</ul>";
 };
 
+function Buscardadosimagem($email)
+{
+    global $conexao;
+    $resultado = $conexao->Buscarimagem($email);
+
+    return $resultado;
+}
+
+function Buscartextoimagem($email)
+{
+    global $conexao;
+    $resultado = $conexao->Buscarimagemtexto($email);
+
+    return $resultado;
+}
+
+function Deletarimg($email)
+{
+
+    global $conexao;
+    $conexao->Deletartudo($email);
+}
+
 
 
 
@@ -152,7 +197,25 @@ function quantidadedeposts()
 
     $quantidadedeposts = count($dados);
 
-    return $quantidadedeposts / 5;
+    return $quantidadedeposts / 7;
+}
+
+
+function quantidadedepostsbyid($id)
+{
+    $todos = Exibirpostsbyid($id);
+    $dados = array();
+
+    for ($i = 0; count($todos) > $i; $i++) {
+
+        foreach ($todos[$i] as $conteudo) {
+            $dados[] = $conteudo;
+        }
+    }
+
+    $quantidadedeposts = count($dados);
+
+    return $quantidadedeposts / 7;
 }
 
 
@@ -183,6 +246,15 @@ function Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id)
     global $conexao;
     $conexao->Alterarcadastro($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id);
 }
+
+
+function AdicionarImagem($imagem, $username,$text)
+{
+    global $conexao;
+    $conexao->Post_temp($imagem, $username, $text);
+}
+
+
 
 
 function Mensagems($mensagem, $tipo)

@@ -29,7 +29,8 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
     $_SESSION['user'] = $user[0];
     $_SESSION['email'] = $user[1];
     $_SESSION['senha'] = $user[2];
-    $_SESSION['id'] = $user[7];
+    $_SESSION['id'] = $user[8];
+    $_SESSION['permissoes'] = $user[7];
     header("Location: tela_inicial.php");
   }
 }

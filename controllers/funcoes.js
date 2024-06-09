@@ -90,31 +90,51 @@ ShowSessionButton.addEventListener('click', () => {
 
 
 
-
-
 const inputfile = document.getElementById('imagem');
 
+
+
 inputfile.addEventListener('change', function (event) {
-    
+
+    const textareaElement = document.getElementById("idtextarea");
+    const textareaValue = textareaElement.value;
+    console.log(textareaValue);
     const arquivoSelecionado = event.target.files[0];
 
+    // Criar um leitor de arquivos
+    const reader = new FileReader();
 
-    const dadosimagem = JSON.stringify(inputfile);
+    // Converter a imagem em base64 quando a leitura for concluída
+    reader.onload = function (e) {
+        const dadosImagemBase64 = e.target.result;
 
-    $.ajax({
-        url: '../views/tela_inicial.php',
-        type: 'POST',
-        data: { data: dadosimagem },
-        success: function (result) {
-            console.log('mandou');
-        },
-        erro: function (jqXHR, textStatus, errorThrown) {
-            console.log('Erro, arquivo nao enviado');
-        }
+        // Enviar os dados da imagem para o servidor
+        $.ajax({
+            url: 'http://localhost/mapeando-o-bem/controllers/ajax.php',
+            type: 'POST',
+            data: {
+                imagem: dadosImagemBase64,
+                texto: textareaValue
+            }, // Enviar 'imagem' ao invés de 'data'
+
+            success: function (result) {
+                console.log('mandou');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Erro, arquivo nao enviado');
+            }
+        });
+    };
+
+    // Iniciar a leitura do arquivo
+    reader.readAsDataURL(arquivoSelecionado);
 
 
 
-    });
+
+
+
+
 
     if (arquivoSelecionado) {
         const nomeDoArquivo = arquivoSelecionado.name;
@@ -127,6 +147,12 @@ inputfile.addEventListener('change', function (event) {
     } else {
         console.log('Nenhum arquivo selecionado.');
     }
+ 
+
+
+    setTimeout(function(){
+        window.location.reload();
+    },1000);
 
 
 });

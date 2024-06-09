@@ -78,10 +78,26 @@ class Conexao
         return $res;
     }
 
-    function BuscarDadosSenha($email,$senha)
+    function BuscarDadosPermissoesSIM($email)
     {
         // CRIA ARRAY $res
-       $res = array();
+        $res = array();
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("SELECT * FROM cadastros WHERE email = :n and permissoes = 1");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":n", $email);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        // RETORNA A LISTA
+        return $res;
+    }
+
+    function BuscarDadosSenha($email, $senha)
+    {
+        // CRIA ARRAY $res
+        $res = array();
         // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
         $cmd = $this->pdo->prepare("SELECT * FROM cadastros WHERE email = :n and senha = :s ORDER BY idcadastro");
         // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
@@ -95,33 +111,49 @@ class Conexao
         return $res;
     }
 
-    function addPost($conteudo,$file,$email,$nomeusuario){
+    function addPost($conteudo, $file, $email, $nomeusuario, $data, $id)
 
-          // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
-          $comando = $this->pdo->prepare("INSERT INTO  publi(conteudo,files,email_user,nome) VALUES(:c, :f, :e, :n)");
-          $comando->bindValue(":c", "$conteudo");
-          $comando->bindValue(":f", "$file");
-          $comando->bindValue(":e", "$email");
-          $comando->bindValue(":n", "$nomeusuario");
-          // EXECUTA OS COMANDOS
-          $comando->execute();
-          // RETORNA VERDADEIRO
-          return true;
 
+    {
+
+        $cont = nl2br($conteudo);
+
+        // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
+        $comando = $this->pdo->prepare("INSERT INTO  publi(conteudo,files,email_user,nome, data, id_user) VALUES(:c, :f, :e, :n, :d, :i)");
+        $comando->bindValue(":c", "$cont");
+        $comando->bindValue(":f", "$file");
+        $comando->bindValue(":e", "$email");
+        $comando->bindValue(":n", "$nomeusuario");
+        $comando->bindValue(":d", "$data");
+        $comando->bindValue(":i", "$id");
+        // EXECUTA OS COMANDOS
+        $comando->execute();
+        // RETORNA VERDADEIRO
+        return true;
     }
 
 
 
 
-    function Buscarpost(){
+    function Buscarpost()
+    {
 
         $cmd = $this->pdo->prepare("SELECT * FROM publi");
         $cmd->execute();
         $resultado = $cmd->fetchAll(PDO::FETCH_ASSOC);
 
         return $resultado;
+    }
 
+    function Buscarpostbyid($id)
+    {
 
+        $cmd = $this->pdo->prepare("SELECT * FROM publi WHERE id_user = :i ");
+        $cmd->bindValue(":i", "$id");
+        $cmd->execute();
+        $resultado = $cmd->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultado;
     }
 
 
@@ -142,11 +174,71 @@ class Conexao
         return $res;
     }
 
-
-
-    function Alterarcadastro($nome,$email,$senha,$rua,$cep,$estado,$bairro,$id)
+    function Post_temp($File, $user, $text)
     {
-       
+
+
+        $comando = $this->pdo->prepare("INSERT INTO  temp(files_temp,user,texto) VALUES(:f, :u, :t)");
+        $comando->bindValue(":f", "$File");
+        $comando->bindValue(":u", "$user");
+        $comando->bindValue(":t", "$text");
+        $comando->execute();
+        return true;
+    }
+
+
+    function Buscarimagem($email)
+    {
+        // CRIA ARRAY $res
+        $res = array();
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("SELECT files_temp FROM `temp` WHERE user=:e");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":e", $email);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        // RETORNA A LISTA
+        return $res;
+    }
+    function Buscarimagemtexto($email)
+    {
+        // CRIA ARRAY $res
+        $res = array();
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("SELECT texto FROM `temp` WHERE user=:e");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":e", $email);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        // RETORNA A LISTA
+        return $res;
+    }
+
+    function Deletartudo($email)
+    {
+        $res = array();
+        // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
+        $cmd = $this->pdo->prepare("DELETE FROM `temp` WHERE user = :e");
+        // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
+        $cmd->bindValue(":e", $email);
+        // EXECUTA OS COMANDOS ACIMA
+        $cmd->execute();
+        // TRANSFORMA O RESULTADO EM UMA LISTA
+        $res = $cmd->fetchAll(PDO::FETCH_ASSOC);
+
+        return true;
+    }
+
+
+
+
+    function Alterarcadastro($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id)
+    {
+
         // VERIFICA SE O EMAIL ESTA NO BANCO COM O COMANDO PREPARE
         $cmd = $this->pdo->prepare("UPDATE cadastros SET nick= :n, email= :e,senha= :s, cep= :c, rua= :r, bairro= :b , estado= :T WHERE idcadastro = :i");
         // DIRECIONA O VALOR DE ":n" PARA O ATRIBUTO $email COM O COMANDO BINDVALUE
@@ -176,9 +268,3 @@ function Mensagem($mensagem, $tipo)
                 </div>
                 <br>";
 }
-
-
-
-
-
-
