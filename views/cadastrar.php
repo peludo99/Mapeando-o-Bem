@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-  <title>Mapeando o Bem</title>
+  <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
+  <title>Cadrastre-se</title>
   <style>
     .btn-entrarnaconta {
 
@@ -64,9 +65,9 @@
       <div class="coluna-um">
         <img src="css/assets/casinhabola.png" alt="bola">
         <h2 class="titulo-bem">
-          Bem vindo de volta!
+          Bem-vindo de volta!
         </h2>
-        <p class="descricao">Conecte-se com nosco</p>
+        <p class="descricao">Conecte-se conosco</p>
 
         <form action="login.php" method="post">
           <button class="btn-entrarnaconta">Entrar na conta</button>

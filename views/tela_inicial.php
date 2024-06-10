@@ -75,7 +75,7 @@ if (isset($_POST['textarea'])) {
 
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
 
-    <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -95,8 +95,6 @@ if (isset($_POST['textarea'])) {
 
 
     <style>
-        body {}
-
         /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
 
         .nav-item {
@@ -162,7 +160,7 @@ if (isset($_POST['textarea'])) {
         /* FORMATAÇÃO TEXTO */
 
         .titulo {
-            font-size: 50px;
+            font-size: 60px;
             font-family: "Poetsen One", sans-serif;
             font-weight: 400;
             font-style: normal;
@@ -192,8 +190,12 @@ if (isset($_POST['textarea'])) {
 
         #sub_car {
             text-align: center;
-            font-size: 36px;
+            font-size: 37px;
             color: #444;
+
+            strong {
+                color: rgb(238, 84, 204);
+            }
         }
 
         /* INTRO NO ESTILO PARALLAX */
@@ -297,7 +299,7 @@ if (isset($_POST['textarea'])) {
 
         .esquerdo {
 
-            margin-top: 22%;
+            margin-top: 15%;
             margin-left: 2.5%;
             width: 900px;
         }
@@ -310,7 +312,7 @@ if (isset($_POST['textarea'])) {
 
         .img-fluid {
             width: 70%;
-            margin-top: -2px;
+            margin-top: 15px;
         }
 
         .sobrenos {
@@ -322,7 +324,8 @@ if (isset($_POST['textarea'])) {
             margin: 215px 0 50px 0;
             font-size: 40px;
             text-align: center;
-            position: relative
+            position: relative;
+            text-transform: uppercase;
         }
 
         .main-title::after {
@@ -354,8 +357,21 @@ if (isset($_POST['textarea'])) {
             text-align: justify;
         }
 
+        ul {
+            color: #444;
+            margin-top: 14px;
+            font-size: 18px;
+            text-align: justify;
+
+        }
+
 
         /* MODIFICAÇÕES NO POST */
+
+        #linda_do_tempo {
+            margin-top: -6%;
+        }
+
         .posteant {
             display: flex;
             flex-direction: column-reverse;
@@ -363,8 +379,6 @@ if (isset($_POST['textarea'])) {
 
 
         .OnorOff {
-
-
             button {}
         }
 
@@ -375,8 +389,6 @@ if (isset($_POST['textarea'])) {
 
         .direita {
 
-
-
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
@@ -385,7 +397,6 @@ if (isset($_POST['textarea'])) {
                 width: 50px;
                 height: 30px;
                 background-color: rgba(0, 0, 0, 0);
-                ;
                 border: none;
                 border-radius: 5%;
 
@@ -424,7 +435,7 @@ if (isset($_POST['textarea'])) {
             width: 100%;
             transform: scaleX(0);
             transform-origin: bottom right;
-            background: currentColor;
+            background: rgb(220, 50, 171);;
             transition: transform 0.25s ease-out;
         }
 
@@ -492,27 +503,19 @@ if (isset($_POST['textarea'])) {
     </style>
 
 
-
-
-
-
-
-
-
-
     <!-- Barra de Navegação -->
 
     <nav style="background: rgb(255, 255, 255); height: 55px; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" class="navbar navbar-expand-lg fixed-top">
 
 
 
-        <a class="navbar-brand" href="./bem_vindo.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
+        <a class="navbar-brand" href="#anchor-topo"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -23px;" id="navbarTogglerDemo01">
             <!--Itens da Barra de Navegação -->
 
             <li class="nav-item" id="navbarTogglerDemo01">
-                <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+                <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
             </li>
             <li class="nav-item dropdown" id="navbarTogglerDemo01">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="navbarTogglerDemo01">Redes Sociais</a>
@@ -521,20 +524,11 @@ if (isset($_POST['textarea'])) {
                             <nome style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"> Instagram</nome>
                         </i></a>
                 </div>
-
-
-
             </li>
-
-
-
             <li class="nav-item" id="navbarTogglerDemo01">
-                <a class="nav-link" aria-current="page" href="#" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
+                <a class="nav-link" aria-current="page" href="./doar.php" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
             </li>
-
-
         </ul>
-
         <div class="direita">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">
                 <li id="navbarTogglerDemo01">
@@ -546,11 +540,6 @@ if (isset($_POST['textarea'])) {
         </div>
 
     </nav>
-
-
-
-
-
 
     <!-- Barra de navegação - Modal -->
     <div class="modal fade" style="margin-left: 70%; width: 30%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -576,8 +565,6 @@ if (isset($_POST['textarea'])) {
 
                             echo "<a class='btn btn-outline-primary' style='border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);'' href='./usuario.php?'><i class='fa-solid fa-gear'>"
 
-
-
                             ?></i>
                             <texto style="color: white">Editar Perfil</texto>
                             </a>
@@ -590,7 +577,6 @@ if (isset($_POST['textarea'])) {
                                 <img class="logo" src="css/assets/donate_1655108.png" alt="">
                                 <texto style="color: white"> Ajude-nos</texto>
                             </a>
-
 
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./login.php"><i class="fa-solid fa-right-from-bracket"></i>
                                 <texto style="color: white">Encerrar Sessão</texto>
@@ -607,25 +593,23 @@ if (isset($_POST['textarea'])) {
 
 <body>
 
+    <div class="mural" id="anchor-topo">
 
 
+        <div class="color_fundo">
+            <div class="parallax">
 
-    <div class="mural">
-
-
-    <div class="color_fundo">
-                <div class="parallax">
-
-
-
-
-
-
+            </div>
+            <div class="bloco-paralax" id="intro">
+                <div class="texto_intro">
+                    <h1 class="titulo" id="mob">Mapeando o <rosa>Bem</rosa>
+                    </h1><br>
+                    <h2 class="sub_titulo">Conecte-se com diversas ONGs e escolha a atividade que mais tem a ver com você!</h2>
+                </div>
+            </div>
+        </div>
 
         <div class="on-off" id="off">
-
-
-            
 
             <div class="informes">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -662,13 +646,11 @@ if (isset($_POST['textarea'])) {
                 </div>
             </div>
 
-
-
             <div class="blocos ">
                 <div class="esquerdo">
                     <div class="textoEsquerdo">
                         <h1 class="titulo">Gostaria de ser <strong>Voluntário?</strong></h1><br>
-                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em nossas entidades parceiras.</h2><p class="sub_titulo" id="sub_car">Neste momento, em sua região:</p>
+                        <h2 class="sub_titulo" id="sub_car">Acompanhe as atividades disponíveis em nossas <strong>entidades parceiras</strong> e decida a melhor forma de ajudar.</h2>
                     </div>
                 </div>
                 <div class="direito">
@@ -754,8 +736,9 @@ if (isset($_POST['textarea'])) {
                     </div>
                     <div class="col-md-6">
                         <h3 class="sobrenos-titulo">Doe seu tempo e habilidades em prol de uma ação social.</h3><br>
-                        <h6>O voluntariado é uma ação transformadora que beneficia tanto a quem recebe quanto a quem se doa.</h6>
-                        <h6>Através da doação de seu tempo, habilidades e conhecimentos, o voluntário contribui para o bem-estar da comunidade e para o seu próprio desenvolvimento pessoal e profissional, através das experiências adquiridas.</h6>
+                        <h6>O voluntariado é uma ação transformadora que beneficia tanto a quem recebe a boa ação quanto a quem se doa.</h6>
+                        <h6>Não é necessário ser especialista em alguma coisa para ser voluntário. Todas as pessoas têm capacidades, habilidades e dons. O que cada um faz bem pode fazer bem a alguém.</h6>
+                        <h6>Trabalho voluntário é uma via de mão dupla! O voluntário doa seu tempo, energia e criatividade, mas em troca ganha desenvolvimento pessoal e profissional. Através das experiências adquiridas na convivência com pessoas diferentes, você aprende coisas novas, e ainda têm a satisfação de sentir-se útil.</h6>
                     </div>
                 </div>
             </div>
@@ -770,14 +753,15 @@ if (isset($_POST['textarea'])) {
                         <img class="img-fluid" src="https://media.istockphoto.com/id/1474708790/vector/pensive-male-student-character-sitting-on-floor-with-laptop-and-paper-sheet-thinking-on-task.jpg?s=612x612&w=0&k=20&c=1lR1efScvegGuIImPJy2SdGA1LhibJooICLZIb46HaY=" alt="voluntariar">
                     </div>
                     <div class="col-md-6">
-                        <h3 class="sobrenos-titulo">Impulsione seu desenvolvimento pessoal e profissional</h3><br>
-                        <h6>Participação em formações pedagógicas contínuas e eventos;
-                            Descoberta de novas potencialidades;
-                            Criação de novos círculos de amizades pessoais;
-                            Participação na construção de realidades mais justas;
-                            Comprovação de horas complementares para formação em nível de graduação e/ou diferencial para realização de intercâmbio acadêmico;</h6>
-                        <h6>texto</h6>
-                        <h6>texto</h6>
+                        <h3 class="sobrenos-titulo">Esteja aberto ao novo e às pessoas. Saia do comum!</h3><br>
+                        <h6>Se você é movido pelo desejo de ajudar e de se sentir útil, esta é a escolha certa. O voluntariado é uma experiência para a vida!</h6>
+                        <h6>Através de suas experiências você poderá:</h6>
+                        <ul type="disc">
+                            <li>Descobrir novos potenciais para suas habilidades;</li>
+                            <li>Criar novos círculos de amizades;</li>
+                            <li>Comprovar horas complementares em nível de graduação;</li>
+                            <li>Desenvolver suas habilidades de trabalho em grupo;</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -800,9 +784,6 @@ if (isset($_POST['textarea'])) {
                 </div>
             </div>
 
-
-
-
             <div class="OnorOff" id="ancho-botao-ocultar">
                 <button class="buttononof" id="botao-ocultar" name="botao-ocultar">
                     <div class="text">
@@ -810,7 +791,7 @@ if (isset($_POST['textarea'])) {
 
                     </div>
                     <div class="clone">
-                        <span style="margin: auto; margin-top: 0px">Para Cima</span>
+                        <span style="margin: auto; margin-top: 0px">Conteúdo</span>
 
 
                     </div>
@@ -818,8 +799,6 @@ if (isset($_POST['textarea'])) {
                         <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
                     </svg>
                 </button>
-
-
             </div>
         </div>
 
@@ -834,7 +813,7 @@ if (isset($_POST['textarea'])) {
 
                     </div>
                     <div class="clone">
-                        <span style="margin: auto; margin-top: 0px">Conteudo</span>
+                        <span style="margin: auto; margin-top: 0px">Conteúdo</span>
 
 
                     </div>
@@ -845,7 +824,7 @@ if (isset($_POST['textarea'])) {
 
             </div>
 
-            <div class="baixo">
+            <div class="baixo" id="linda_do_tempo">
                 <h1 class="main-title" id="anchor-linhadotempo">Linha do Tempo</h1>
 
                 <?php

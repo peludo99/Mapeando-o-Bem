@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../views/css/bootstrap.min.css">
     <link rel="stylesheet" href="../views/css/style.css">
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="../views/css/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../views/css/assets/icone.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
@@ -130,6 +130,9 @@
             display: block;
             z-index: 10;
             height: 190px;
+            -webkit-box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
+            -moz-box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
+            box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
 
         }
 
@@ -188,6 +191,61 @@
             height: 40px;
 
         }
+
+        /*  ---------------- SOBRE NÓS ----------------  */
+
+        .img-fluid {
+            width: 70%;
+            margin-top: -10px;
+        }
+
+        #sobrenos {
+            margin-top: 5%;
+            height: 500px;
+            width: auto;
+        }
+
+        .main-title {
+            color: #444;
+            margin: 70px 0 50px 0;
+            font-size: 40px;
+            text-align: center;
+            position: relative
+        }
+
+        .main-title::after {
+            content: "";
+            border-top: 1.5px solid #333;
+            width: 16%;
+            position: absolute;
+            top: 65px;
+            left: 42.5%;
+        }
+
+        .sobrenos-titulo {
+            font-size: 17px;
+            color: #444;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-size: 13px;
+            color: #5a5a5a;
+            justify-content: center;
+        }
+
+        h6 {
+            color: #444;
+            margin-top: 5px;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        .sobra {
+            height: 230px;
+            width: auto;
+        }
     </style>
 
 </head>
@@ -198,15 +256,15 @@
 
         <!-- Barra de Navegação -->
 
-        <nav style="background: rgb(255, 255, 255); height: 30px;" class="navbar navbar-expand-lg">
+        <nav style="background: rgb(255, 255, 255); height: 50px;" class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="margin-top: 13px;">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="margin-top: 5px;">
 
-                    <a class="navbar-brand" href="/tela_inicial.php"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"> Mapeando o Bem</a>
+                    <a class="navbar-brand" href="#anchor-topo"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt="" class="nav-item"> Mapeando o Bem</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">
                         <!--Itens da Barra de Navegação -->
                         <li class="nav-item" id="navbarTogglerDemo01">
-                            <a class="nav-link" aria-current="page" href="#">Quem somos</a>
+                            <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
                         </li>
                         <li class="nav-item dropdown" id="navbarTogglerDemo01">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="navbarTogglerDemo01">Redes Sociais</a>
@@ -229,7 +287,7 @@
 
     </div>
 
-    <div class="mural">
+    <div class="mural" id="anchor-topo">
 
         <div class="imagem">
             <!-- DIV DA IMAGEM. NÃO APAGAR! -->
@@ -243,7 +301,6 @@
                 <!-- background-color:rgb(238, 84, 204); -->
             </form>
         </div>
-
     </div>
 
 
@@ -284,6 +341,35 @@
             </div>
         </div>
     </footer>
+
+
+    <div class="container" id="sobrenos">
+        <div class="row">
+            <div class="col-12" id="anchor-quemsomos">
+                <h3 class="main-title">Sobre a Mapeando o Bem</h3>
+            </div>
+            <div class="main-title-linha">
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="https://alpasbox.com/wp-content/uploads/2019/11/1-28.png" alt="agencia mob">
+            </div>
+            <div class="col-md-6">
+                <h3 class="sobrenos-titulo">Uma plataforma que impulsiona o voluntariado.</h3><br>
+                <h6>Focamos em ampliar o contato das Casas de Apoio com o público, tornando-as mais acessíveis e mais evidentes para pessoas que buscam desenvolver o voluntariado.</h6>
+                <h6>Utilize os recursos disponíveis em nossa plataforma para encontrar facilmente a casa de apoio mais próxima de você. Saiba exatamente como ajudar.</h6>
+                <h6>Você é o gestor de uma casa de apoio? com nossa plataforma será possível alcançar um público maior de voluntários, além de conseguir elencar suas necessidades em tempo real. Torne claro para as pessoas de que maneira podem ajudar!</h6><br>
+                <i>
+                    <h4>Somos uma iniciativa de estudantes da instituição de ensino ETE Ginásio Pernambucano, de Recife/PE.</h4>
+                </i>
+            </div>
+        </div>
+
+        <div class="sobra">
+
+        </div>
+    </div>
+
+
 
 
 

@@ -33,7 +33,7 @@ Deletarimg($email2);
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
     <title>Edição de Perfil</title>
 
 
@@ -478,45 +478,6 @@ $_SESSION['user'] = $dados[0];
 <body>
 
 
-                     <div class="esquerda-esquerda-info">
-                        
-                             <div class=" seguranca">
-                                 <h2>Segurança da Conta</h2>
-
-                                 <span class="input-span">
-                                     <label for="email" class="label">Email</label>
-                                     <input type="email" name="email" id="email" value="<?php echo $dados[1]; ?>"></span>
-                                 <span class="input-span">
-                                     <label for="password" class="label">Password</label>
-                                     <input type="password" name="senha" id="password" value="<?php echo $dados[2]; ?>"></span><br>
-
-
-                                 <input type="hidden" name="id" value="<?php echo $dados[7]; ?>">
-
-
-
-                             </div>
-
-                             <div class="baixo-esquerda">
-
-
-                             </div>
-
-
-
-
-
-
-
-                             <button type="submit" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Atualizar informaçoes</button>
-
-                             <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
-
-
-
-
-                         </div>
-                         </form>
 
 
 
@@ -624,6 +585,7 @@ $_SESSION['user'] = $dados[0];
                             </label>
                         </div>
                     </div>
+
 
 
 

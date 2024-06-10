@@ -48,8 +48,9 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
 
-  <title>Mapeando o Bem</title>
+  <title>Fazer Login</title>
   <style>
     .btn-cadastrar {
 
