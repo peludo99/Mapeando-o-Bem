@@ -6,7 +6,7 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
-    
+
 
 }
 
@@ -23,6 +23,7 @@ body {
 
     width: 100px;
     margin: auto;
+   
 
 }
 
@@ -33,7 +34,7 @@ body {
 }
 
 testar {
-    color: #a0a0a0;
+    color: #6e5f68;
     border-color: none;
 
 
@@ -425,10 +426,18 @@ testar {
     width: 70px;
     height: 70px;
     border-radius: 100%;
-    background-color: #130f0fd3;
-    padding: 5px;
+    border: 2px solid rgb(0, 0, 0);
+   
+
     margin: 5px;
     margin-top: 0px;
+
+    img {
+
+        width: 70px;
+        height: 70px;
+
+    }
 
 
 
@@ -438,7 +447,7 @@ testar {
 
 
 
-.imgpost{
+.imgpost {
 
     height: 650px;
     width: 850px;
@@ -955,4 +964,3 @@ testar {
     outline: none;
     cursor: pointer;
 }
-

@@ -6,13 +6,25 @@ $nome_usuario = $_SESSION['user'];
 $email2 = $_SESSION['email'];
 Deletarimg($email2);
 
-
-
 if (!isset($_GET['id'])) {
     echo "nao tem id";
 } else {
     $id_user = $_GET['id'];
 }
+
+
+$imagemperfil =  Buscarimgperfilbyid($id_user);
+
+$imagemperfil1 = array();
+
+for ($i = 0; $i < count($imagemperfil); $i++) {
+
+    foreach ($imagemperfil[$i] as $elemento) {
+        $imagemperfil1[] = $elemento;
+    }
+}
+
+
 
 
 
@@ -337,7 +349,19 @@ for ($i = 0; $i < count($dados_bruto); $i++) {
                 <div class="header">
                     <H1>Perfil</H1>
                     <?php echo "<h2>$dados[0]</h2>"; ?>
-                    <img class="foto" src="css/assets/perfil.png" alt="">
+                    <?php
+
+
+                    if (!end($imagemperfil1) == null) {
+                        echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="' . end($imagemperfil1) . '" alt="">';
+                    } else {
+
+                        echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="./css/assets/perfil.jpg" alt="">';
+                    }
+
+
+
+                    ?>
                 </div>
 
                 <div class="about">

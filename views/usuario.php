@@ -9,6 +9,19 @@ Deletarimg($email2);
 
 
 
+$imagemperfil =  Buscarimgperfil($email2);
+
+$imagemperfil1 = array();
+
+for ($i = 0; $i < count($imagemperfil); $i++) {
+
+    foreach ($imagemperfil[$i] as $elemento) {
+        $imagemperfil1[] = $elemento;
+    }
+}
+
+
+
 
 
 
@@ -30,10 +43,33 @@ Deletarimg($email2);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
+
+    <script src="../controllers/jquery-3.7.1.js"></script>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/style.css">
+
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css" integrity="sha512-2eMmukTZtvwlfQoG8ztapwAH5fXaQBzaMqdljLopRSA0i6YKM8kBAOrSSykxu9NN9HrtD45lIqfONLII2AFL/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
+
+    <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+
+    <script type="module" src="../controllers/userimg.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <title>Edição de Perfil</title>
 
 
@@ -409,49 +445,6 @@ Deletarimg($email2);
 
 
 
-if (isset($_POST['email'])) {
-
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $nome = $_POST['nome'];
-
-    // Buscar cep 
-
-
-    if (isset($_POST['cep'])) {
-
-
-
-
-
-        if (mb_strlen($_POST['cep']) == 8) {
-            $cepvia = $_POST['cep'];
-            $endereco = array();
-            if (!$cepvia == null) {
-
-                $url = "https://viacep.com.br/ws/{$cepvia}/json/";
-                $endereco = json_decode(file_get_contents($url), true);
-
-                if (isset($endereco['erro'])) {
-                    if ($endereco['erro'] == true) {
-                        Mensagems("CEP não encontrado", "danger");
-                    }
-                } else {
-
-                    $cep = $_POST['cep'];
-                    $estado = $endereco['uf'];
-                    $bairro = $endereco['bairro'];
-                    $rua = $endereco['logradouro'];
-
-                    Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id_user);
-                    
-                }
-            }
-        } else {
-            Mensagems("CEP incompleto", "danger");
-        }
-    }
-}
 
 
 $dados_bruto = BuscarDadosCadastro1($id_user);
@@ -477,6 +470,53 @@ $_SESSION['user'] = $dados[0];
 
 <body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <div class="modal  fade" style="width:100%;margin-left: -10%;margin-top:2%" id="addarquivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog" role="document" style="background-color:none;margin:auto;margin-top:0px;padding:1px;width:800px; height:650px;">
+
+
+            <div class="modal-content" style="width:800px; height:660px; margin:auto;margin-top:0px; background-color: #6e5f68; padding:10px">
+
+
+
+
+
+                <div id="preview" style="overflow: hidden;">
+
+
+
+
+                </div>
+                <div class="botoesimagemprev">
+                    <div class="inputimgbtn">
+
+                     
+                    <label for="imagem" style="margin: 10px;">Selecionar Arquivo</label>
+                        <input type="file" style="display:none"  class="btnenviarimg" name="imagem" id="imagem">
+                        
+                        
+                        
+                        <div id="classbtn" class="imgbtnenviar" style="display: none;"> <button id="imagembtn" style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-bottom: 5%; background-color:#35f15e; z-index:101;" >Enviar</button></div>
+
+                    </div>
+
+                    
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
 
 
 
@@ -489,8 +529,24 @@ $_SESSION['user'] = $dados[0];
                 <div class="header">
                     <H1>Perfil</H1>
                     <?php echo "<h2>$dados[0]</h2>"; ?>
-                    <img class="foto" src="css/assets/perfil.png" alt="">
+
+                    <?php
+
+
+                    if (!end($imagemperfil1) == null) {
+                        echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="' . end($imagemperfil1) . '" alt="">';
+                    } else {
+
+                        echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="./css/assets/perfil.jpg" alt="">';
+                    }
+
+
+
+                    ?>
                 </div>
+                <br>
+
+                <button style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-top: 2%; background-color:#c0bfbf;" data-bs-toggle="modal" data-bs-target="#addarquivo">Alterar Imagem <i class="fa-solid fa-image fa-bounce"></i></button>
 
                 <div class="about">
                     <h1>Sobre mim:</h2>
@@ -513,12 +569,60 @@ $_SESSION['user'] = $dados[0];
         </div>
 
         <div class="esquerda">
-            <div class="conteudo-esquerda">
+            <div class="conteudo-esquerda" style="overflow-y: scroll;">
+                <br>
+                <br>
+                <?php
+                if (isset($_POST['email'])) {
+
+                    $email = $_POST['email'];
+                    $senha = $_POST['senha'];
+                    $nome = $_POST['nome'];
+
+                    // Buscar cep
+
+
+                    if (isset($_POST['cep'])) {
+
+
+
+
+
+                        if (mb_strlen($_POST['cep']) == 8) {
+                            $cepvia = $_POST['cep'];
+                            $endereco = array();
+                            if (!$cepvia == null) {
+
+                                $url = "https://viacep.com.br/ws/{$cepvia}/json/";
+                                $endereco = json_decode(file_get_contents($url), true);
+
+                                if (isset($endereco['erro'])) {
+                                    if ($endereco['erro'] == true) {
+                                        Mensagems("CEP não encontrado", "danger");
+                                    }
+                                } else {
+
+                                    $cep = $_POST['cep'];
+                                    $estado = $endereco['uf'];
+                                    $bairro = $endereco['bairro'];
+                                    $rua = $endereco['logradouro'];
+
+                                    Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id_user);
+                                }
+                            }
+                        } else {
+                            Mensagems("CEP incompleto", "danger");
+                        }
+                    }
+                }
+
+                ?>
                 <form class="form" action="../views/usuario.php" method="post">
                     <h2>Informações Pessoais</h2>
 
                     <div class="cima">
                         <div class="esquerda-esquerda-info">
+
                             <div class="wave-group">
                                 <input required="" type="text" name="nome" id="nome" class="input" value="<?php echo $dados[0]; ?>">
                                 <span class="bar"></span>
@@ -584,6 +688,7 @@ $_SESSION['user'] = $dados[0];
                                 <span class="label-char" style="--index: 2">a</span>
                             </label>
                         </div>
+
                     </div>
 
 
@@ -597,6 +702,7 @@ $_SESSION['user'] = $dados[0];
 
 
                     <div class="modificacoes">
+
 
 
 
@@ -679,3 +785,5 @@ $_SESSION['user'] = $dados[0];
 </body>
 
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

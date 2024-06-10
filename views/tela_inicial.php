@@ -4,14 +4,28 @@ require_once('../controllers/funcoes.php');
 session_start();
 $nomeusuario = $_SESSION['user'];
 
+
 $link_user = "";
 $email = $_SESSION['email'];
 $id = $_SESSION['id'];
+$img_perfil_user =  $_SESSION['img_perfil'];
 $permisssao = $_SESSION['permissoes'];
 
 
 $imagem =  Buscardadosimagem($email);
 $texto = Buscartextoimagem($email);
+
+$imagemperfil =  Buscarimgperfil($email);
+
+$imagemperfil1 = array();
+
+for ($i = 0; $i < count($imagemperfil); $i++) {
+
+    foreach ($imagemperfil[$i] as $elemento) {
+        $imagemperfil1[] = $elemento;
+    }
+}
+
 
 
 $imagem1 = array();
@@ -37,7 +51,8 @@ for ($i = 0; $i < count($texto); $i++) {
 date_default_timezone_set('America/Sao_Paulo');
 $hoje = date('d/m/Y');
 $hora_atual = date('H:i');
-$conteudo = end($texto1);
+$conteudo1 = end($texto1);
+
 
 $data = "Postado " . $hoje . " as " . $hora_atual . "h";
 
@@ -52,6 +67,8 @@ if (isset($_POST['textarea'])) {
         header("location: tela_inicial.php#anchor-linhadotempo");
     }
 }
+
+
 
 ?>
 
@@ -73,9 +90,11 @@ if (isset($_POST['textarea'])) {
 
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css" integrity="sha512-2eMmukTZtvwlfQoG8ztapwAH5fXaQBzaMqdljLopRSA0i6YKM8kBAOrSSykxu9NN9HrtD45lIqfONLII2AFL/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
 
-    <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./css/assets/favicon.ico" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -95,6 +114,10 @@ if (isset($_POST['textarea'])) {
 
 
     <style>
+        body {
+            overflow-x: hidden;
+        }
+
         /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
 
         .nav-item {
@@ -435,7 +458,8 @@ if (isset($_POST['textarea'])) {
             width: 100%;
             transform: scaleX(0);
             transform-origin: bottom right;
-            background: rgb(220, 50, 171);;
+            background: rgb(220, 50, 171);
+            ;
             transition: transform 0.25s ease-out;
         }
 
@@ -555,7 +579,22 @@ if (isset($_POST['textarea'])) {
 
                         <div class="foto">
 
-                            <img class="foto" src="css/assets/perfil.png" alt="">
+                            <?php
+
+
+                            if (!end($imagemperfil1) == null) {
+                                echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="' . end($imagemperfil1) . '" alt="">';
+                            } else {
+
+                                echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="./css/assets/perfil.jpg" alt="">';
+                            }
+
+
+
+                            ?>
+
+
+
 
                         </div>
 
@@ -593,6 +632,8 @@ if (isset($_POST['textarea'])) {
 
 <body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <div class="mural" id="anchor-topo">
 
 
@@ -608,6 +649,47 @@ if (isset($_POST['textarea'])) {
                 </div>
             </div>
         </div>
+
+        <div class="modal  fade" style="width:100%;margin-left: -10%;margin-top:2%;" id="addarquivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog" role="document" style="background-color:none;margin:auto;padding:1px;width:800px; height:650px;">
+
+
+                <div class="modal-content" style="width:800px; height:650px; margin:auto; background-color:rgb(146, 146, 146); padding:10px">
+
+
+
+
+
+                    <div id="preview">
+
+
+
+
+                    </div>
+                    <div class="botoesimagemprev">
+                        <div class="inputimgbtn">
+
+                            <input type="file" class="btnenviarimg" name="image" id="imagem">
+                            <div id="classbtn" class="imgbtnenviar" style="display: none;"><button id="imagembtn">Enviar</button></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
 
         <div class="on-off" id="off">
 
@@ -829,93 +911,79 @@ if (isset($_POST['textarea'])) {
 
                 <?php
 
-                if ($permisssao == 1) {
+                if ($permisssao == 0) {
                     echo ' <main class="main">
-                    <!-- formulario de envio -->
-                    <div class="newPost">
-                        <div class="infoUser">
-                            <div class="imgUser">
+    <!-- formulario de envio -->
+    <div class="newPost">
+        <div class="infoUser">';
 
-                            </div>
-                            <div class="nomeuser"><Strong class="nomeUser">' . $nomeusuario . '</Strong></div>
-                        </div>
-                        <div>';
+                    if (!end($imagemperfil1) == null) {
+                        echo '<img class="imgUser"  src="' . end($imagemperfil1) . '" alt="">';
+                    } else {
+
+                        echo '<img class="imgUser" style="object-fit:cover"  src="./css/assets/perfil.jpg" alt="">';
+                    }
 
 
-                    if (!$imagem == null or !$imagem == "") {
+
+
+
+
+                    echo '<div class="nomeuser"><Strong class="nomeUser"><a  style="text-decoration: none;color: #bc0fc2;"  href="./cateto.php?id=' . $id . '">' . $nomeusuario . '</a></Strong></div>
+
+            
+
+
+           
+        </div>
+        <div>';
+
+                    $img = end($imagem1);
+
+
+                    if (!$img == null || !$img == "") {
 
                         echo ' <img id="myimg" src=' . end($imagem1) . ' class="imgpost">';
                     };
 
 
                     echo '</div>
-                        <form action="tela_inicial.php" method="post" class="formPost" id="idformpost">
-                            <textarea class="textarea" name="textarea" id="idtextarea" placeholder="Vamos mudar o mundo?" cols="30" rows="10" value="">' . $conteudo . '</textarea>
+        <form action="tela_inicial.php" method="post" class="formPost" id="idformpost">
+            <textarea class="textarea" name="textarea" id="idtextarea" placeholder="Vamos mudar o mundo?" cols="30" rows="10" value="">' . $conteudo1 . '</textarea>
 
-                            <div class="iconsAndButton">
+            <div class="iconsAndButton">
 
-                                <div class="btnimg">
+                <div class="btnimg">
 
-                                    <button class="buttonadd" type="button" data-bs-toggle="modal" data-bs-target="#addarquivo">
-                                        <span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span>
+                    <button class="buttonadd" type="button" data-bs-toggle="modal" data-bs-target="#addarquivo">
+                        <span class="text">Adicionar</span><span class="icon"><i class="fa-solid fa-folder-plus"></i></span>
 
-                                    </button>
+                    </button>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="addarquivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   
 
-                                        <div class="modal-dialog" role="document">
+                </div>
 
-                                            <div class="modal-content">
+                <button type="submit" id="btnpub" class="button-pub">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Publicar</span>
+                </button>
 
-                                                <div class="modal-header">
-
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-
-                                                <div class="modal-body">
-
-                                                    <input type="file" name="image" id="imagem">
-
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button id="buttonaddimagem" type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <button type="submit" id="btnpub" class="button-pub">
-                                    <div class="svg-wrapper-1">
-                                        <div class="svg-wrapper">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <span>Publicar</span>
-                                </button>
-
-                            </div>
-                        </form>
-                    </div>';
+            </div>
+        </form>
+    </div>';
                 }
 
 
 
                 ?>
-
 
 
 
@@ -928,7 +996,7 @@ if (isset($_POST['textarea'])) {
                         <div class="chatbox-menssage-header">
                             <div class="chatbox-menssege-profile">
                                 <div class="div">
-                                    <img class="chatbox-message-imagem" src="./css/assets/perfil.png" alt="">
+                                    <img class="chatbox-message-imagem" src="./css/assets/perfil.jpg" alt="">
                                     <h4 class="chatbox-message-name">Bot</h4>
                                     <p class="chatbox-message-status">online</p>
                                 </div>

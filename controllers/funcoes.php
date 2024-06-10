@@ -40,6 +40,22 @@ function  DadosPermissoes($email)
     }
 }
 
+function Buscarimgperfil($email)
+{
+    global $conexao;
+    $valor = $conexao->buscarimguser($email);
+
+    return $valor;
+}
+
+function Buscarimgperfilbyid($id)
+{
+    global $conexao;
+    $valor = $conexao->buscarimguserbyid($id);
+
+    return $valor;
+}
+
 
 
 function CadastrarUsuarios($nome, $email, $senha)
@@ -58,7 +74,7 @@ function AdicionarPost($conteudo, $file, $email, $nomeusuario, $data, $id)
 {
     global $conexao;
 
-    if ($conexao->addPost($conteudo, $file, $email, $nomeusuario, $data,$id)) {
+    if ($conexao->addPost($conteudo, $file, $email, $nomeusuario, $data, $id)) {
 
         return true;
     }
@@ -84,24 +100,52 @@ function Exibirpostsbyid($id)
 };
 
 
-function Telainicial($post_user, $post, $post_img_user, $data_post,$id)
+function Telainicial($post_user, $post, $post_img_user, $data_post, $id)
 {
+
+    $imagemperfil =   Buscarimgperfilbyid($id);;
+
+    $imagemperfil1 = array();
+
+    for ($i = 0; $i < count($imagemperfil); $i++) {
+
+        foreach ($imagemperfil[$i] as $elemento) {
+            $imagemperfil1[] = $elemento;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     date_default_timezone_set('America/Sao_Paulo');
-    $hoje = date('d/m/Y');
-    $hora_atual = date('H:i');
+
 
 
 
     echo "<ul class='Post' id='posts'>";
     echo "<div class='infoUser'>";
-    echo " <div class='imgUser'>";
+    
+    if (!end($imagemperfil1) == null) {
+        echo '<img class="imgUser" src="' . end($imagemperfil1) . '" alt="">';
+    } else {
 
-    echo "  </div>";
+        echo '<img class="imgUser"  src="./css/assets/perfil.jpg" alt="">';
+    }
+
+   
     echo "  <div class='nomeuser'>
      <Strong class='nomeuser'> 
-     <a style='text-decoration: none;'  class='nomeuser' href='./cateto.php?id=".$id."'>".$post_user."</a> </div> </Strong>";
+     <a style='text-decoration: none;'  class='nomeuser' href='./cateto.php?id=" . $id . "'>" . $post_user . "</a> </div> </Strong>";
 
     echo " </div>";
 
@@ -180,6 +224,12 @@ function Deletarimg($email)
     $conexao->Deletartudo($email);
 }
 
+function userAddpost($file, $email)
+{
+    global $conexao;
+    $conexao->adduserpost($file, $email);
+}
+
 
 
 
@@ -248,7 +298,7 @@ function Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id)
 }
 
 
-function AdicionarImagem($imagem, $username,$text)
+function AdicionarImagem($imagem, $username, $text)
 {
     global $conexao;
     $conexao->Post_temp($imagem, $username, $text);

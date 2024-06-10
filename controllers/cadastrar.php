@@ -1,43 +1,3 @@
-<?php
-
-
-require_once '../controllers/funcoes.php';
-
-
-// INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
-if (isset($_POST["email"]) and isset($_POST["senha"])) {
-  // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
-  $email = $_POST["email"];
-  $senha = $_POST["senha"];
-  $resultado = array();
-  // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
-  $resultado = Buscardadosdelogin($email, $senha);
-
-  // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
-  if (count($resultado) > 0) {
-    // VERIFICA SE $resultado RETORNOU ALGO COM A FUNÇÃO COUNT
-    $usuario = $resultado[0];
-    $user = array();
-    foreach ($usuario as $nome) {
-      $user[] = $nome;
-    };
-
-
-
-    session_start();
-
-    $_SESSION['user'] = $user[0];
-    $_SESSION['email'] = $user[1];
-    $_SESSION['senha'] = $user[2];
-    $_SESSION['id'] = $user[9];
-    $_SESSION['permissoes'] = $user[7];
-    header("Location: tela_inicial.php");
-  }
-}
-
-?>
-
-
 <!doctype html>
 <html lang="pt-br">
 
@@ -49,10 +9,9 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/6cb3083259.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="./css/assets/icone.ico" type="image/x-icon">
-
-  <title>Fazer Login</title>
+  <title>Cadrastre-se</title>
   <style>
-    .btn-cadastrar {
+    .btn-entrarnaconta {
 
       font-weight: bold;
 
@@ -64,13 +23,11 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
       color: rgb(255, 255, 255)
     }
 
-    .btn-cadastrar:hover {
+    .btn-entrarnaconta:hover {
       background-color: rgb(59, 3, 50);
     }
 
-
-
-    .btn-logar {
+    .btn-cadastrar {
 
       font-weight: bold;
       border: 1px solid rgb(59, 3, 50);
@@ -81,7 +38,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 
     }
 
-    .btn-logar:hover {
+    .btn-cadastrar:hover {
       background-color: rgb(59, 3, 50);
     }
   </style>
@@ -89,22 +46,36 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
   <!-- ARQUIVO DE LOGIN  -->
 </head>
 
-<body class="logar-js">
+<body class="cadastrar-js">
+
+  <?php
+  // AREA PHP
+  require_once '../controllers/funcoes.php';
+
+
+  // Mesclar Funcoes de conexao.php
+
+
+  ?>
+
+  <!-- AREA HTML -->
+
   <div class="containerlog">
-    <!-- coluna dois -->
-    <div class="conteudo conteudo-dois">
+    <div class="conteudo conteudo-um">
       <div class="coluna-um">
         <img src="css/assets/casinhabola.png" alt="bola">
-        <h2 class="titulo-bem">Seja bem-vindo
+        <h2 class="titulo-bem">
+          Bem-vindo de volta!
         </h2>
-        <p class="descricao">Não possui conta?</p>
-        <form action="cadastrar.php" method="post">
-          <button type="post" id="Idcadastro" class="btn-cadastrar">Cadastrar-se</button>
+        <p class="descricao">Conecte-se conosco</p>
+
+        <form action="login.php" method="post">
+          <button class="btn-entrarnaconta">Entrar na conta</button>
         </form>
       </div>
       <div class="coluna-dois">
         <img src="css/assets/logomob.png" alt="logo">
-        <h2 class="titulo-cad">Acesse Sua conta</h2>
+        <h2 class="titulo-cad">Criar conta</h2>
         <div class="redes-sociais">
           <ul class="rede-social-list">
             <li class="item-rede"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
@@ -113,49 +84,52 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
           </ul>
         </div>
         <!-- redes -->
-        <p class="descricao descricao-um">ou utilize seu e-mail</p>
-        <form action="" method="post" class="forms">
+        <p class="descricao descricao-um">Ou utilize seu e-mail para o cadastro</p>
+        <form action="cadastrar.php" method="post" class="forms">
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+            <input required type="text" name="nome_usuario" class="form-control" placeholder="Nome" aria-label="nome" aria-describedby="addon-wrapping">
+
+          </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope"></i></span>
-            <input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping" required>
+            <input required type="text" name="email_usuario" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
           </div>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-            <input type="password" name="senha" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
+            <input required type="password" name="senha_usuario" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
           </div>
           <br>
-
-          <a class="senha" href="#">Esqueceu a senha?</a>
-          <br>
-
-          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-          </fb:login-button>
-
-
-          <input type="submit" class="btn-logar" value="Logar">
-          <br>
-
-
+          <input type="submit" class="btn-cadastrar" value="Cadastrar"> <br>
 
         </form>
         <?php
-        // INSTANCIA DA CLASSE PESSOA COM CONSTRUTORES (BANCO DE DADOS, HOST, USUARIO DO BANCO, SENHA)
-        if (isset($_POST["email"])) {
-          // VERIFICA SE O FORMULARIO DA LINHA +-71 ESTA RETORNADO ALGO
-          $email = $_POST["email"];
-          $senha = $_POST["senha"];
-          // CHAMA A FUNÇÃO BUSCARDADOS(RETORNA UM ARRAY) COM PARAMETRO $pesquisar
-          $resultado = Buscardadosdelogin($email, $senha);
-          // ADICIONA O VALOR DE $P->BUSCARDADOS A VARIAVEL $resultado  
-          if (count($resultado) > 0) {
+        if (isset($_POST["email_usuario"])) {
+          $nick = addslashes($_POST['nome_usuario']);
+          $email = addslashes($_POST['email_usuario']);
+          $senha = addslashes($_POST['senha_usuario']);
+
+          if (!empty($nick) && !empty($email) && !empty($senha)) {
+            if (CadastrarUsuarios($nick, $email, $senha));
           } else {
-            // CASO O ARRAY ESTIVER VAZIO O CLIENTE NÃO TEM CADASTRO
-            Mensagem("OPS!, Email ou Senha incorreto!", "danger");
+            Mensagem("OPS!, É necessario preencher todos os campos!", "danger");
           }
         }
         ?>
       </div>
     </div>
+
+    <?php
+    if (isset($_POST["email"])) {
+      $pesquisar = $_POST["email"];
+      $resultado = $p->Buscardadosdecadastro($pesquisar);
+      if (count($resultado) > 0) {
+      } else {
+        Mensagem("OPS!, Você Não possui uma conta!", "danger");
+      }
+    }
+    ?>
+
     <!-- coluna dois -->
   </div>
 

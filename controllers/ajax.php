@@ -15,3 +15,19 @@ if (isset($_POST['imagem'])) {
 } else {
     echo "<h1>Dados não chegou</h1>";
 }
+
+if (isset($_POST['imagemuser'])) {
+    $dadosImagemBase64 = $_POST['imagemuser'];
+    userAddpost($dadosImagemBase64,$nome_usuario);
+   
+
+    
+} else {
+    echo "<h1>Dados não chegou</h1>";
+}
+
+
+
+
+
+

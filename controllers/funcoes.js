@@ -90,51 +90,62 @@ ShowSessionButton.addEventListener('click', () => {
 
 
 
+
+
+
+
 const inputfile = document.getElementById('imagem');
+const inputfilebtn = document.getElementById('imagembtn');
+
+var redimencionar = $('#preview').croppie({
+
+    enableExif: true,
+    enableOrientation: true,
+
+    viewport: {
+        width: 750,
+        height: 550,
+        type: 'square'
+
+    },
+    boundary: { width: 750, height: 550 }
+    ,
+
+
+
+
+
+});
+
 
 
 
 inputfile.addEventListener('change', function (event) {
 
     const textareaElement = document.getElementById("idtextarea");
-    const textareaValue = textareaElement.value;
-    console.log(textareaValue);
     const arquivoSelecionado = event.target.files[0];
+    const btnenviar = document.getElementById("classbtn");
+    btnenviar.style.display ='inline';
 
-    // Criar um leitor de arquivos
+
+
+    // Processar a imagem base64
     const reader = new FileReader();
 
     // Converter a imagem em base64 quando a leitura for concluída
     reader.onload = function (e) {
-        const dadosImagemBase64 = e.target.result;
 
-        // Enviar os dados da imagem para o servidor
-        $.ajax({
-            url: 'http://localhost/mapeando-o-bem/controllers/ajax.php',
-            type: 'POST',
-            data: {
-                imagem: dadosImagemBase64,
-                texto: textareaValue
-            }, // Enviar 'imagem' ao invés de 'data'
-
-            success: function (result) {
-                console.log('mandou');
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log('Erro, arquivo nao enviado');
-            }
+        redimencionar.croppie('bind', {
+            url: e.target.result
         });
+
+
+
+
     };
 
     // Iniciar a leitura do arquivo
     reader.readAsDataURL(arquivoSelecionado);
-
-
-
-
-
-
-
 
     if (arquivoSelecionado) {
         const nomeDoArquivo = arquivoSelecionado.name;
@@ -147,15 +158,84 @@ inputfile.addEventListener('change', function (event) {
     } else {
         console.log('Nenhum arquivo selecionado.');
     }
- 
 
 
-    setTimeout(function(){
-        window.location.reload();
-    },1000);
+
+
+
+
+
+
+
+
+    // Criar um leitor de arquivos
+
+
 
 
 });
+
+
+
+
+$('#imagembtn').on('click', function () {
+    
+
+
+        redimencionar.croppie('result', {
+            type: 'canvas'
+            , size: 'viewport'
+        }).then(function (img) {
+
+            const textareaElement = document.getElementById("idtextarea");
+
+            const dadosImagemBase64 = img;
+
+
+            const textareaValue = textareaElement.value;
+
+            // Enviar os dados da imagem para o servidor
+
+
+            $.ajax({
+                url: 'http://localhost/mapeando-o-bem/controllers/ajax.php',
+                type: 'POST',
+                data: {
+                    imagem: dadosImagemBase64,
+                    texto: textareaValue
+                }, // Enviar 'imagem' ao invés de 'data'
+
+                success: function (result) {
+                    console.log('mandou');
+                    setTimeout(window.location.reload(), 2000);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('Erro, arquivo nao enviado');
+                }
+            });
+
+        });
+
+    }
+
+);
+
+
+
+
+
+
+// user
+
+
+
+
+
+
+
+
+
+
 
 
 

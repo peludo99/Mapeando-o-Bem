@@ -132,6 +132,63 @@ class Conexao
         return true;
     }
 
+    function adduserpost($file, $email)
+
+
+    {
+
+
+        // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
+        $comando = $this->pdo->prepare("UPDATE cadastros
+        SET img_perfil = :f
+        WHERE email = :e");
+        $comando->bindValue(":f", "$file");
+        $comando->bindValue(":e", "$email");
+
+        // EXECUTA OS COMANDOS
+        $comando->execute();
+        // RETORNA VERDADEIRO
+        return true;
+    }
+
+    function buscarimguser($email)
+
+
+    {
+
+
+        // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
+        $comando = $this->pdo->prepare("SELECT img_perfil FROM `cadastros` WHERE email = :e");
+      
+        $comando->bindValue(":e", "$email");
+
+        // EXECUTA OS COMANDOS
+        $comando->execute();
+        $res = $comando->fetchAll(PDO::FETCH_ASSOC);
+    
+        return $res;
+    }
+
+    
+    function buscarimguserbyid($id)
+
+
+    {
+
+
+        // SE FALSO ADICIONA O CADASTRO DO USUARIO AO BANCO
+        $comando = $this->pdo->prepare("SELECT img_perfil FROM `cadastros` WHERE idcadastro = :i");
+      
+        $comando->bindValue(":i", "$id");
+
+        // EXECUTA OS COMANDOS
+        $comando->execute();
+        $res = $comando->fetchAll(PDO::FETCH_ASSOC);
+    
+        return $res;
+    }
+
+
 
 
 
