@@ -608,6 +608,7 @@ $_SESSION['user'] = $dados[0];
                                     $rua = $endereco['logradouro'];
 
                                     Alterardados($nome, $email, $senha, $rua, $cep, $estado, $bairro, $id_user);
+                                    echo "<script>window.location.href = '" . $_SERVER['PHP_SELF'] . "';</script>";
                                 }
                             }
                         } else {
@@ -624,7 +625,7 @@ $_SESSION['user'] = $dados[0];
                         <div class="esquerda-esquerda-info">
 
                             <div class="wave-group">
-                                <input required="" type="text" name="nome" id="nome" class="input" value="<?php echo $dados[0]; ?>">
+                                <input required type="text" name="nome" id="nome" class="input" value="<?php echo $dados[0]; ?>">
                                 <span class="bar"></span>
                                 <label class="label">
                                     <span class="label-char" style="--index: 0">N</span>
@@ -636,7 +637,7 @@ $_SESSION['user'] = $dados[0];
 
                             <br>
                             <div class="wave-group">
-                                <input required="" type="text" class="input" name="bairro" id="bairro" value="<?php echo $dados[5]; ?>">
+                                <input type="text" class="input" name="bairro" id="bairro" value="<?php echo $dados[5]; ?>">
                                 <span class="bar"></span>
                                 <label class="label">
                                     <span class="label-char" style="--index: 0">B</span>
@@ -661,7 +662,7 @@ $_SESSION['user'] = $dados[0];
                             </div>
                             <br>
                             <div class="wave-group">
-                                <input required="" type="text" class="input" name="estado" id="estado" value="<?php echo $dados[6]; ?>">
+                                <input  type="text" class="input" name="estado" id="estado" value="<?php echo $dados[6]; ?>">
                                 <span class="bar"></span>
                                 <label class="label">
                                     <span class="label-char" style="--index: 0">E</span>
@@ -680,7 +681,7 @@ $_SESSION['user'] = $dados[0];
                         <br>
                         <br>
                         <div class="wave-group">
-                            <input required="" type="text" class="input" name="rua" id="rua" value="<?php echo $dados[4]; ?>">
+                            <input  type="text" class="input" name="rua" id="rua" value="<?php echo $dados[4]; ?>">
                             <span class="bar"></span>
                             <label class="label">
                                 <span class="label-char" style="--index: 0">R</span>

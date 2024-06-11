@@ -8,7 +8,6 @@ $nomeusuario = $_SESSION['user'];
 $link_user = "";
 $email = $_SESSION['email'];
 $id = $_SESSION['id'];
-$img_perfil_user =  $_SESSION['img_perfil'];
 $permisssao = $_SESSION['permissoes'];
 
 
@@ -317,6 +316,7 @@ if (isset($_POST['textarea'])) {
                 border-radius: 15px;
                 height: 700px;
                 background-color: white;
+                object-fit: cover;
             }
         }
 
@@ -550,7 +550,7 @@ if (isset($_POST['textarea'])) {
                 </div>
             </li>
             <li class="nav-item" id="navbarTogglerDemo01">
-                <a class="nav-link" aria-current="page" href="./doar.php" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
+                <a class="nav-link" aria-current="page" href="./doar.php" target="_blank" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
             </li>
         </ul>
         <div class="direita">
@@ -583,10 +583,10 @@ if (isset($_POST['textarea'])) {
 
 
                             if (!end($imagemperfil1) == null) {
-                                echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="' . end($imagemperfil1) . '" alt="">';
+                                echo '<a  style="text-decoration: none;color: #bc0fc2;"  href="./cateto.php?id=' . $id . '"><img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="' . end($imagemperfil1) . '" alt=""></a>';
                             } else {
 
-                                echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="./css/assets/perfil.jpg" alt="">';
+                                echo '<a  style="text-decoration: none;color: #bc0fc2;"  href="./cateto.php?id=' . $id . '"><img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="./css/assets/perfil.jpg" alt=""></a>';
                             }
 
 
@@ -612,10 +612,7 @@ if (isset($_POST['textarea'])) {
                                 <texto style="color: white">Entidades Parceiras</texto>
                             </a>
 
-                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" href="#">
-                                <img class="logo" src="css/assets/donate_1655108.png" alt="">
-                                <texto style="color: white"> Ajude-nos</texto>
-                            </a>
+                          
 
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./login.php"><i class="fa-solid fa-right-from-bracket"></i>
                                 <texto style="color: white">Encerrar Sessão</texto>
@@ -670,8 +667,14 @@ if (isset($_POST['textarea'])) {
                     <div class="botoesimagemprev">
                         <div class="inputimgbtn">
 
-                            <input type="file" class="btnenviarimg" name="image" id="imagem">
-                            <div id="classbtn" class="imgbtnenviar" style="display: none;"><button id="imagembtn">Enviar</button></div>
+                            <label for="imagem" style="margin: 10px;">Selecionar Arquivo</label>
+                            <input type="file" style="display:none"  class="btnenviarimg" name="imagem" id="imagem">
+                            
+                            
+                            
+                            <div id="classbtn" class="imgbtnenviar" style="display: none;"> <button id="imagembtn" style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-bottom: 5%; background-color:#35f15e; z-index:101;" >Enviar</button></div>
+
+                            
 
                         </div>
 
@@ -987,7 +990,7 @@ if (isset($_POST['textarea'])) {
 
 
 
-                <div class="chatbox-wrapper">
+                <div class="chatbox-wrapper" style="z-index:1000">
                     <div class="chatbox-toggle">
                         <i class="fa-solid fa-message"></i>
 
@@ -1004,7 +1007,7 @@ if (isset($_POST['textarea'])) {
                         </div>
                         <div class="chatbox-message-content">
 
-                            <h4 class="chatbox-message-no-message">Tire suas duvidas aqui!</h4>
+                            <h4 class="chatbox-message-no-message"> Digite: 'ajuda' para tirar suas duvidas</h4>
 
 
 

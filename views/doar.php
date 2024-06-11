@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +29,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 
-    <title>Document</title>
+    <title>Ajude-nos</title>
 
     <style>
         * {
@@ -40,7 +40,7 @@
         body {
             width: 100vw;
             height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
 
@@ -229,12 +229,14 @@
             background-color: white;
             border: 20px outset #00d9ff15;
             padding: 15px;
-            padding-top: 50px;
-            margin-top: 5px;
+
+            top: -30px;
+          
+          
             left: 50px;
-            margin-bottom: 130px;
+        
             width: 500px;
-            height: 700px;
+           
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
             align-items: start;
             justify-content: left;
@@ -242,7 +244,7 @@
             
 
             h1 {
-                font-size: 45px;
+                font-size: 35px;
                 font-family: "Poetsen One", sans-serif;
                 font-weight: 400;
                 font-style: normal;
@@ -251,7 +253,7 @@
             }
 
             p {
-                font-size: 30px;
+              
                 font-family: "Poetsen One", sans-serif;
                 font-weight: 400;
                 font-style: normal;
@@ -265,8 +267,8 @@
         }
 
         .card:hover {
-            width: 510px;
-            height: 710px;
+          
+           
             -xpedu-transform: rotatez(10deg);
             -ms-transform: rotateZ(10deg);
             transform: rotateZ(3deg);
@@ -382,7 +384,6 @@
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -23px;" id="navbarTogglerDemo01">
             <!--Itens da Barra de Navegação -->
-
             <li class="nav-item dropdown" id="navbarTogglerDemo01">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="navbarTogglerDemo01">Redes Sociais</a>
                 <div style="width: 180px;text-align: center;border-color: rgb(255, 255, 255);background:rgb(255, 255, 255)" class="dropdown-menu" id="navbarTogglerDemo01">
@@ -391,68 +392,9 @@
                         </i></a>
                 </div>
             </li>
-            <li class="nav-item" id="navbarTogglerDemo01">
-                <a class="nav-link" aria-current="page" href="./tela_inicial.php" id="navbarTogglerDemo01">Tela Inicial</a>
-            </li>
         </ul>
-        <div class="direita">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">
-                <li id="navbarTogglerDemo01">
-                    <button class="butaomodal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
 
     </nav>
-
-    <!-- Barra de navegação - Modal -->
-    <div class="modal fade" style="margin-left: 70%; width: 30%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="width: 30%; background: rgb(226, 176, 215);;">
-                <div class="modal-header" style="border: none;">
-                    <h5 class="modal-title" id="exampleModalLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="grande">
-
-                        <div class="foto">
-
-                            <img class="foto" src="css/assets/perfil.png" alt="">
-
-                        </div>
-
-                        <div class="botoes">
-
-                            <?php
-
-                            echo "<a class='btn btn-outline-primary' style='border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);'' href='./usuario.php?'><i class='fa-solid fa-gear'>"
-
-                            ?></i>
-                            <texto style="color: white">Editar Perfil</texto>
-                            </a>
-
-                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="#"><img class="logo" src="css/assets/home_2544087.png" alt="">
-                                <texto style="color: white">Entidades Parceiras</texto>
-                            </a>
-
-                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50); color:rgb(204, 50, 171);" href="#">
-                                <img class="logo" src="css/assets/donate_1655108.png" alt="">
-                                <texto style="color: white"> Ajude-nos</texto>
-                            </a>
-
-                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./login.php"><i class="fa-solid fa-right-from-bracket"></i>
-                                <texto style="color: white">Encerrar Sessão</texto>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="mural" id="anchor-topo">
@@ -511,6 +453,10 @@
 
     </div>
 
+
+
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 </html>

@@ -307,6 +307,13 @@ for ($i = 0; $i < count($imagemperfil); $i++) {
 
 
         }
+
+        .map{
+            background-color: black;
+            margin-top: 10px;
+            width: 100%;
+            height: 150px;
+        }
     </style>
 
 </head>
@@ -368,6 +375,13 @@ for ($i = 0; $i < count($dados_bruto); $i++) {
                     <h1>Sobre mim:</h2>
                         <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas.
                             Atualmente tenho mais contato com abrigos de animais e asilos .</p>
+                </div>
+
+                <div class="map">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.4908376680924!2d-34.88221991451888!3d-8.05130958198308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab187db07a840d%3A0xd02075371cbf769f!2sEscola%20T%C3%A9cnica%20Estadual%20Gin%C3%A1sio%20Pernambucano!5e0!3m2!1spt-BR!2sbr!4v1718103745972!5m2!1spt-BR!2sbr" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
                 </div>
 
 

@@ -882,8 +882,12 @@ testar {
     display: flex;
     flex-direction: column;
     grid-row-gap: 1rem;
+    max-height: 300px;
+    overflow-y: scroll;
+    transition: scroll-top 0.5s ease;
 
 }
+
 
 .chatbox-message-item {
     width: 90%;

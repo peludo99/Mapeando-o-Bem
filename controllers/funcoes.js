@@ -53,8 +53,12 @@ const hoje = new Date();
 chatboxform.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    escreverMensagem()
-    setTimeout(retornoAutomatico, 1000)
+    escreverMensagem();
+
+
+
+
+
 
 
 });
@@ -125,7 +129,7 @@ inputfile.addEventListener('change', function (event) {
     const textareaElement = document.getElementById("idtextarea");
     const arquivoSelecionado = event.target.files[0];
     const btnenviar = document.getElementById("classbtn");
-    btnenviar.style.display ='inline';
+    btnenviar.style.display = 'inline';
 
 
 
@@ -179,47 +183,46 @@ inputfile.addEventListener('change', function (event) {
 
 
 $('#imagembtn').on('click', function () {
-    
 
 
-        redimencionar.croppie('result', {
-            type: 'canvas'
-            , size: 'viewport'
-        }).then(function (img) {
 
-            const textareaElement = document.getElementById("idtextarea");
+    redimencionar.croppie('result', {
+        type: 'canvas'
+        , size: 'viewport'
+    }).then(function (img) {
 
-            const dadosImagemBase64 = img;
+        const textareaElement = document.getElementById("idtextarea");
 
-
-            const textareaValue = textareaElement.value;
-
-            // Enviar os dados da imagem para o servidor
+        const dadosImagemBase64 = img;
 
 
-            $.ajax({
-                url: 'http://localhost/mapeando-o-bem/controllers/ajax.php',
-                type: 'POST',
-                data: {
-                    imagem: dadosImagemBase64,
-                    texto: textareaValue
-                }, // Enviar 'imagem' ao invés de 'data'
+        const textareaValue = textareaElement.value;
 
-                success: function (result) {
-                    console.log('mandou');
-                    setTimeout(window.location.reload(), 2000);
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.log('Erro, arquivo nao enviado');
-                }
-            });
+        // Enviar os dados da imagem para o servidor
 
+
+        $.ajax({
+            url: 'http://localhost/mapeando-o-bem/controllers/ajax.php',
+            type: 'POST',
+            data: {
+                imagem: dadosImagemBase64,
+                texto: textareaValue
+            }, // Enviar 'imagem' ao invés de 'data'
+
+            success: function (result) {
+                console.log('mandou');
+                setTimeout(window.location.reload(), 2000);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Erro, arquivo nao enviado');
+            }
         });
 
-    }
+    });
+
+}
 
 );
-
 
 
 
@@ -268,29 +271,141 @@ function escreverMensagem() {
 
     if (textarea.value == '') {
 
+        return;
+
     }
 
     else {
 
-        let message = `
+        if (textarea.value == '1') {
 
-        <div class="chatbox-message-item sent">
-        <span class="chatbox-message-item-text">
-           ${textarea.value.trim().replace(/\n/g, '<br>\n')}
-        </span>
-        <span class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
-    </div>
-        
-        
-        
-        `;
 
-        chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
-        chatboxform.style.alingItems = 'center';
-        textarea.rows = 1;
-        textarea.value = '';
-        chatboxnomessege.style.display = 'none';
-        setTimeout(() => textarea.focus(), 10);
+
+
+            let message = `
+
+                <div class="chatbox-message-item sent">
+                <span class="chatbox-message-item-text">
+                   ${textarea.value.trim().replace(/\n/g, '<br>\n')}
+                </span>
+                <span class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+            </div>
+                
+                
+                
+                `;
+
+            chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+            chatboxform.style.alingItems = 'center';
+            textarea.rows = 1;
+            textarea.value = '';
+            chatboxnomessege.style.display = 'none';
+            setTimeout(() => textarea.focus(), 10);
+
+            setTimeout(retornoAutomatico1, 2000);
+            setTimeout(retornoAutomaticoEscolha, 3000);
+
+
+
+
+
+        }
+
+        else if (textarea.value == 'ajuda' || textarea.value == 'Ajuda') {
+
+
+
+
+
+
+
+            let message = `
+
+                <div class="chatbox-message-item sent">
+                <span class="chatbox-message-item-text">
+                   ${textarea.value.trim().replace(/\n/g, '<br>\n')}
+                </span>
+                <span class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+            </div>
+                
+                
+                
+                `;
+
+            chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+            chatboxform.style.alingItems = 'center';
+            textarea.rows = 1;
+            textarea.value = '';
+            chatboxnomessege.style.display = 'none';
+            setTimeout(() => textarea.focus(), 10);
+
+            setTimeout(retornoAutomaticoOla, 2000);
+            setTimeout(retornoAutomaticoEscolha, 3000);
+
+            return key;
+        }
+
+        else if (textarea.value == '2') {
+
+          
+
+
+            let message = `
+
+                <div class="chatbox-message-item sent">
+                <span class="chatbox-message-item-text">
+                   ${textarea.value.trim().replace(/\n/g, '<br>\n')}
+                </span>
+                <span class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+            </div>
+                
+                
+                
+                `;
+
+            chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+            chatboxform.style.alingItems = 'center';
+            textarea.rows = 1;
+            textarea.value = '';
+            chatboxnomessege.style.display = 'none';
+            setTimeout(() => textarea.focus(), 10);
+            setTimeout(retornoAutomatico2, 2000);
+
+
+
+        }
+
+        else {
+
+            let message = `
+
+            <div class="chatbox-message-item sent">
+            <span class="chatbox-message-item-text">
+               ${textarea.value.trim().replace(/\n/g, '<br>\n')}
+            </span>
+            <span  class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+        </div>
+            
+            
+            
+            `;
+
+            chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+            chatboxform.style.alingItems = 'center';
+            textarea.rows = 1;
+            textarea.value = '';
+            chatboxnomessege.style.display = 'none';
+            setTimeout(() => textarea.focus(), 10);
+
+
+
+
+        }
+
+
+
+
+
 
 
 
@@ -303,15 +418,81 @@ function escreverMensagem() {
 
 }
 
-function retornoAutomatico(valor) {
+function retornoAutomaticoOla(valor) {
 
     let message = `
 
     <div class="chatbox-message-item received">
         <span class="chatbox-message-item-text">
-            Mensagem automatica
+            Olá,  Este é o BOT de ajuda Mapeando o Bem.
         </span>
-    <span class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+    <span style="display:flex;margin-top: auto;" class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+</div>
+    
+    
+    
+    `;
+
+    chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+    chatboxform.style.alingItems = 'center';
+
+}
+
+function retornoAutomatico1(valor) {
+
+    let message = `
+
+    <div class="chatbox-message-item received">
+        <span class="chatbox-message-item-text">
+        Ok, Para fazer parte da comunidade de Casa de Apoio é necessário fazer a validação de seus dados. Por favor, entre em contato com o suporte.
+        </span>
+    <span style="display:flex;margin-top: auto;" class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+</div>
+    
+    
+    
+    `;
+
+    chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+    chatboxform.style.alingItems = 'center';
+
+}
+
+
+function retornoAutomatico2(valor) {
+
+    let message = `
+
+    <div class="chatbox-message-item received">
+        <span class="chatbox-message-item-text">
+        Para alterar suas Credenciais: <a href="./usuario.php">Clique aqui</a>
+        </span>
+    <span style="display:flex;margin-top: auto;" class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
+</div>
+    
+    
+    
+    `;
+
+    chatboxMEssegeWrapper.insertAdjacentHTML('beforeend', message);
+    chatboxform.style.alingItems = 'center';
+
+}
+
+
+
+function retornoAutomaticoEscolha(valor) {
+
+    let message = `
+
+    <div class="chatbox-message-item received">
+        <span class="chatbox-message-item-text">
+            Digite o número que represente uma das opçoes abaixo: <br>
+            <strong>1: Torna-se Casa de Apoio <br>
+            2:Alterar Credenciais<br>
+            3:Entrar em Contato com o Suporte</strong><br>
+        </span>
+    <span style="display:flex;margin-top: auto;"  class="chatbox-messege-item-time">${addzero(hoje.getHours())}:${addzero(hoje.getMinutes())}</span>
 </div>
     
     
