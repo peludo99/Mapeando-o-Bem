@@ -527,6 +527,15 @@ if (isset($_POST['textarea'])) {
         .imgpost {
             object-fit: cover;
         }
+
+
+        @media(max-width: 800px){
+
+            
+
+        }
+
+
     </style>
 
 

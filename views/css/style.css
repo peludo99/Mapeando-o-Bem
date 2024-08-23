@@ -968,3 +968,18 @@ testar {
     outline: none;
     cursor: pointer;
 }
+
+
+@media(max-width: 800px){
+
+    .conteudo::before{
+        display: none;
+    }
+
+    .coluna-um{
+        display: none;
+    }
+
+            
+
+}

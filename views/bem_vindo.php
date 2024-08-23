@@ -107,6 +107,7 @@
 
             width: 100%;
             height: 100%;
+         
             background-image: url('./voluntarios-produtos.jpg');
             background-repeat: no-repeat;
             background-position: right 35% top 35%;
@@ -246,6 +247,49 @@
             height: 230px;
             width: auto;
         }
+
+
+
+
+        @media(max-width: 800px){
+           .navega{
+            display: none;
+           }
+
+           .anuncio{
+
+            width: 100%;
+
+            height: 100%;
+            top: 50px;
+
+            display: flex;
+
+            flex-direction: column;
+           }
+
+            footer{
+
+                display: flex;
+                flex-direction: row;
+
+
+                height: auto;
+
+                margin: 0px;
+
+
+            }
+
+            .main-title::after{
+                display: none;
+            }
+
+
+
+         
+        }
+
     </style>
 
 </head>
