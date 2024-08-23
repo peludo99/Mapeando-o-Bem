@@ -76,6 +76,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
       border: 1px solid rgb(59, 3, 50);
       color: rgb(204, 50, 171);
       background-color: #ffffff00;
+      width: 50%;
       border-radius: 10px;
       height: 40px;
 
@@ -83,6 +84,12 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 
     .btn-logar:hover {
       background-color: rgb(59, 3, 50);
+    }
+
+
+    .btnslog{
+      display: flex;
+      flex-direction: row;
     }
   </style>
 
@@ -132,8 +139,13 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
           </fb:login-button>
 
 
-          <input type="submit" class="btn-logar" value="Logar">
-          <br>
+          <div class="btnslog">
+            <input type="submit" class="btn-logar" value="Logar">
+         
+
+            <a href="./bem_vindo.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);margin-left:5px;width:50%; color:rgb(255, 255, 255); background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
+       
+          </div>
 
 
 

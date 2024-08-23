@@ -5,6 +5,7 @@ session_start();
 $nome_usuario = $_SESSION['user'];
 $id_user = $_SESSION['id'];
 $email2 = $_SESSION['email'];
+$permissão = $_SESSION['permissoes'];
 Deletarimg($email2);
 
 
@@ -435,6 +436,13 @@ for ($i = 0; $i < count($imagemperfil); $i++) {
             height: 100px;
 
         }
+
+        .map {
+            background-color: black;
+            margin-top: 10px;
+            width: 100%;
+            height: 40%;
+        }
     </style>
 
 </head>
@@ -494,17 +502,17 @@ $_SESSION['user'] = $dados[0];
                 <div class="botoesimagemprev">
                     <div class="inputimgbtn">
 
-                     
-                    <label for="imagem" style="margin: 10px;">Selecionar Arquivo</label>
-                        <input type="file" style="display:none"  class="btnenviarimg" name="imagem" id="imagem">
-                        
-                        
-                        
-                        <div id="classbtn" class="imgbtnenviar" style="display: none;"> <button id="imagembtn" style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-bottom: 5%; background-color:#35f15e; z-index:101;" >Enviar</button></div>
+
+                        <label for="imagem" style="margin: 10px;">Selecionar Arquivo</label>
+                        <input type="file" style="display:none" class="btnenviarimg" name="imagem" id="imagem">
+
+
+
+                        <div id="classbtn" class="imgbtnenviar" style="display: none;"> <button id="imagembtn" style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-bottom: 5%; background-color:#35f15e; z-index:101;">Enviar</button></div>
 
                     </div>
 
-                    
+
                 </div>
 
 
@@ -553,6 +561,23 @@ $_SESSION['user'] = $dados[0];
                         <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas.
                             Atualmente tenho mais contato com abrigos de animais e asilos .</p>
                 </div>
+
+                <?php
+
+                if ($permissão == 1) {
+
+                    echo '<div class="map">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.4908376680924!2d-34.88221991451888!3d-8.05130958198308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab187db07a840d%3A0xd02075371cbf769f!2sEscola%20T%C3%A9cnica%20Estadual%20Gin%C3%A1sio%20Pernambucano!5e0!3m2!1spt-BR!2sbr!4v1718103745972!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+                </div>';
+                }
+
+                ?>
+
+             
+
 
                 <!-- 
                 
@@ -662,7 +687,7 @@ $_SESSION['user'] = $dados[0];
                             </div>
                             <br>
                             <div class="wave-group">
-                                <input  type="text" class="input" name="estado" id="estado" value="<?php echo $dados[6]; ?>">
+                                <input type="text" class="input" name="estado" id="estado" value="<?php echo $dados[6]; ?>">
                                 <span class="bar"></span>
                                 <label class="label">
                                     <span class="label-char" style="--index: 0">E</span>
@@ -681,7 +706,7 @@ $_SESSION['user'] = $dados[0];
                         <br>
                         <br>
                         <div class="wave-group">
-                            <input  type="text" class="input" name="rua" id="rua" value="<?php echo $dados[4]; ?>">
+                            <input type="text" class="input" name="rua" id="rua" value="<?php echo $dados[4]; ?>">
                             <span class="bar"></span>
                             <label class="label">
                                 <span class="label-char" style="--index: 0">R</span>
@@ -731,6 +756,8 @@ $_SESSION['user'] = $dados[0];
                             <input type="hidden" name="id" value="<?php echo $dados[7]; ?>">
 
                             <button type="submit" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%;" class="btn btn-outline-primary">Atualizar informaçoes</button>
+
+                            <a href="#" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: #e953ad;" class="btn btn-outline-primary">Torna-se Casa de Apoio</a>
 
                             <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
 

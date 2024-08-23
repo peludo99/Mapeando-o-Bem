@@ -11,6 +11,9 @@ $id = $_SESSION['id'];
 $permisssao = $_SESSION['permissoes'];
 
 
+
+
+
 $imagem =  Buscardadosimagem($email);
 $texto = Buscartextoimagem($email);
 
@@ -614,7 +617,7 @@ if (isset($_POST['textarea'])) {
 
                           
 
-                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="./login.php"><i class="fa-solid fa-right-from-bracket"></i>
+                            <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="../index.php"><i class="fa-solid fa-right-from-bracket"></i>
                                 <texto style="color: white">Encerrar Sessão</texto>
                             </a>
                         </div>
@@ -652,7 +655,7 @@ if (isset($_POST['textarea'])) {
             <div class="modal-dialog" role="document" style="background-color:none;margin:auto;padding:1px;width:800px; height:650px;">
 
 
-                <div class="modal-content" style="width:800px; height:650px; margin:auto; background-color:rgb(146, 146, 146); padding:10px">
+                <div class="modal-content" style="width:800px; height:680px; margin:auto; background-color:rgb(146, 146, 146); padding:10px">
 
 
 

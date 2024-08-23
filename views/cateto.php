@@ -4,6 +4,7 @@ require_once '../controllers/funcoes.php';
 session_start();
 $nome_usuario = $_SESSION['user'];
 $email2 = $_SESSION['email'];
+$permissão = $_SESSION['permissoes'];
 Deletarimg($email2);
 
 if (!isset($_GET['id'])) {
@@ -308,11 +309,11 @@ for ($i = 0; $i < count($imagemperfil); $i++) {
 
         }
 
-        .map{
+        .map {
             background-color: black;
             margin-top: 10px;
             width: 100%;
-            height: 150px;
+            height: 50%;
         }
     </style>
 
@@ -377,12 +378,23 @@ for ($i = 0; $i < count($dados_bruto); $i++) {
                             Atualmente tenho mais contato com abrigos de animais e asilos .</p>
                 </div>
 
-                <div class="map">
+                <?php
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.4908376680924!2d-34.88221991451888!3d-8.05130958198308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab187db07a840d%3A0xd02075371cbf769f!2sEscola%20T%C3%A9cnica%20Estadual%20Gin%C3%A1sio%20Pernambucano!5e0!3m2!1spt-BR!2sbr!4v1718103745972!5m2!1spt-BR!2sbr" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                if ($permissão == 1) {
+
+                    echo '<div class="map">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.4908376680924!2d-34.88221991451888!3d-8.05130958198308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab187db07a840d%3A0xd02075371cbf769f!2sEscola%20T%C3%A9cnica%20Estadual%20Gin%C3%A1sio%20Pernambucano!5e0!3m2!1spt-BR!2sbr!4v1718103745972!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-                </div>
+                </div>';
+                }
+
+                ?>
+
+                <a href="../views/tela_inicial.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);width:400px; color:rgb(255, 255, 255);margin-top: 2%; background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
+
+
 
 
             </div>

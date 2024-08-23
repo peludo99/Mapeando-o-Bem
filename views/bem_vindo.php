@@ -276,9 +276,7 @@
                                     </i></a>
                             </div>
                         </li>
-                        <li class="nav-item" id="navbarTogglerDemo01">
-                            <a class="nav-link" aria-current="page" href="#" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
-                        </li>
+                       
                     </ul>
                 </div>
             </div>
