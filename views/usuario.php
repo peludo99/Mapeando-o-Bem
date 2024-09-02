@@ -443,6 +443,33 @@ for ($i = 0; $i < count($imagemperfil); $i++) {
             width: 100%;
             height: 40%;
         }
+
+        @media(max-width: 800px) {
+
+            .cr-vp-circle {
+                width: 323px !important;
+                height: 323px !important;
+            }
+
+            .cr-boundary {
+                width: 350px !important;
+                height: 400px !important;
+                margin: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-content {
+                width: 360px !important;
+                height: 652px !important;
+                margin: 71px !important;
+            }
+
+            .cr-slider {
+                padding-top: 47px;
+            }
+        }
     </style>
 
 </head>
@@ -576,7 +603,7 @@ $_SESSION['user'] = $dados[0];
 
                 ?>
 
-             
+
 
 
                 <!-- 

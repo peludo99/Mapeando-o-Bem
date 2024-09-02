@@ -112,7 +112,10 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         padding-top: 7px;
         margin-left: 5px;
         color: rgb(204, 50, 171);
-        width: 204px;
+        width: 30%;
+        font-size: 10px;
+
+        
 
 
       }
@@ -120,11 +123,17 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
       #Idcadastroa {
 
         display: flex;
+        width: 30%;
+        padding-left: 0;
       }
 
       .alert-danger {
         margin-top: 21px;
         width: 270px;
+      }
+
+      .btn-logar{
+        width: 30%;
       }
 
 
