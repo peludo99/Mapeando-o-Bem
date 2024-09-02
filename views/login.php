@@ -87,9 +87,52 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
     }
 
 
-    .btnslog{
+    .btnslog {
       display: flex;
       flex-direction: row;
+    }
+
+    #Idcadastroa {
+
+      display: none;
+      padding-left: 10px;
+    }
+
+
+    @media(max-width: 800px) {
+
+
+
+      .btn-cadastrar {
+
+
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 7px;
+        margin-left: 5px;
+        color: rgb(204, 50, 171);
+        width: 204px;
+
+
+      }
+
+      #Idcadastroa {
+
+        display: flex;
+      }
+
+      .alert-danger {
+        margin-top: 21px;
+        width: 270px;
+      }
+
+
+
+
+
+
+
     }
   </style>
 
@@ -106,7 +149,9 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         </h2>
         <p class="descricao">Não possui conta?</p>
         <form action="cadastrar.php" method="post">
+
           <button type="post" id="Idcadastro" class="btn-cadastrar">Cadastrar-se</button>
+
         </form>
       </div>
       <div class="coluna-dois">
@@ -141,10 +186,12 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 
           <div class="btnslog">
             <input type="submit" class="btn-logar" value="Logar">
-         
+
+            <a href="./cadastrar.php" type="post" id="Idcadastroa" class="btn-cadastrar">Cadastrar-se</a>
+
 
             <a href="./bem_vindo.php" id="Idcadastro" style="border: 1px solid rgb(238, 84, 204);margin-left:5px;width:50%; color:rgb(255, 255, 255); background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a>
-       
+
           </div>
 
 

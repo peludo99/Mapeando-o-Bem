@@ -23,7 +23,7 @@ body {
 
     width: 100px;
     margin: auto;
-   
+
 
 }
 
@@ -427,7 +427,7 @@ testar {
     height: 70px;
     border-radius: 100%;
     border: 2px solid rgb(0, 0, 0);
-   
+
 
     margin: 5px;
     margin-top: 0px;
@@ -970,16 +970,86 @@ testar {
 }
 
 
-@media(max-width: 800px){
+@media(max-width: 800px) {
 
-    .conteudo::before{
+
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .conteudo::before {
         display: none;
     }
 
-    .coluna-um{
+    .coluna-um {
         display: none;
     }
 
-            
+    .coluna-dois {
+        display: flex;
+        margin: auto;
+    }
+
+    .containerlog {
+        background-size: cover;
+
+    }
+
+    .newPost {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        margin-bottom: 25px;
+
+    }
+
+    .Post {
+        width: 88%;
+    }
+
+    .imgpost {
+        height: 276px;
+        width: 318px
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .infoUser {}
+
+    .nomeuser {
+        margin-left: 2px;
+    }
+
+
+    .chatbox-menssage-header {
+        margin-left: 22px;
+    }
+
+    .chatbox-message-content {
+        margin-left: 22px;
+    }
+
+    .chatbox-message-bottom {
+        margin-left: 22px;
+    }
+    .chatbox-message-status{
+        left: 103px;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

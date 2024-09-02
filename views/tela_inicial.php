@@ -118,6 +118,8 @@ if (isset($_POST['textarea'])) {
     <style>
         body {
             overflow-x: hidden;
+
+            width: 100vw;
         }
 
         /* PARA MODIFICAÇÕES NA BARRA DE NAVEGAÇÃO */
@@ -211,6 +213,15 @@ if (isset($_POST['textarea'])) {
             color: white;
             align-items: center;
 
+        }
+
+        #postmodal {
+
+            width: 800px;
+            height: 680px;
+            margin: auto;
+            background-color: rgb(146, 146, 146);
+            padding: 10px
         }
 
         #sub_car {
@@ -528,47 +539,138 @@ if (isset($_POST['textarea'])) {
             object-fit: cover;
         }
 
+        .cr-vp-square {}
 
-        @media(max-width: 800px){
 
-            
+        @media(max-width: 800px) {
+
+
+            body {
+                overflow-x: none;
+            }
+
+            #navbar {
+                width: inherit;
+            }
+
+
+
+
+
+            .texto_intro {
+
+                width: 100%;
+
+                font-size: 5px;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .sub_titulo {
+                font-size: 19px;
+            }
+
+            #mob {
+
+                font-size: 46px;
+            }
+
+            .card {
+                width: 250px;
+            }
+
+            .navesquerda {
+                display: none;
+            }
+
+            .blocos {}
+
+            .direito {
+                display: none;
+            }
+
+            .main-title::after {
+
+                display: none;
+            }
+
+            .main-title {
+                margin: 121px 0 50px 0;
+            }
+
+
+            #postmodal {
+
+                display: flex;
+                width: 349px;
+                height: 659px;
+                margin: 76px;
+                background-color: rgb(146, 146, 146);
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cr-vp-square {
+                width: 306px !important;
+                height: 523px !important;
+            }
+
+            .cr-boundary {
+                width: 329px !important;
+                height: 538px !important;
+            }
+
+            .modal-content {
+                width: 87% !important;
+            }
+
+            #exampleModaltelainicial {
+                margin-left: 14% !important;
+                width: 90% !important;
+            }
+
+
+
 
         }
-
-
     </style>
 
 
     <!-- Barra de Navegação -->
 
-    <nav style="background: rgb(255, 255, 255); height: 55px; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" class="navbar navbar-expand-lg fixed-top">
+    <nav style="background: rgb(255, 255, 255); height: 55px; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" id="navbar" class="navbar navbar-expand-lg fixed-top">
 
 
 
         <a class="navbar-brand" href="#anchor-topo"><img src="./css/assets/mob.png" width="60" height="30" class="d-inline-block align-top" alt=""></a>
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -23px;" id="navbarTogglerDemo01">
-            <!--Itens da Barra de Navegação -->
-
-            <li class="nav-item" id="navbarTogglerDemo01">
-                <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
-            </li>
-            <li class="nav-item dropdown" id="navbarTogglerDemo01">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="navbarTogglerDemo01">Redes Sociais</a>
-                <div style="width: 180px;text-align: center;border-color: rgb(255, 255, 255);background:rgb(255, 255, 255)" class="dropdown-menu" id="navbarTogglerDemo01">
-                    <a style="background:rgb(255, 255, 255); margin:auto" class="dropdown-item" href="https://www.instagram.com/mapeandoobem/" target="_blank" id="navbarTogglerDemo01"><i style="font-size: 22px;" class="fa-brands fa-instagram fa-fade">
-                            <nome style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"> Instagram</nome>
-                        </i></a>
-                </div>
-            </li>
-            <li class="nav-item" id="navbarTogglerDemo01">
-                <a class="nav-link" aria-current="page" href="./doar.php" target="_blank" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
-            </li>
-        </ul>
+        <div class="navesquerda">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: -23px;" id="navbarTogglerDemo01">
+                <!--Itens da Barra de Navegação -->
+                <li class="nav-item" id="navbarTogglerDemo01">
+                    <a class="nav-link" aria-current="page" href="#anchor-quemsomos">Quem somos</a>
+                </li>
+                <li class="nav-item dropdown" id="navbarTogglerDemo01">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" id="navbarTogglerDemo01">Redes Sociais</a>
+                    <div style="width: 180px;text-align: center;border-color: rgb(255, 255, 255);background:rgb(255, 255, 255)" class="dropdown-menu" id="navbarTogglerDemo01">
+                        <a style="background:rgb(255, 255, 255); margin:auto" class="dropdown-item" href="https://www.instagram.com/mapeandoobem/" target="_blank" id="navbarTogglerDemo01"><i style="font-size: 22px;" class="fa-brands fa-instagram fa-fade">
+                                <nome style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px"> Instagram</nome>
+                            </i></a>
+                    </div>
+                </li>
+                <li class="nav-item" id="navbarTogglerDemo01">
+                    <a class="nav-link" aria-current="page" href="./doar.php" target="_blank" id="navbarTogglerDemo01">Contribua <i class="fa-solid fa-hand-holding-heart"></i></a>
+                </li>
+            </ul>
+        </div>
         <div class="direita">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo0">
                 <li id="navbarTogglerDemo01">
-                    <button class="butaomodal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button class="butaomodal" data-bs-toggle="modal" data-bs-target="#exampleModaltelainicial">
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </button>
                 </li>
@@ -578,7 +680,7 @@ if (isset($_POST['textarea'])) {
     </nav>
 
     <!-- Barra de navegação - Modal -->
-    <div class="modal fade" style="margin-left: 70%; width: 30%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" style="margin-left: 70%; width: 30%;" id="exampleModaltelainicial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content" style="width: 30%; background: rgb(226, 176, 215);;">
                 <div class="modal-header" style="border: none;">
@@ -624,7 +726,7 @@ if (isset($_POST['textarea'])) {
                                 <texto style="color: white">Entidades Parceiras</texto>
                             </a>
 
-                          
+
 
                             <a class="btn btn-outline-primary" style="border: 1px solid rgb(59, 3, 50);  color:rgb(204, 50, 171);" href="../index.php"><i class="fa-solid fa-right-from-bracket"></i>
                                 <texto style="color: white">Encerrar Sessão</texto>
@@ -664,7 +766,7 @@ if (isset($_POST['textarea'])) {
             <div class="modal-dialog" role="document" style="background-color:none;margin:auto;padding:1px;width:800px; height:650px;">
 
 
-                <div class="modal-content" style="width:800px; height:680px; margin:auto; background-color:rgb(146, 146, 146); padding:10px">
+                <div class="modal-content" id="postmodal" style="">
 
 
 
@@ -680,13 +782,13 @@ if (isset($_POST['textarea'])) {
                         <div class="inputimgbtn">
 
                             <label for="imagem" style="margin: 10px;">Selecionar Arquivo</label>
-                            <input type="file" style="display:none"  class="btnenviarimg" name="imagem" id="imagem">
-                            
-                            
-                            
-                            <div id="classbtn" class="imgbtnenviar" style="display: none;"> <button id="imagembtn" style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-bottom: 5%; background-color:#35f15e; z-index:101;" >Enviar</button></div>
+                            <input type="file" style="display:none" class="btnenviarimg" name="imagem" id="imagem">
 
-                            
+
+
+                            <div id="classbtn" class="imgbtnenviar" style="display: none;"> <button id="imagembtn" style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-bottom: 5%; background-color:#35f15e; z-index:101;">Enviar</button></div>
+
+
 
                         </div>
 
@@ -853,7 +955,7 @@ if (isset($_POST['textarea'])) {
                         <h3 class="sobrenos-titulo">Esteja aberto ao novo e às pessoas. Saia do comum!</h3><br>
                         <h6>Se você é movido pelo desejo de ajudar e de se sentir útil, esta é a escolha certa. O voluntariado é uma experiência para a vida!</h6>
                         <h6>Através de suas experiências você poderá:</h6>
-                        <ul type="disc">
+                        <ul class="h6" style="margin-left: -32px;" type="disc">
                             <li>Descobrir novos potenciais para suas habilidades;</li>
                             <li>Criar novos círculos de amizades;</li>
                             <li>Comprovar horas complementares em nível de graduação;</li>

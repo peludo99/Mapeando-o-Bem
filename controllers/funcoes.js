@@ -106,6 +106,7 @@ var redimencionar = $('#preview').croppie({
     enableExif: true,
     enableOrientation: true,
 
+   
     viewport: {
         width: 750,
         height: 550,

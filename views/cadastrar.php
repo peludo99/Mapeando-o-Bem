@@ -41,6 +41,30 @@
     .btn-cadastrar:hover {
       background-color: rgb(59, 3, 50);
     }
+
+    #Idcadastrob{
+      display: none;
+    }
+
+
+
+    .botoescadastro {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-cadastrar {
+
+      width: 97px;
+
+    }
+
+    @media(max-width: 800px) {
+
+      #Idcadastrob{
+        display: block;
+      }
+    }
   </style>
 
   <!-- ARQUIVO DE LOGIN  -->
@@ -100,7 +124,10 @@
             <input required type="password" name="senha_usuario" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="addon-wrapping">
           </div>
           <br>
-          <input type="submit" class="btn-cadastrar" value="Cadastrar"> <br>
+          <div class="botoescadastro">
+            <div><input type="submit" class="btn-cadastrar" value="Cadastrar"></div>
+            <div><a href="./login.php" id="Idcadastrob" style="border: 1px solid rgb(238, 84, 204);margin-left:5px; color:rgb(255, 255, 255); background-color: rgb(238, 38, 38);" class="btn btn-outline-primary">voltar</a></div>
+          </div>
 
         </form>
         <?php
