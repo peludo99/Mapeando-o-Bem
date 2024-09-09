@@ -17,7 +17,7 @@ Veja as casas de apoio mais próximas de você através da sua localização. �
 
 Em um cenário onde a eficiência e a praticidade são essenciais, oferecemos uma solução inovadora para este nicho, com o mapeamento das inúmeras Casas de Apoio dispostas no território, tornando-as  mais visíveis e acessíveis aos doadores e voluntários em potencial. 
 
-Nosso objetivo é conectar e simplificar o contato entre a Casa de Apoio e o voluntário, garantindo para a instituição o acesso aos recursos de que precisa; e garantir para o voluntário a satisfação de realizar sua doação/atividade numa instituição que ele consiga ter fácil acesso.
+Nosso objetivo é conectar Casa de Apoio e Voluntários, simplificando este contato para garantir que a instituição tenha acesso aos recursos de que precisa; e garantir que o voluntário tenha a satisfação de realizar sua doação/atividade numa instituição que ele consiga ter fácil acesso.
 
 
 
