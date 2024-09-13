@@ -469,6 +469,32 @@ for ($i = 0; $i < count($imagemperfil); $i++) {
             .cr-slider {
                 padding-top: 47px;
             }
+
+            .direita {
+                display: none;
+            }
+
+            .conteudo-direita {
+                display: none;
+            }
+
+            .esquerda{
+                width: 100%;
+                padding: 10px;
+            }
+
+            .input{
+                width: 277px !important; 
+            }
+
+            .wave-group{
+               
+
+            }
+
+            .header{
+                margin-top: 187px;
+            }
         }
     </style>
 
@@ -622,6 +648,8 @@ $_SESSION['user'] = $dados[0];
 
         <div class="esquerda">
             <div class="conteudo-esquerda" style="overflow-y: scroll;">
+
+
                 <br>
                 <br>
                 <?php
@@ -671,9 +699,62 @@ $_SESSION['user'] = $dados[0];
 
                 ?>
                 <form class="form" action="../views/usuario.php" method="post">
+
+
+
+
+                    <div class="header">
+                        <H1>Perfil</H1>
+                        <?php echo "<h2>$dados[0]</h2>"; ?>
+
+                        <?php
+
+
+                        if (!end($imagemperfil1) == null) {
+                            echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="' . end($imagemperfil1) . '" alt="">';
+                        } else {
+
+                            echo '<img class="imgUser" style="object-fit:cover;width:150px;height:150px"  src="./css/assets/perfil.jpg" alt="">';
+                        }
+
+
+
+                        ?>
+                    </div>
+                    <br>
+
+                    <button style="border: 1px solid black;height:35px;padding:1px;font-size:15px;border-radius: 5%;width:180px; color:black;margin-top: 2%; background-color:#c0bfbf;" data-bs-toggle="modal" data-bs-target="#addarquivo">Alterar Imagem <i class="fa-solid fa-image fa-bounce"></i></button>
+
+                    <div class="about">
+                        <h1>Sobre mim:</h2>
+                            <p> Gosto de desenvolver atividades de voluntariado em minhas horas vagas.
+                                Atualmente tenho mais contato com abrigos de animais e asilos .</p>
+                    </div>
+
+                    <?php
+
+                    if ($permissão == 1) {
+
+                        echo '<div class="map">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.4908376680924!2d-34.88221991451888!3d-8.05130958198308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab187db07a840d%3A0xd02075371cbf769f!2sEscola%20T%C3%A9cnica%20Estadual%20Gin%C3%A1sio%20Pernambucano!5e0!3m2!1spt-BR!2sbr!4v1718103745972!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+</div>';
+                    }
+
+                    ?>
+
+
+
+
+
                     <h2>Informações Pessoais</h2>
 
+
+
                     <div class="cima">
+
                         <div class="esquerda-esquerda-info">
 
                             <div class="wave-group">

@@ -537,6 +537,7 @@ if (isset($_POST['textarea'])) {
 
         .imgpost {
             object-fit: cover;
+            width: 330px;
         }
 
         .cr-vp-square {}
@@ -549,10 +550,7 @@ if (isset($_POST['textarea'])) {
                 overflow-x: none;
             }
 
-            #navbar {
-                width: inherit;
-            }
-
+         
 
 
 
@@ -616,16 +614,26 @@ if (isset($_POST['textarea'])) {
 
             .cr-vp-square {
                 width: 306px !important;
-                height: 523px !important;
+                height: 341px !important;
             }
 
             .cr-boundary {
                 width: 329px !important;
                 height: 538px !important;
+
+                margin: 0 0 !important;;
+
+              
+            }
+
+            .croppie-container{
+
+                margin: 0 0 !important;; 
+
             }
 
             .modal-content {
-                width: 87% !important;
+                width: 86% !important;
             }
 
             #exampleModaltelainicial {
