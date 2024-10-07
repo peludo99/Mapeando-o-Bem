@@ -1,0 +1,7 @@
+// codigos
+// 001ex - Usuario ja possui cadastro!
+// 002ex - Usuario Cadastrado!
+// 003ex - Este Email Ja esta sendo usando por outro usuario!
+// 004ex - Cadastrado Atualizado!
+// 005ex - Cadastrado Deletado!
+// 006ex - Não foi possivel deletar o cadastro
