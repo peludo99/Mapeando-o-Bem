@@ -2,8 +2,9 @@
 
 
 require_once '../models/conexao.php';
+require_once './banco/define.php';
 
-$conexao = new Conexao('test', 'localhost', 'root', '');
+$conexao = new Conexao(DB,HOST,USER,PASS);
 
 
 function Buscardadosdelogin($email, $senha)
