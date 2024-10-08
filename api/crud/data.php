@@ -1,6 +1,6 @@
 <?php 
 
-require_once("helper.php");
+require_once('./helper.php');
 
 $query = "select * from cadastros";
 $sql = mysqli_query($db_connect, $query);
@@ -20,7 +20,7 @@ if($sql)
 
             'idcadastro' => $row['idcadastro'],
             
-            'img_perfil' => $row['img_perfil'],
+            // 'img_perfil' => $row['img_perfil'],
 
             
 
