@@ -17,9 +17,14 @@
     <title>Bem-Vindo(a)</title>
 
     <style>
+        html {
+
+            width: 100vw;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
         }
 
         body {
@@ -107,7 +112,7 @@
 
             width: 100%;
             height: 100%;
-         
+
             background-image: url('./voluntarios-produtos.jpg');
             background-repeat: no-repeat;
             background-position: right 35% top 35%;
@@ -130,7 +135,7 @@
             background-color: black;
             display: block;
             z-index: 10;
-            height: 190px;
+            height: auto;
             -webkit-box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
             -moz-box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
             box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
@@ -249,26 +254,77 @@
         }
 
 
+        @media(max-width: 869px) {
+
+            * {
+                margin: -2px;
+                padding: 0px;
+            }
+
+            .navega {
+                display: none;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .anuncio{
+                width: 100%;
+
+                top: 0;
+                margin-top: 5px;
+            }
+
+            body{
 
 
-        @media(max-width: 800px){
-           .navega{
-            display: none;
-           }
+                margin-top: -15px;
+            }
 
-           .anuncio{
 
-            width: 100%;
 
-            height: 100%;
-            top: 50px;
 
-            display: flex;
 
-            flex-direction: column;
-           }
 
-            footer{
+
+
+
+
+
+        }
+
+
+
+
+
+        @media(max-width: 768px) {
+
+            * {
+                margin: -2px;
+                padding: 0px;
+            }
+
+
+
+
+            .navega {
+                display: none;
+            }
+
+            .anuncio {
+
+                width: 100%;
+
+                height: auto;
+                top: 50px;
+
+                display: flex;
+
+                flex-direction: column;
+            }
+
+            footer {
 
                 display: flex;
                 flex-direction: row;
@@ -281,15 +337,128 @@
 
             }
 
-            .main-title::after{
+            .main-title::after {
                 display: none;
+            }
+
+            .mural {
+                margin: 0px !important;
+            }
+
+
+            .col-md-3 {
+
+                width: 33% !important;
             }
 
 
 
-         
+
         }
 
+
+        @media(max-width: 425px) {
+
+
+
+
+            .sub_titulo {
+
+                font-size: 19px;
+            }
+
+
+
+
+
+
+
+
+            .row {
+
+
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+
+                ul {
+
+                    width: 100%;
+                }
+
+
+                li {
+
+                    width: 100%;
+                }
+            }
+
+
+
+            .footer-titulo {
+                margin-left: 0px !important;
+            }
+
+
+            .container {
+
+                margin: 0px;
+
+            }
+
+            .col-md-3 {
+                width: 100% !important;
+            }
+
+
+            .img-fluid {
+
+                width: 100%;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+        @media(max-width: 425px) {
+
+
+            .btn-acessar {
+
+                width: 216px;
+            }
+
+
+
+        }
+
+
+        @media(max-width: 320px) {
+
+
+
+            .imagem{
+
+                width: 101%;
+            }
+
+
+
+
+
+        }
     </style>
 
 </head>
@@ -320,7 +489,7 @@
                                     </i></a>
                             </div>
                         </li>
-                       
+
                     </ul>
                 </div>
             </div>

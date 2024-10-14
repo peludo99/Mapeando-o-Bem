@@ -429,6 +429,7 @@ if (isset($_POST['textarea'])) {
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
+            margin-left: auto;
 
             button {
                 width: 50px;
@@ -537,7 +538,7 @@ if (isset($_POST['textarea'])) {
 
         .imgpost {
             object-fit: cover;
-            width: 330px;
+            width: 100%;
         }
 
         .cr-vp-square {}
@@ -550,7 +551,16 @@ if (isset($_POST['textarea'])) {
                 overflow-x: none;
             }
 
-         
+            .imgpost {
+
+                object-fit: cover;
+                width: 330px;
+
+
+            }
+
+
+
 
 
 
@@ -621,14 +631,16 @@ if (isset($_POST['textarea'])) {
                 width: 329px !important;
                 height: 538px !important;
 
-                margin: 0 0 !important;;
+                margin: 0 0 !important;
+                ;
 
-              
+
             }
 
-            .croppie-container{
+            .croppie-container {
 
-                margin: 0 0 !important;; 
+                margin: 0 0 !important;
+                ;
 
             }
 
@@ -641,7 +653,7 @@ if (isset($_POST['textarea'])) {
                 width: 90% !important;
             }
 
-            
+
 
 
 

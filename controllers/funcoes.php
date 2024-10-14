@@ -2,7 +2,10 @@
 
 
 require_once '../models/conexao.php';
-require_once './banco/define.php';
+
+$pasta_atual = __DIR__;
+$pasta_raiz = dirname($pasta_atual);
+require_once "$pasta_raiz"."\banco\define.php";
 
 $conexao = new Conexao(DB,HOST,USER,PASS);
 

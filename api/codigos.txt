@@ -5,3 +5,6 @@
 // 004ex - Cadastrado Atualizado!
 // 005ex - Cadastrado Deletado!
 // 006ex - Não foi possivel deletar o cadastro
+// 007ex - Usuario não possui cadastro
+// 008ex - Usuario encontrado
+// 009ex - Senha incorreta

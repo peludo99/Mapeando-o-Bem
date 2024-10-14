@@ -31,6 +31,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
     $_SESSION['senha'] = $user[2];
     $_SESSION['id'] = $user[9];
     $_SESSION['permissoes'] = $user[7];
+    $_SESSION['descricao'] = $user[10];
     header("Location: tela_inicial.php");
   }
 }

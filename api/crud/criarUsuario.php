@@ -26,16 +26,16 @@ if (isset($_POST['email']) && isset($_POST['nick']) && isset($_POST['senha'])) {
             $query = "INSERT INTO cadastros(nick, email, senha) VALUES ('$nick', '$email', '$senha') ORDER BY idcadastro ";
             $sql = mysqli_query($db_connect, $query);
             if ($sql) {
-                echo json_encode(array('Messagem' => "Usuario Cadastrado!",'Cod' => '002ex'));
+                echo json_encode(array('messagem' => "Usuario Cadastrado!",'cod' => '002ex'));
             } else {
 
-                echo json_encode(array('Messagem' => "Não foi Criado!"));
+                echo json_encode(array('messagem' => "Não foi Criado!"));
             }
         }
 
         else{
 
-            echo json_encode(array('Mesagem' => 'Usuario ja possui cadastro', 'Cod' => '001ex'));
+            echo json_encode(array('messagem' => 'Usuario ja possui cadastro', 'cod' => '001ex'));
 
         }
     } 
