@@ -70,7 +70,7 @@ testar {
     height: 100vh;
 
     background-image: url('./assets/fundocolorido.jpg');
-    background-size: 100%;
+    background-size: cover;
     background-position-x: center;
     background-position-y: 0%;
     background-repeat: no-repeat;
@@ -103,6 +103,7 @@ testar {
 .conteudo-um {
     display: flex;
     position: relative;
+    overflow: scroll;
 
 
 }
@@ -124,6 +125,7 @@ testar {
 .conteudo-dois {
     position: absolute;
     display: flex;
+    overflow: scroll;
 
 }
 

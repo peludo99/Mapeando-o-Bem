@@ -131,11 +131,12 @@
 
         /* RODA-PÉ */
         footer {
+            padding-top: 50px;
 
             background-color: black;
             display: block;
             z-index: 10;
-            height: auto;
+            height: 300px;
             -webkit-box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
             -moz-box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
             box-shadow: 0px 20px 20px -3px rgba(66, 68, 90, 1);
@@ -253,6 +254,8 @@
             width: auto;
         }
 
+        @media(max-height: 500px) {}
+
 
         @media(max-width: 869px) {
 
@@ -269,14 +272,14 @@
                 display: none;
             }
 
-            .anuncio{
+            .anuncio {
                 width: 100%;
 
                 top: 0;
                 margin-top: 5px;
             }
 
-            body{
+            body {
 
 
                 margin-top: -15px;
@@ -298,7 +301,11 @@
 
 
 
+
+
         @media(max-width: 768px) {
+
+
 
             * {
                 margin: -2px;
@@ -351,6 +358,25 @@
                 width: 33% !important;
             }
 
+
+
+
+        }
+
+        @media(max-height: 530px) {
+
+            .titulo {
+                font-size: 36px;
+            }
+
+            .sub_titulo {
+                font-size: 13px;
+            }
+
+            .btn-acessar {
+                width: 160px;
+                height: 35px;
+            }
 
 
 
@@ -418,23 +444,6 @@
             }
 
 
-
-
-
-
-
-
-
-
-
-
-        }
-
-
-
-        @media(max-width: 425px) {
-
-
             .btn-acessar {
 
                 width: 216px;
@@ -442,19 +451,68 @@
 
 
 
+
+
+
+
+
+
+
         }
+
+        @media(max-height: 464px) {
+
+            .titulo {
+                font-size: 24px;
+            }
+
+            .sub_titulo {
+                font-size: 14px;
+            }
+
+            .btn-acessar {
+                width: 160px;
+                height: 35px;
+            }
+
+
+
+        }
+
+
+
+
 
 
         @media(max-width: 320px) {
 
 
 
-            .imagem{
+            .imagem {
 
                 width: 101%;
             }
 
 
+
+
+
+        }
+
+        @media(max-height: 326px) {
+
+            .titulo {
+                font-size: 22px;
+            }
+
+            .sub_titulo {
+                font-size: 9px;
+            }
+
+            .btn-acessar {
+                width: 115px;
+                height: 35px;
+            }
 
 
 

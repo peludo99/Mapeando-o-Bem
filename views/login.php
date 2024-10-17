@@ -97,10 +97,13 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 
       display: none;
       padding-left: 10px;
+
     }
 
 
-    @media(max-width: 800px) {
+
+
+    @media(max-width: 768px) {
 
 
 
@@ -116,7 +119,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         width: 30%;
         font-size: 10px;
 
-        
+
 
 
       }
@@ -133,7 +136,7 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
         width: 270px;
       }
 
-      .btn-logar{
+      .btn-logar {
         width: 30%;
       }
 
@@ -143,6 +146,24 @@ if (isset($_POST["email"]) and isset($_POST["senha"])) {
 
 
 
+    }
+    
+    @media(max-width: 425px) {
+      .titulo-cad {
+        font-size: 27px;
+      }
+    }
+
+    @media(max-width: 375px) {
+      .titulo-cad {
+        font-size: 24px;
+      }
+    }
+
+    @media(max-width: 320px) {
+      .titulo-cad {
+        font-size: 21px;
+      }
     }
   </style>
 

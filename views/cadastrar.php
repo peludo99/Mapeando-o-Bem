@@ -59,10 +59,28 @@
 
     }
 
-    @media(max-width: 800px) {
+    @media(max-width: 728px) {
 
       #Idcadastrob{
         display: block;
+      }
+    }
+
+    @media(max-width: 425px) {
+      .titulo-cad {
+        font-size: 27px;
+      }
+    }
+
+    @media(max-width: 375px) {
+      .titulo-cad {
+        font-size: 24px;
+      }
+    }
+
+    @media(max-width: 320px) {
+      .titulo-cad {
+        font-size: 21px;
       }
     }
   </style>
